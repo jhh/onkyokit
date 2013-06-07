@@ -1,0 +1,15 @@
+//
+// Prefix header for all source files of the 'OnkyoKit Mac Tests' target in the 'OnkyoKit Mac Tests' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+    #import <OnkyoKit/OnkyoKit.h>
+
+    #import "Specta.h"
+
+    #define EXP_SHORTHAND
+    #import "Expecta.h"
+
+    #import <OCMock/OCMock.h>
+#endif
