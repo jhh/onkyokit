@@ -49,7 +49,7 @@
 }
 
 - (NSString *) description {
-    return [ONKEvent commandForData:self.rawEvent];
+    return [[ONKEvent commandForData:self.rawEvent] substringFromIndex:2];
 }
 
 

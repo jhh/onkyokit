@@ -15,6 +15,8 @@
 #import "ONKEvent.h"
 #import "ONKCommand.h"
 
+NSString const *commandHeader = @"!1";
+
 @interface ONKController ()
 
 @property (nonatomic, readwrite) dispatch_io_t     channel;
@@ -57,9 +59,7 @@
 }
 
 - (void) sendCommand:(NSString *)command {
-    NSLog(@"Sending command: %@", command);
-    NSData *packet = [ONKCommand dataForCommand:command];
-    NSLog(@"Sending packet: %@", packet);
+    NSData *packet = [ONKCommand dataForCommand:[commandHeader stringByAppendingString:command]];
     dispatch_data_t message = dispatch_data_create([packet bytes], [packet length], dispatch_get_global_queue(0, 0), DISPATCH_DATA_DESTRUCTOR_DEFAULT);
     dispatch_time_t delay = dispatch_time(DISPATCH_TIME_NOW, 2000ull*NSEC_PER_USEC);
     dispatch_after(delay, dispatch_get_global_queue(0, 0), ^{

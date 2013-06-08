@@ -12,5 +12,8 @@
 @interface AppDelegate : NSObject <NSApplicationDelegate, ONKDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
+@property (unsafe_unretained) IBOutlet NSTextView *consoleTextView;
+
+- (IBAction)sendCommand:(NSTextField *)sender;
 
 @end
