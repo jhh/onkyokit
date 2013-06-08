@@ -10,17 +10,19 @@
 		1F07249D1761565900787CCF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FBB18D2175BB1AE00E7B9C7 /* Foundation.framework */; };
 		1F07249E1761566700787CCF /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F072495176155E500787CCF /* OCMock.framework */; };
 		1F0724A117615DAE00787CCF /* OnkyoKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FBB18CA175BB1AE00E7B9C7 /* OnkyoKit.framework */; };
+		1F561C041762439B0015A8AF /* ONKController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F561C021762439B0015A8AF /* ONKController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F561C051762439B0015A8AF /* ONKController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F561C031762439B0015A8AF /* ONKController.m */; };
+		1F561C08176243CE0015A8AF /* ONKControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F561C07176243CE0015A8AF /* ONKControllerSpec.m */; };
+		1F561C1C176364E50015A8AF /* ONKEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F561C1A176364E50015A8AF /* ONKEvent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F561C1D176364E50015A8AF /* ONKEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F561C1B176364E50015A8AF /* ONKEvent.m */; };
+		1F561C5E17639D150015A8AF /* ONKCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F561C5C17639D150015A8AF /* ONKCommand.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F561C5F17639D150015A8AF /* ONKCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F561C5D17639D150015A8AF /* ONKCommand.m */; };
 		1FAA0B1117616A11003E6C5E /* libExpecta.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F0724B11761696900787CCF /* libExpecta.a */; };
 		1FBB18D8175BB1AE00E7B9C7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1FBB18D6175BB1AE00E7B9C7 /* InfoPlist.strings */; };
 		1FBB18E7175BB9FC00E7B9C7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FBB18D2175BB1AE00E7B9C7 /* Foundation.framework */; };
-		1FC1B4BC175BF42400AD1B0C /* ONKReceiver.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FC1B4BA175BF42400AD1B0C /* ONKReceiver.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1FC1B4BD175BF42400AD1B0C /* ONKReceiver.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FC1B4BB175BF42400AD1B0C /* ONKReceiver.m */; };
 		1FC1B4BE175BF50600AD1B0C /* OnkyoKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FBB18DA175BB1AE00E7B9C7 /* OnkyoKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1FC1B4C7175D745A00AD1B0C /* ONKReceiverBrowser.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FC1B4C5175D745A00AD1B0C /* ONKReceiverBrowser.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1FC1B4C8175D745A00AD1B0C /* ONKReceiverBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FC1B4C6175D745A00AD1B0C /* ONKReceiverBrowser.m */; };
 		1FE378F2175EC6D900971013 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FE378F1175EC6D900971013 /* SenTestingKit.framework */; };
 		1FE378FB175EC6D900971013 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1FE378F9175EC6D900971013 /* InfoPlist.strings */; };
-		1FE37929175ECFCD00971013 /* ONKReceiverSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE37928175ECFCD00971013 /* ONKReceiverSpec.m */; };
 		1FE3792A175ED1C100971013 /* libSpecta.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FE3791F175ECC5600971013 /* libSpecta.a */; };
 /* End PBXBuildFile section */
 
@@ -134,6 +136,13 @@
 
 /* Begin PBXFileReference section */
 		1F07248B176155E400787CCF /* OCMock.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OCMock.xcodeproj; path = External/ocmock/Source/OCMock.xcodeproj; sourceTree = "<group>"; };
+		1F561C021762439B0015A8AF /* ONKController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONKController.h; sourceTree = "<group>"; };
+		1F561C031762439B0015A8AF /* ONKController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKController.m; sourceTree = "<group>"; };
+		1F561C07176243CE0015A8AF /* ONKControllerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKControllerSpec.m; sourceTree = "<group>"; };
+		1F561C1A176364E50015A8AF /* ONKEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONKEvent.h; sourceTree = "<group>"; };
+		1F561C1B176364E50015A8AF /* ONKEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKEvent.m; sourceTree = "<group>"; };
+		1F561C5C17639D150015A8AF /* ONKCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONKCommand.h; sourceTree = "<group>"; };
+		1F561C5D17639D150015A8AF /* ONKCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKCommand.m; sourceTree = "<group>"; };
 		1F97983E175ED54000F49791 /* Expecta.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Expecta.xcodeproj; path = External/expecta/Expecta.xcodeproj; sourceTree = "<group>"; };
 		1FBB18CA175BB1AE00E7B9C7 /* OnkyoKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OnkyoKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FBB18CD175BB1AE00E7B9C7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -142,10 +151,6 @@
 		1FBB18D7175BB1AE00E7B9C7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1FBB18D9175BB1AE00E7B9C7 /* OnkyoKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OnkyoKit-Prefix.pch"; sourceTree = "<group>"; };
 		1FBB18DA175BB1AE00E7B9C7 /* OnkyoKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OnkyoKit.h; sourceTree = "<group>"; };
-		1FC1B4BA175BF42400AD1B0C /* ONKReceiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONKReceiver.h; sourceTree = "<group>"; };
-		1FC1B4BB175BF42400AD1B0C /* ONKReceiver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKReceiver.m; sourceTree = "<group>"; };
-		1FC1B4C5175D745A00AD1B0C /* ONKReceiverBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONKReceiverBrowser.h; sourceTree = "<group>"; };
-		1FC1B4C6175D745A00AD1B0C /* ONKReceiverBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKReceiverBrowser.m; sourceTree = "<group>"; };
 		1FE378F0175EC6D800971013 /* OnkyoKit Mac Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "OnkyoKit Mac Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FE378F1175EC6D900971013 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		1FE378F4175EC6D900971013 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -154,7 +159,6 @@
 		1FE378FA175EC6D900971013 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1FE378FF175EC6D900971013 /* OnkyoKitTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OnkyoKitTests-Prefix.pch"; sourceTree = "<group>"; };
 		1FE37903175EC83F00971013 /* Specta.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Specta.xcodeproj; path = External/specta/Specta.xcodeproj; sourceTree = "<group>"; };
-		1FE37928175ECFCD00971013 /* ONKReceiverSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKReceiverSpec.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +205,17 @@
 				1F0724B71761696900787CCF /* Expecta-iOSTests.octest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		1F561BF9176243350015A8AF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1F561C1A176364E50015A8AF /* ONKEvent.h */,
+				1F561C1B176364E50015A8AF /* ONKEvent.m */,
+				1F561C5C17639D150015A8AF /* ONKCommand.h */,
+				1F561C5D17639D150015A8AF /* ONKCommand.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		1FBB18C0175BB1AE00E7B9C7 = {
@@ -268,10 +283,9 @@
 		1FBB18E2175BB57B00E7B9C7 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				1FC1B4BA175BF42400AD1B0C /* ONKReceiver.h */,
-				1FC1B4BB175BF42400AD1B0C /* ONKReceiver.m */,
-				1FC1B4C5175D745A00AD1B0C /* ONKReceiverBrowser.h */,
-				1FC1B4C6175D745A00AD1B0C /* ONKReceiverBrowser.m */,
+				1F561C021762439B0015A8AF /* ONKController.h */,
+				1F561C031762439B0015A8AF /* ONKController.m */,
+				1F561BF9176243350015A8AF /* Models */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -309,7 +323,7 @@
 		1FE37926175ECF8700971013 /* Specs */ = {
 			isa = PBXGroup;
 			children = (
-				1FE37928175ECFCD00971013 /* ONKReceiverSpec.m */,
+				1F561C07176243CE0015A8AF /* ONKControllerSpec.m */,
 			);
 			name = Specs;
 			sourceTree = "<group>";
@@ -322,8 +336,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FC1B4BE175BF50600AD1B0C /* OnkyoKit.h in Headers */,
-				1FC1B4BC175BF42400AD1B0C /* ONKReceiver.h in Headers */,
-				1FC1B4C7175D745A00AD1B0C /* ONKReceiverBrowser.h in Headers */,
+				1F561C041762439B0015A8AF /* ONKController.h in Headers */,
+				1F561C1C176364E50015A8AF /* ONKEvent.h in Headers */,
+				1F561C5E17639D150015A8AF /* ONKCommand.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -531,8 +546,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FC1B4BD175BF42400AD1B0C /* ONKReceiver.m in Sources */,
-				1FC1B4C8175D745A00AD1B0C /* ONKReceiverBrowser.m in Sources */,
+				1F561C051762439B0015A8AF /* ONKController.m in Sources */,
+				1F561C1D176364E50015A8AF /* ONKEvent.m in Sources */,
+				1F561C5F17639D150015A8AF /* ONKCommand.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -540,7 +556,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FE37929175ECFCD00971013 /* ONKReceiverSpec.m in Sources */,
+				1F561C08176243CE0015A8AF /* ONKControllerSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,0 +1,395 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1F561C2B176395F20015A8AF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F561C2A176395F20015A8AF /* Cocoa.framework */; };
+		1F561C35176395F20015A8AF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F561C33176395F20015A8AF /* InfoPlist.strings */; };
+		1F561C37176395F20015A8AF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F561C36176395F20015A8AF /* main.m */; };
+		1F561C3B176395F20015A8AF /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 1F561C39176395F20015A8AF /* Credits.rtf */; };
+		1F561C3E176395F20015A8AF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F561C3D176395F20015A8AF /* AppDelegate.m */; };
+		1F561C41176395F20015A8AF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F561C3F176395F20015A8AF /* MainMenu.xib */; };
+		1F561C56176396820015A8AF /* OnkyoKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F561C4D176396430015A8AF /* OnkyoKit.framework */; };
+		1F561C581763969F0015A8AF /* OnkyoKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F561C4D176396430015A8AF /* OnkyoKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1F561C4C176396430015A8AF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F561C47176396420015A8AF /* OnkyoKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1FBB18CA175BB1AE00E7B9C7;
+			remoteInfo = "OnkyoKit Mac";
+		};
+		1F561C4E176396430015A8AF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F561C47176396420015A8AF /* OnkyoKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1FE378F0175EC6D800971013;
+			remoteInfo = "OnkyoKit Mac Tests";
+		};
+		1F561C59176396B00015A8AF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F561C47176396420015A8AF /* OnkyoKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 1FBB18C9175BB1AE00E7B9C7;
+			remoteInfo = "OnkyoKit Mac";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1F561C57176396970015A8AF /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1F561C581763969F0015A8AF /* OnkyoKit.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		1F561C27176395F20015A8AF /* Onkyo Console.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Onkyo Console.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F561C2A176395F20015A8AF /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		1F561C2D176395F20015A8AF /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		1F561C2E176395F20015A8AF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		1F561C2F176395F20015A8AF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1F561C32176395F20015A8AF /* Onkyo Console-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Onkyo Console-Info.plist"; sourceTree = "<group>"; };
+		1F561C34176395F20015A8AF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1F561C36176395F20015A8AF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1F561C38176395F20015A8AF /* Onkyo Console-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Onkyo Console-Prefix.pch"; sourceTree = "<group>"; };
+		1F561C3A176395F20015A8AF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		1F561C3C176395F20015A8AF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		1F561C3D176395F20015A8AF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		1F561C40176395F20015A8AF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		1F561C47176396420015A8AF /* OnkyoKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OnkyoKit.xcodeproj; path = ../OnkyoKit.xcodeproj; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1F561C24176395F20015A8AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F561C2B176395F20015A8AF /* Cocoa.framework in Frameworks */,
+				1F561C56176396820015A8AF /* OnkyoKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1F561C1E176395F20015A8AF = {
+			isa = PBXGroup;
+			children = (
+				1F561C30176395F20015A8AF /* Onkyo Console */,
+				1F561C29176395F20015A8AF /* Frameworks */,
+				1F561C28176395F20015A8AF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1F561C28176395F20015A8AF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1F561C27176395F20015A8AF /* Onkyo Console.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1F561C29176395F20015A8AF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1F561C47176396420015A8AF /* OnkyoKit.xcodeproj */,
+				1F561C2A176395F20015A8AF /* Cocoa.framework */,
+				1F561C2C176395F20015A8AF /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1F561C2C176395F20015A8AF /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1F561C2D176395F20015A8AF /* AppKit.framework */,
+				1F561C2E176395F20015A8AF /* CoreData.framework */,
+				1F561C2F176395F20015A8AF /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		1F561C30176395F20015A8AF /* Onkyo Console */ = {
+			isa = PBXGroup;
+			children = (
+				1F561C3C176395F20015A8AF /* AppDelegate.h */,
+				1F561C3D176395F20015A8AF /* AppDelegate.m */,
+				1F561C3F176395F20015A8AF /* MainMenu.xib */,
+				1F561C31176395F20015A8AF /* Supporting Files */,
+			);
+			path = "Onkyo Console";
+			sourceTree = "<group>";
+		};
+		1F561C31176395F20015A8AF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1F561C32176395F20015A8AF /* Onkyo Console-Info.plist */,
+				1F561C33176395F20015A8AF /* InfoPlist.strings */,
+				1F561C36176395F20015A8AF /* main.m */,
+				1F561C38176395F20015A8AF /* Onkyo Console-Prefix.pch */,
+				1F561C39176395F20015A8AF /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1F561C48176396420015A8AF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1F561C4D176396430015A8AF /* OnkyoKit.framework */,
+				1F561C4F176396430015A8AF /* OnkyoKit Mac Tests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1F561C26176395F20015A8AF /* Onkyo Console */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F561C44176395F20015A8AF /* Build configuration list for PBXNativeTarget "Onkyo Console" */;
+			buildPhases = (
+				1F561C23176395F20015A8AF /* Sources */,
+				1F561C24176395F20015A8AF /* Frameworks */,
+				1F561C25176395F20015A8AF /* Resources */,
+				1F561C57176396970015A8AF /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1F561C5A176396B00015A8AF /* PBXTargetDependency */,
+			);
+			name = "Onkyo Console";
+			productName = "Onkyo Console";
+			productReference = 1F561C27176395F20015A8AF /* Onkyo Console.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1F561C1F176395F20015A8AF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Jeff Hutchison";
+			};
+			buildConfigurationList = 1F561C22176395F20015A8AF /* Build configuration list for PBXProject "Onkyo Console" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 1F561C1E176395F20015A8AF;
+			productRefGroup = 1F561C28176395F20015A8AF /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 1F561C48176396420015A8AF /* Products */;
+					ProjectRef = 1F561C47176396420015A8AF /* OnkyoKit.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				1F561C26176395F20015A8AF /* Onkyo Console */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		1F561C4D176396430015A8AF /* OnkyoKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = OnkyoKit.framework;
+			remoteRef = 1F561C4C176396430015A8AF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1F561C4F176396430015A8AF /* OnkyoKit Mac Tests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "OnkyoKit Mac Tests.octest";
+			remoteRef = 1F561C4E176396430015A8AF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1F561C25176395F20015A8AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F561C35176395F20015A8AF /* InfoPlist.strings in Resources */,
+				1F561C3B176395F20015A8AF /* Credits.rtf in Resources */,
+				1F561C41176395F20015A8AF /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1F561C23176395F20015A8AF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F561C37176395F20015A8AF /* main.m in Sources */,
+				1F561C3E176395F20015A8AF /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1F561C5A176396B00015A8AF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "OnkyoKit Mac";
+			targetProxy = 1F561C59176396B00015A8AF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1F561C33176395F20015A8AF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F561C34176395F20015A8AF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1F561C39176395F20015A8AF /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F561C3A176395F20015A8AF /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		1F561C3F176395F20015A8AF /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F561C40176395F20015A8AF /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1F561C42176395F20015A8AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		1F561C43176395F20015A8AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		1F561C45176395F20015A8AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Onkyo Console/Onkyo Console-Prefix.pch";
+				INFOPLIST_FILE = "Onkyo Console/Onkyo Console-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		1F561C46176395F20015A8AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Onkyo Console/Onkyo Console-Prefix.pch";
+				INFOPLIST_FILE = "Onkyo Console/Onkyo Console-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1F561C22176395F20015A8AF /* Build configuration list for PBXProject "Onkyo Console" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F561C42176395F20015A8AF /* Debug */,
+				1F561C43176395F20015A8AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1F561C44176395F20015A8AF /* Build configuration list for PBXNativeTarget "Onkyo Console" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F561C45176395F20015A8AF /* Debug */,
+				1F561C46176395F20015A8AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1F561C1F176395F20015A8AF /* Project object */;
+}

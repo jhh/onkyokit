@@ -6,5 +6,6 @@
 //  Copyright (c) 2013 Jeff Hutchison. All rights reserved.
 //
 
-#import <OnkyoKit/ONKReceiver.h>
-#import <OnkyoKit/ONKReceiverBrowser.h>
+#import <OnkyoKit/ONKController.h>
+#import <OnkyoKit/ONKEvent.h>
+#import <OnkyoKit/ONKCommand.h>
