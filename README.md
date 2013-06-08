@@ -3,6 +3,10 @@
 OnkyoKit is a Cocoa (and eventually Cocoa Touch) framework to control Onkyo
 receivers using the eISCP network protocol.
 
+Current development is on the
+[develop](https://github.com/jhh/onkyokit/tree/develop) branch with releases
+tagged on the [master](https://github.com/jhh/onkyokit/tree/master) branch.
+
 ## License
 
 OnkyoKit is released under the MIT license. See [LICENSE.md][license].
