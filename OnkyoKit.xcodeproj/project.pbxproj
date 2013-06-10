@@ -10,6 +10,11 @@
 		1F07249D1761565900787CCF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FBB18D2175BB1AE00E7B9C7 /* Foundation.framework */; };
 		1F07249E1761566700787CCF /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F072495176155E500787CCF /* OCMock.framework */; };
 		1F0724A117615DAE00787CCF /* OnkyoKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FBB18CA175BB1AE00E7B9C7 /* OnkyoKit.framework */; };
+		1F3538EF1764E0AC002DBECD /* ISCPMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F3538ED1764E0AC002DBECD /* ISCPMessage.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		1F3538F01764E0AC002DBECD /* ISCPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3538EE1764E0AC002DBECD /* ISCPMessage.m */; };
+		1F3538FB1764E7CB002DBECD /* ISCPMessageSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3538F91764E791002DBECD /* ISCPMessageSpec.m */; };
+		1F35390A17651B19002DBECD /* EISCPPacket.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F35390817651B19002DBECD /* EISCPPacket.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		1F35390B17651B19002DBECD /* EISCPPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35390917651B19002DBECD /* EISCPPacket.m */; };
 		1F561C041762439B0015A8AF /* ONKController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F561C021762439B0015A8AF /* ONKController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F561C051762439B0015A8AF /* ONKController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F561C031762439B0015A8AF /* ONKController.m */; };
 		1F561C08176243CE0015A8AF /* ONKControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F561C07176243CE0015A8AF /* ONKControllerSpec.m */; };
@@ -136,6 +141,11 @@
 
 /* Begin PBXFileReference section */
 		1F07248B176155E400787CCF /* OCMock.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OCMock.xcodeproj; path = External/ocmock/Source/OCMock.xcodeproj; sourceTree = "<group>"; };
+		1F3538ED1764E0AC002DBECD /* ISCPMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISCPMessage.h; sourceTree = "<group>"; };
+		1F3538EE1764E0AC002DBECD /* ISCPMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISCPMessage.m; sourceTree = "<group>"; };
+		1F3538F91764E791002DBECD /* ISCPMessageSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISCPMessageSpec.m; sourceTree = "<group>"; };
+		1F35390817651B19002DBECD /* EISCPPacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EISCPPacket.h; sourceTree = "<group>"; };
+		1F35390917651B19002DBECD /* EISCPPacket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EISCPPacket.m; sourceTree = "<group>"; };
 		1F561C021762439B0015A8AF /* ONKController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONKController.h; sourceTree = "<group>"; };
 		1F561C031762439B0015A8AF /* ONKController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKController.m; sourceTree = "<group>"; };
 		1F561C07176243CE0015A8AF /* ONKControllerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKControllerSpec.m; sourceTree = "<group>"; };
@@ -214,6 +224,10 @@
 				1F561C1B176364E50015A8AF /* ONKEvent.m */,
 				1F561C5C17639D150015A8AF /* ONKCommand.h */,
 				1F561C5D17639D150015A8AF /* ONKCommand.m */,
+				1F3538ED1764E0AC002DBECD /* ISCPMessage.h */,
+				1F3538EE1764E0AC002DBECD /* ISCPMessage.m */,
+				1F35390817651B19002DBECD /* EISCPPacket.h */,
+				1F35390917651B19002DBECD /* EISCPPacket.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -323,6 +337,7 @@
 		1FE37926175ECF8700971013 /* Specs */ = {
 			isa = PBXGroup;
 			children = (
+				1F3538F91764E791002DBECD /* ISCPMessageSpec.m */,
 				1F561C07176243CE0015A8AF /* ONKControllerSpec.m */,
 			);
 			name = Specs;
@@ -339,6 +354,8 @@
 				1F561C041762439B0015A8AF /* ONKController.h in Headers */,
 				1F561C1C176364E50015A8AF /* ONKEvent.h in Headers */,
 				1F561C5E17639D150015A8AF /* ONKCommand.h in Headers */,
+				1F3538EF1764E0AC002DBECD /* ISCPMessage.h in Headers */,
+				1F35390A17651B19002DBECD /* EISCPPacket.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,6 +566,8 @@
 				1F561C051762439B0015A8AF /* ONKController.m in Sources */,
 				1F561C1D176364E50015A8AF /* ONKEvent.m in Sources */,
 				1F561C5F17639D150015A8AF /* ONKCommand.m in Sources */,
+				1F3538F01764E0AC002DBECD /* ISCPMessage.m in Sources */,
+				1F35390B17651B19002DBECD /* EISCPPacket.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -557,6 +576,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F561C08176243CE0015A8AF /* ONKControllerSpec.m in Sources */,
+				1F3538FB1764E7CB002DBECD /* ISCPMessageSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

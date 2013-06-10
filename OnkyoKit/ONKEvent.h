@@ -7,11 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <OnkyoKit/EISCPPacket.h>
 
-@interface ONKEvent : NSObject
+@interface ONKEvent : EISCPPacket
 
-- (id) initWithString:(NSString *)rawEvent;
-
-- (id) initWithData:(NSData *)rawEvent;
 
 @end

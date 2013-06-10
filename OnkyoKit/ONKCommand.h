@@ -7,9 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <OnkyoKit/EISCPPacket.h>
 
-@interface ONKCommand : NSObject
+@class ISCPMessage;
 
-+ (NSData *)dataForCommand:(NSString*)command;
+@interface ONKCommand : EISCPPacket
+
++ (NSData *) dataForCommand:(ISCPMessage *)command;
 
 @end
