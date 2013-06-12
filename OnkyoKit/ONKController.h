@@ -43,6 +43,9 @@
 //
 - (BOOL) connectToHost:(NSString *)host onPort:(uint16_t)port error:(NSError **)error;
 
+// Disconnect from the remote device.
+- (void) close;
+
 // sends command after 200ms delay
 //
 - (void) sendCommand:(NSString *)command;

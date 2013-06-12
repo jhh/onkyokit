@@ -10,6 +10,11 @@
 		1F07249D1761565900787CCF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FBB18D2175BB1AE00E7B9C7 /* Foundation.framework */; };
 		1F07249E1761566700787CCF /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F072495176155E500787CCF /* OCMock.framework */; };
 		1F0724A117615DAE00787CCF /* OnkyoKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FBB18CA175BB1AE00E7B9C7 /* OnkyoKit.framework */; };
+		1F2318451768A9CC0025FA12 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FE378F1175EC6D900971013 /* SenTestingKit.framework */; };
+		1F2318591768AA420025FA12 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FBB18D2175BB1AE00E7B9C7 /* Foundation.framework */; };
+		1F23185A1768AA460025FA12 /* OnkyoKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FBB18CA175BB1AE00E7B9C7 /* OnkyoKit.framework */; };
+		1F23185B1768AA520025FA12 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1FE378F9175EC6D900971013 /* InfoPlist.strings */; };
+		1F23185E1768AA7B0025FA12 /* ONKControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F23185D1768AA7B0025FA12 /* ONKControllerTest.m */; };
 		1F3538EF1764E0AC002DBECD /* ISCPMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F3538ED1764E0AC002DBECD /* ISCPMessage.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		1F3538F01764E0AC002DBECD /* ISCPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3538EE1764E0AC002DBECD /* ISCPMessage.m */; };
 		1F35390A17651B19002DBECD /* EISCPPacket.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F35390817651B19002DBECD /* EISCPPacket.h */; settings = {ATTRIBUTES = (Private, ); }; };
@@ -85,6 +90,13 @@
 			remoteGlobalIDString = E93067DA13B2E6D100EA26FF;
 			remoteInfo = "Expecta-iOSTests";
 		};
+		1F2318571768AA1C0025FA12 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FBB18C1175BB1AE00E7B9C7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1FBB18C9175BB1AE00E7B9C7;
+			remoteInfo = "OnkyoKit Mac";
+		};
 		1FE37915175ECB2700971013 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1FBB18C1175BB1AE00E7B9C7 /* Project object */;
@@ -124,6 +136,9 @@
 
 /* Begin PBXFileReference section */
 		1F07248B176155E400787CCF /* OCMock.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OCMock.xcodeproj; path = External/ocmock/Source/OCMock.xcodeproj; sourceTree = "<group>"; };
+		1F2318441768A9CC0025FA12 /* OnkyoKit Mac Network Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "OnkyoKit Mac Network Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F23185C1768AA7B0025FA12 /* ONKControllerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONKControllerTest.h; sourceTree = "<group>"; };
+		1F23185D1768AA7B0025FA12 /* ONKControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKControllerTest.m; sourceTree = "<group>"; };
 		1F3538ED1764E0AC002DBECD /* ISCPMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISCPMessage.h; sourceTree = "<group>"; };
 		1F3538EE1764E0AC002DBECD /* ISCPMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISCPMessage.m; sourceTree = "<group>"; };
 		1F35390817651B19002DBECD /* EISCPPacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EISCPPacket.h; sourceTree = "<group>"; };
@@ -155,6 +170,16 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1F2318401768A9CC0025FA12 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F23185A1768AA460025FA12 /* OnkyoKit.framework in Frameworks */,
+				1F2318591768AA420025FA12 /* Foundation.framework in Frameworks */,
+				1F2318451768A9CC0025FA12 /* SenTestingKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1FBB18C6175BB1AE00E7B9C7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -198,6 +223,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		1F2318561768A9FF0025FA12 /* Network Tests */ = {
+			isa = PBXGroup;
+			children = (
+				1F23185C1768AA7B0025FA12 /* ONKControllerTest.h */,
+				1F23185D1768AA7B0025FA12 /* ONKControllerTest.m */,
+			);
+			name = "Network Tests";
+			sourceTree = "<group>";
+		};
 		1F561BF9176243350015A8AF /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -228,6 +262,7 @@
 			children = (
 				1FBB18CA175BB1AE00E7B9C7 /* OnkyoKit.framework */,
 				1FE378F0175EC6D800971013 /* OnkyoKit Mac Tests.octest */,
+				1F2318441768A9CC0025FA12 /* OnkyoKit Mac Network Tests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -288,6 +323,7 @@
 		1FE378F6175EC6D900971013 /* OnkyoKitTests */ = {
 			isa = PBXGroup;
 			children = (
+				1F2318561768A9FF0025FA12 /* Network Tests */,
 				1FE37926175ECF8700971013 /* Tests */,
 				1FE378F7175EC6D900971013 /* Supporting Files */,
 			);
@@ -343,6 +379,25 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		1F2318431768A9CC0025FA12 /* OnkyoKit Mac Network Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F2318551768A9CC0025FA12 /* Build configuration list for PBXNativeTarget "OnkyoKit Mac Network Tests" */;
+			buildPhases = (
+				1F23183F1768A9CC0025FA12 /* Sources */,
+				1F2318401768A9CC0025FA12 /* Frameworks */,
+				1F2318411768A9CC0025FA12 /* Resources */,
+				1F2318421768A9CC0025FA12 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1F2318581768AA1C0025FA12 /* PBXTargetDependency */,
+			);
+			name = "OnkyoKit Mac Network Tests";
+			productName = "OnkyoKit Mac Network Tests";
+			productReference = 1F2318441768A9CC0025FA12 /* OnkyoKit Mac Network Tests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 		1FBB18C9175BB1AE00E7B9C7 /* OnkyoKit Mac */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1FBB18DF175BB1AE00E7B9C7 /* Build configuration list for PBXNativeTarget "OnkyoKit Mac" */;
@@ -418,6 +473,7 @@
 			targets = (
 				1FBB18C9175BB1AE00E7B9C7 /* OnkyoKit Mac */,
 				1FE378EF175EC6D800971013 /* OnkyoKit Mac Tests */,
+				1F2318431768A9CC0025FA12 /* OnkyoKit Mac Network Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -503,6 +559,14 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
+		1F2318411768A9CC0025FA12 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F23185B1768AA520025FA12 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1FBB18C8175BB1AE00E7B9C7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -522,6 +586,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1F2318421768A9CC0025FA12 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
 		1FE378EE175EC6D800971013 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -538,6 +615,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1F23183F1768A9CC0025FA12 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F23185E1768AA7B0025FA12 /* ONKControllerTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1FBB18C5175BB1AE00E7B9C7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -566,6 +651,11 @@
 			name = OCMock;
 			targetProxy = 1F07249F1761568000787CCF /* PBXContainerItemProxy */;
 		};
+		1F2318581768AA1C0025FA12 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1FBB18C9175BB1AE00E7B9C7 /* OnkyoKit Mac */;
+			targetProxy = 1F2318571768AA1C0025FA12 /* PBXContainerItemProxy */;
+		};
 		1FE37916175ECB2700971013 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 1FBB18C9175BB1AE00E7B9C7 /* OnkyoKit Mac */;
@@ -593,6 +683,32 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		1F2318511768A9CC0025FA12 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OnkyoKitTests/OnkyoKitTests-Prefix.pch";
+				INFOPLIST_FILE = "OnkyoKitTests/OnkyoKitTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		1F2318521768A9CC0025FA12 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OnkyoKitTests/OnkyoKitTests-Prefix.pch";
+				INFOPLIST_FILE = "OnkyoKitTests/OnkyoKitTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 		1FBB18DD175BB1AE00E7B9C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -727,6 +843,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1F2318551768A9CC0025FA12 /* Build configuration list for PBXNativeTarget "OnkyoKit Mac Network Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F2318511768A9CC0025FA12 /* Debug */,
+				1F2318521768A9CC0025FA12 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		1FBB18C4175BB1AE00E7B9C7 /* Build configuration list for PBXProject "OnkyoKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

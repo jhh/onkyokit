@@ -57,10 +57,15 @@
     return TRUE;
 }
 
+- (void) close {
+    NSAssert(_channel != nil, @"dispatch io channel is not nil");
+    dispatch_io_close(_channel, 0);
+}
+
 - (void) sendCommand:(NSString *)command {
     NSData *packet = [ONKCommand dataForCommand:[[ISCPMessage alloc] initWithMessage:command]];
     dispatch_data_t message = dispatch_data_create([packet bytes], [packet length], dispatch_get_global_queue(0, 0), DISPATCH_DATA_DESTRUCTOR_DEFAULT);
-    dispatch_time_t delay = dispatch_time(DISPATCH_TIME_NOW, 2000ull*NSEC_PER_USEC);
+    dispatch_time_t delay = dispatch_time(DISPATCH_TIME_NOW, 2000ull*NSEC_PER_USEC); // 200 ms
     dispatch_after(delay, dispatch_get_global_queue(0, 0), ^{
         dispatch_io_write(_channel, 0, message, _socketQueue, ^(bool done, dispatch_data_t data, int error) {
             if(error) NSLog(@"WRITE ERROR!!!");
