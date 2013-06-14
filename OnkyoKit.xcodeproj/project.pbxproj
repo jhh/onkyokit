@@ -850,6 +850,7 @@
 				1F2318521768A9CC0025FA12 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1FBB18C4175BB1AE00E7B9C7 /* Build configuration list for PBXProject "OnkyoKit" */ = {
 			isa = XCConfigurationList;

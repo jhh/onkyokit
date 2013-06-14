@@ -9,8 +9,6 @@
 #import <Foundation/Foundation.h>
 @class ONKController;
 @class ONKEvent;
-@class ONKReceiver;
-@class ONKReceiverBrowser;
 
 // Delegates that receive events from connected device implement
 // this protocol.
