@@ -19,8 +19,8 @@
 //
 @interface ISCPMessage : NSObject
 
-@property (nonatomic, strong, readonly) NSString *data;
-@property (nonatomic, strong, readonly) NSString *message;
+@property (nonatomic, copy, readonly) NSString *data;
+@property (nonatomic, copy, readonly) NSString *message;
 
 //
 // Initialize the message with the contents of the eISCP data segment.
