@@ -11,13 +11,13 @@
 
 @implementation ISCPMessageTest
 
-- (void)testInitWithDataTestsParameter {
+- (void)testInitWithNilData {
     ISCPMessage *message;
     STAssertThrowsSpecificNamed(message = [[ISCPMessage alloc] initWithData:nil], NSException,
                                 NSInternalInconsistencyException, @"should through exception for nil paramter");
 }
 
-- (void)testInitWithMessageTestsParameter {
+- (void)testInitWithNilMessage {
     ISCPMessage *message;
     STAssertThrowsSpecificNamed(message = [[ISCPMessage alloc] initWithMessage:nil], NSException,
                                 NSInternalInconsistencyException, @"should through exception for nil paramter");
