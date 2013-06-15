@@ -17,14 +17,14 @@
     uint32_t headerSize =  OSSwapInt32(16);
     uint32_t commandSize = OSSwapInt32(command.data.length);
     uint32_t iscpVersion = OSSwapInt32(0x01000000);
-    
+
     [data appendBytes:&prequel length:sizeof(prequel)];
     [data appendBytes:&headerSize length:sizeof(int32_t)];
     [data appendBytes:&commandSize length:sizeof(int32_t)];
     [data appendBytes:&iscpVersion length:sizeof(int32_t)];
     // TODO: return ASCII encoded
-    [data appendData:[command.data dataUsingEncoding:NSASCIIStringEncoding]];
-    
+    [data appendData:command.data];
+
     return data;
 }
 

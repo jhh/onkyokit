@@ -1,5 +1,5 @@
 //
-//  EISCPMessage.h
+//  ISCPMessage.h
 //  OnkyoKit
 //
 //  Created by Jeff Hutchison on 6/9/13.
@@ -19,8 +19,8 @@
 //
 @interface ISCPMessage : NSObject
 
-@property (nonatomic, copy, readonly) NSString *data;
-@property (nonatomic, copy, readonly) NSString *message;
+@property (readonly) NSData *data;
+@property (readonly) NSString *message;
 
 //
 // Initialize the message with the contents of the eISCP data segment.

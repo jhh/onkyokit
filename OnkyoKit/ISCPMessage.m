@@ -22,11 +22,13 @@ static NSCharacterSet *endCharSet;
     
     self = [super init];
 	if (self == nil) return nil;
-    _data = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+
+    _data = [data copy];
+    NSString *rawMsg = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
 
     // "!1" + message + "end characters"
-    NSRange range = NSMakeRange(2, [_data rangeOfCharacterFromSet:endCharSet].location-2);
-    _message = [_data substringWithRange:range];
+    NSRange range = NSMakeRange(2, [rawMsg rangeOfCharacterFromSet:endCharSet].location-2);
+    _message = [rawMsg substringWithRange:range];
     return self;
 }
 
@@ -35,10 +37,10 @@ static NSCharacterSet *endCharSet;
     
     self = [super init];
 	if (self == nil) return nil;
-    
+
     _message = [message copy];
-    _data = [NSString stringWithFormat:@"!1%@\r", _message];
-    
+    _data = [[NSString stringWithFormat:@"!1%@\r", _message] dataUsingEncoding:NSASCIIStringEncoding];
+
     return self;
 }
 
