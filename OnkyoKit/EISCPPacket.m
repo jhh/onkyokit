@@ -20,7 +20,7 @@
 
     uint32_t sizeOfData = 0;
     [packet getBytes:&sizeOfData range:NSMakeRange(8, 4)];
-    sizeOfData = OSSwapInt32(sizeOfData);
+    sizeOfData = CFSwapInt32BigToHost(sizeOfData);
     _data = [packet subdataWithRange:NSMakeRange(16, sizeOfData)];
 
     return self;

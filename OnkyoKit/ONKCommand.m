@@ -14,14 +14,14 @@
 + (NSData *) dataForCommand:(ISCPMessage *)command {
     NSMutableData *data = [NSMutableData data];
     const char prequel[4] = "ISCP";
-    uint32_t headerSize =  OSSwapInt32(16);
-    uint32_t commandSize = OSSwapInt32(command.data.length);
-    uint32_t iscpVersion = OSSwapInt32(0x01000000);
+    uint32_t headerSize =  CFSwapInt32HostToBig(16);
+    uint32_t commandSize = CFSwapInt32HostToBig((uint32_t)command.data.length);
+    uint32_t iscpVersion = CFSwapInt32HostToBig(0x01000000);
 
     [data appendBytes:&prequel length:sizeof(prequel)];
-    [data appendBytes:&headerSize length:sizeof(int32_t)];
-    [data appendBytes:&commandSize length:sizeof(int32_t)];
-    [data appendBytes:&iscpVersion length:sizeof(int32_t)];
+    [data appendBytes:&headerSize length:sizeof(uint32_t)];
+    [data appendBytes:&commandSize length:sizeof(uint32_t)];
+    [data appendBytes:&iscpVersion length:sizeof(uint32_t)];
     // TODO: return ASCII encoded
     [data appendData:command.data];
 
