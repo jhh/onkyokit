@@ -44,7 +44,7 @@
 - (void)testConvertMessageToData {
     NSString *msg = @"NLTF300001100120000FFFF00NE";
     ISCPMessage *iscp = [[ISCPMessage alloc] initWithMessage:msg];
-    STAssertEqualObjects(iscp.data, ([NSString stringWithFormat:@"!1%@\r", msg]), @"should convert message to data");
+    STAssertEqualObjects(iscp.data, ([[NSString stringWithFormat:@"!1%@\r", msg] dataUsingEncoding:NSASCIIStringEncoding]), @"should convert message to data");
 }
 
 @end
