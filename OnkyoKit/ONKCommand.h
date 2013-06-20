@@ -13,6 +13,6 @@
 
 @interface ONKCommand : EISCPPacket
 
-+ (NSData *) dataForCommand:(ISCPMessage *)command;
++ (NSData *) commandWithMessage:(ISCPMessage *)command;
 
 @end

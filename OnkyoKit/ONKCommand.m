@@ -11,7 +11,7 @@
 
 @implementation ONKCommand
 
-+ (NSData *) dataForCommand:(ISCPMessage *)command {
++ (NSData *) commandWithMessage:(ISCPMessage *)command {
     NSMutableData *data = [NSMutableData data];
     const char prequel[4] = "ISCP";
     uint32_t headerSize =  CFSwapInt32HostToBig(16);
