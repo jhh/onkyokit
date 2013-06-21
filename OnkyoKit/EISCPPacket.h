@@ -8,13 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
-#define EISCP_HEADER_LENGTH 16
-
 @interface EISCPPacket : NSObject
 
-@property (nonatomic, strong, readonly) NSData *header;
+@property (nonatomic, readonly) NSString       *magic;
+@property (nonatomic, readonly) NSUInteger     headerLength;
+@property (nonatomic, readonly) NSUInteger     dataLength;
+@property (nonatomic, readonly) NSUInteger     version;
 @property (nonatomic, strong, readonly) NSData *data;
 
+/*!
+ @brief initialize with data packet from network
+ */
 - (id) initWithData:(NSData *)packet;
 
 @end

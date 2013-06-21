@@ -12,16 +12,22 @@
 
 - (id) initWithData:(NSData *)packet {
     NSParameterAssert(packet != nil);
-    
+
     self = [super init];
 	if (self == nil) return nil;
-    
-    _header = [packet subdataWithRange:NSMakeRange(0, EISCP_HEADER_LENGTH)];
 
-    uint32_t sizeOfData = 0;
-    [packet getBytes:&sizeOfData range:NSMakeRange(8, 4)];
-    sizeOfData = CFSwapInt32BigToHost(sizeOfData);
-    _data = [packet subdataWithRange:NSMakeRange(16, sizeOfData)];
+    _magic = [[NSString alloc] initWithData:[packet subdataWithRange:NSMakeRange(0, 4)] encoding:NSASCIIStringEncoding];
+
+    uint32_t buffer = 0;
+    [packet getBytes:&buffer range:NSMakeRange(4, 4)];
+    _headerLength = CFSwapInt32BigToHost(buffer);
+
+    [packet getBytes:&buffer range:NSMakeRange(8, 4)];
+    _dataLength = CFSwapInt32BigToHost(buffer);
+
+    [packet getBytes:&_version range:NSMakeRange(12, 1)];
+
+    _data = [packet subdataWithRange:NSMakeRange(_headerLength, _dataLength)];
 
     return self;
 }
