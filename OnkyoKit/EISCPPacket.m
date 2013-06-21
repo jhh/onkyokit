@@ -7,6 +7,7 @@
 //
 
 #import "EISCPPacket.h"
+#import "ISCPMessage.h"
 
 @implementation EISCPPacket
 
@@ -27,7 +28,21 @@
 
     [packet getBytes:&_version range:NSMakeRange(12, 1)];
 
-    _data = [packet subdataWithRange:NSMakeRange(_headerLength, _dataLength)];
+    _message = [[ISCPMessage alloc] initWithData:[packet subdataWithRange:NSMakeRange(_headerLength, _dataLength)]];
+
+    return self;
+}
+
+- (id) initWithMessage:(ISCPMessage *)message {
+    NSParameterAssert(message != nil);
+
+    self = [super init];
+	if (self == nil) return nil;
+
+    _magic = @"ISCP";
+    _headerLength = 16;
+    _dataLength = [message.data length];
+    _message = message;
 
     return self;
 }
