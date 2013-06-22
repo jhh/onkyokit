@@ -9,22 +9,44 @@
 #import <Foundation/Foundation.h>
 @class ISCPMessage;
 
+/**
+ISCP over Ethernet (eISCP) packet.
+*/
 @interface EISCPPacket : NSObject
 
+/**
+Packet magic is four bytes, "ISCP".
+*/
 @property (nonatomic, readonly) NSString       *magic;
+
+/**
+Size of the eISCP header.
+*/
 @property (nonatomic, readonly) NSUInteger     headerLength;
+
+/**
+Size of the eISCP payload.
+*/
 @property (nonatomic, readonly) NSUInteger     dataLength;
+
+/**
+Version of the eISCP packet.
+*/
 @property (nonatomic, readonly) NSUInteger     version;
+
+/**
+The packet payload.
+*/
 @property (nonatomic, readonly) ISCPMessage    *message;
 
-/*!
- @brief Initialize with data packet from network.
- */
+/**
+Initialize with data packet from network.
+*/
 - (id) initWithData:(NSData *)packet;
 
-/*!
- @brief Initialize with a ISCP message.
- */
+/**
+Initialize with a ISCP message.
+*/
 - (id) initWithMessage:(ISCPMessage *)message;
 
 @end

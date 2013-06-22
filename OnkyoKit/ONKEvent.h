@@ -9,6 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <OnkyoKit/EISCPPacket.h>
 
+/**
+Event received over network from device.
+
+Events may be generated as a result of sending a ONKCommand or by outside control of the receiver.
+*/
 @interface ONKEvent : EISCPPacket
 
 

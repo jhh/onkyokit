@@ -16,9 +16,14 @@
 #import "ONKCommand.h"
 #import "ISCPMessage.h"
 
+/** Private property declarations.
+*/
 @interface ONKController ()
 
+/** GCD IO channel. */
 @property (nonatomic, readwrite) dispatch_io_t     channel;
+
+/** GCD timer used to delay sending commands. */
 @property (nonatomic, readwrite) dispatch_source_t timer;
 
 @end
