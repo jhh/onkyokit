@@ -67,16 +67,12 @@
 		1F90DE961767E2F7006D2A5C /* ISCPMessageTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISCPMessageTest.h; sourceTree = "<group>"; };
 		1F90DE971767E2F7006D2A5C /* ISCPMessageTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISCPMessageTest.m; sourceTree = "<group>"; };
 		1FBB18CA175BB1AE00E7B9C7 /* OnkyoKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OnkyoKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1FBB18CD175BB1AE00E7B9C7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		1FBB18D2175BB1AE00E7B9C7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1FBB18D5175BB1AE00E7B9C7 /* OnkyoKit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OnkyoKit-Info.plist"; sourceTree = "<group>"; };
 		1FBB18D7175BB1AE00E7B9C7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1FBB18D9175BB1AE00E7B9C7 /* OnkyoKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OnkyoKit-Prefix.pch"; sourceTree = "<group>"; };
 		1FBB18DA175BB1AE00E7B9C7 /* OnkyoKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OnkyoKit.h; sourceTree = "<group>"; };
 		1FE378F0175EC6D800971013 /* OnkyoKit Mac Tests.xctest */ = {isa = PBXFileReference; explicitFileType = folder; includeInIndex = 0; path = "OnkyoKit Mac Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1FE378F1175EC6D900971013 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		1FE378F4175EC6D900971013 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		1FE378F5175EC6D900971013 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		1FE378F8175EC6D900971013 /* OnkyoKitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OnkyoKitTests-Info.plist"; sourceTree = "<group>"; };
 		1FE378FA175EC6D900971013 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1FE378FF175EC6D900971013 /* OnkyoKitTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OnkyoKitTests-Prefix.pch"; sourceTree = "<group>"; };
@@ -161,22 +157,10 @@
 		1FBB18CC175BB1AE00E7B9C7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1FBB18D2175BB1AE00E7B9C7 /* Foundation.framework */,
 				1F2A3D3217751A15001F1CAC /* XCTest.framework */,
-				1FBB18CD175BB1AE00E7B9C7 /* Cocoa.framework */,
-				1FE378F1175EC6D900971013 /* SenTestingKit.framework */,
-				1FBB18CF175BB1AE00E7B9C7 /* Other Frameworks */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		1FBB18CF175BB1AE00E7B9C7 /* Other Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				1FBB18D2175BB1AE00E7B9C7 /* Foundation.framework */,
-				1FE378F4175EC6D900971013 /* AppKit.framework */,
-				1FE378F5175EC6D900971013 /* CoreData.framework */,
-			);
-			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
 		1FBB18D3175BB1AE00E7B9C7 /* OnkyoKit */ = {
