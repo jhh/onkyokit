@@ -27,8 +27,8 @@
     NSLog(@"ONKControllerTest event received: %@", event);
 
     // sanity checks on recieved packets
-    STAssertEqualObjects(@"ISCP", event.magic, @"Packet magic did not match.");
-    STAssertEquals(1UL, event.version, @"Packet version did not match.");
+    XCTAssertEqualObjects(@"ISCP", event.magic, @"Packet magic did not match.");
+    XCTAssertEquals(1UL, event.version, @"Packet version did not match.");
 
     if ([[event description] hasPrefix:@"PWR"]) {
         [self.condition lock];
