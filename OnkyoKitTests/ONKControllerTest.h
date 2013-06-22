@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Jeff Hutchison. All rights reserved.
 //
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
-@interface ONKControllerTest : SenTestCase <ONKDelegate>
+@interface ONKControllerTest : XCTestCase <ONKDelegate>
 
 @property ONKController *controller;
 @property ONKEvent *event;

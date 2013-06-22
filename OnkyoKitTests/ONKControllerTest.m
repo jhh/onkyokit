@@ -37,10 +37,10 @@
 - (void)testSendCommand {
     self.controller = [[ONKController alloc] initWithDelegate:self
                                                 delegateQueue:dispatch_queue_create("ONKControllerTest", DISPATCH_QUEUE_SERIAL)];
-    STAssertNotNil(self.controller, @"Could not create test subject.");
+    XCTAssertNotNil(self.controller, @"Could not create test subject.");
     
     NSString *address = [[NSProcessInfo processInfo] environment][@"ONK_ADDRESS"];
-    STAssertTrue([self.controller connectToHost:address error:nil], @"Could not connect to remote device");
+    XCTAssertTrue([self.controller connectToHost:address error:nil], @"Could not connect to remote device");
 
     self.condition = [NSCondition new];
 
@@ -51,7 +51,7 @@
     // wait 1 sec for response to be sent.
     [self.condition waitUntilDate:[NSDate dateWithTimeIntervalSinceNow:1]];
 
-    STAssertTrue(self.hasPassed, @"Did not see event for command sent.");
+    XCTAssertTrue(self.hasPassed, @"Did not see event for command sent.");
     [self.condition unlock];
     
     [self.controller close];
