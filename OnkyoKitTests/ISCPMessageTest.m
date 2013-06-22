@@ -6,8 +6,12 @@
 //  Copyright (c) 2013 Jeff Hutchison. All rights reserved.
 //
 
-#import "ISCPMessageTest.h"
+#import <XCTest/XCTest.h>
 #import <OnkyoKit/ISCPMessage.h>
+
+@interface ISCPMessageTest : XCTestCase
+
+@end
 
 @implementation ISCPMessageTest
 

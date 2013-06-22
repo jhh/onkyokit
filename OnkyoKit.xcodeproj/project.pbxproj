@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1F07249D1761565900787CCF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FBB18D2175BB1AE00E7B9C7 /* Foundation.framework */; };
 		1F0724A117615DAE00787CCF /* OnkyoKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FBB18CA175BB1AE00E7B9C7 /* OnkyoKit.framework */; };
+		1F1155F6177661DB00B18A08 /* EISCPPacketTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F1155F5177661DB00B18A08 /* EISCPPacketTest.m */; };
 		1F221AEF17751AE400A6F67F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F2A3D3217751A15001F1CAC /* XCTest.framework */; };
 		1F2318591768AA420025FA12 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FBB18D2175BB1AE00E7B9C7 /* Foundation.framework */; };
 		1F23185A1768AA460025FA12 /* OnkyoKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FBB18CA175BB1AE00E7B9C7 /* OnkyoKit.framework */; };
@@ -50,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F1155F5177661DB00B18A08 /* EISCPPacketTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EISCPPacketTest.m; sourceTree = "<group>"; };
 		1F2318441768A9CC0025FA12 /* OnkyoKit Mac Network Tests.xctest */ = {isa = PBXFileReference; explicitFileType = folder; includeInIndex = 0; path = "OnkyoKit Mac Network Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F23185C1768AA7B0025FA12 /* ONKControllerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONKControllerTest.h; sourceTree = "<group>"; };
 		1F23185D1768AA7B0025FA12 /* ONKControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKControllerTest.m; sourceTree = "<group>"; };
@@ -64,7 +66,6 @@
 		1F561C1B176364E50015A8AF /* ONKEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKEvent.m; sourceTree = "<group>"; };
 		1F561C5C17639D150015A8AF /* ONKCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONKCommand.h; sourceTree = "<group>"; };
 		1F561C5D17639D150015A8AF /* ONKCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKCommand.m; sourceTree = "<group>"; };
-		1F90DE961767E2F7006D2A5C /* ISCPMessageTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISCPMessageTest.h; sourceTree = "<group>"; };
 		1F90DE971767E2F7006D2A5C /* ISCPMessageTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISCPMessageTest.m; sourceTree = "<group>"; };
 		1FBB18CA175BB1AE00E7B9C7 /* OnkyoKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OnkyoKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FBB18D2175BB1AE00E7B9C7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -216,8 +217,8 @@
 		1FE37926175ECF8700971013 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				1F90DE961767E2F7006D2A5C /* ISCPMessageTest.h */,
 				1F90DE971767E2F7006D2A5C /* ISCPMessageTest.m */,
+				1F1155F5177661DB00B18A08 /* EISCPPacketTest.m */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -406,6 +407,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F1155F6177661DB00B18A08 /* EISCPPacketTest.m in Sources */,
 				1F90DE981767E2F7006D2A5C /* ISCPMessageTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
