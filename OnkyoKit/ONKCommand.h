@@ -26,6 +26,6 @@ Creates and returns a data object containing an eISCP packet with the contents o
 
 @bug Should not return NSData.
 */
-+ (NSData *) commandWithMessage:(ISCPMessage *)command;
++ (instancetype) commandWithMessage:(ISCPMessage *)command;
 
 @end

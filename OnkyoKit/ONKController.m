@@ -68,8 +68,8 @@
 }
 
 - (void) sendCommand:(NSString *)command {
-    NSData *packet = [ONKCommand commandWithMessage:[[ISCPMessage alloc] initWithMessage:command]];
-    dispatch_data_t message = dispatch_data_create([packet bytes], [packet length], dispatch_get_global_queue(0, 0), DISPATCH_DATA_DESTRUCTOR_DEFAULT);
+    ONKCommand *packet = [ONKCommand commandWithMessage:[[ISCPMessage alloc] initWithMessage:command]];
+    dispatch_data_t message = dispatch_data_create([packet.data bytes], [packet.data length], dispatch_get_global_queue(0, 0), DISPATCH_DATA_DESTRUCTOR_DEFAULT);
     dispatch_time_t delay = dispatch_time(DISPATCH_TIME_NOW, 2000ull*NSEC_PER_USEC); // 200 ms
     dispatch_after(delay, dispatch_get_global_queue(0, 0), ^{
         dispatch_io_write(_channel, 0, message, _socketQueue, ^(bool done, dispatch_data_t data, int error) {
