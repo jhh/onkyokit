@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Jeff Hutchison. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 #import <OnkyoKit/EISCPPacket.h>
 
 /**
