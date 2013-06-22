@@ -13,7 +13,7 @@
 @implementation ONKEvent
 
 - (NSString *) description {
-    return [[ISCPMessage alloc] initWithData:self.data].message;
+    return self.message.message;
 }
 
 

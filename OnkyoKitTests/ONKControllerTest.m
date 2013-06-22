@@ -24,9 +24,13 @@
 @implementation ONKControllerTest
 
 - (void) controller:(ONKController *)controller didReceiveEvent:(ONKEvent *)event {
-    self.event = event;
-    NSLog(@"ONKControllerTest event received: %@", self.event);
-    if ([[self.event description] hasPrefix:@"PWR"]) {
+    NSLog(@"ONKControllerTest event received: %@", event);
+
+    // sanity checks on recieved packets
+    XCTAssertEqualObjects(@"ISCP", event.magic, @"Packet magic did not match.");
+    XCTAssertEquals(1UL, event.version, @"Packet version did not match.");
+
+    if ([[event description] hasPrefix:@"PWR"]) {
         [self.condition lock];
         self.passed = YES;
         [self.condition signal];

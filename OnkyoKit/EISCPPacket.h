@@ -7,14 +7,24 @@
 //
 
 #import <Foundation/Foundation.h>
-
-#define EISCP_HEADER_LENGTH 16
+@class ISCPMessage;
 
 @interface EISCPPacket : NSObject
 
-@property (nonatomic, strong, readonly) NSData *header;
-@property (nonatomic, strong, readonly) NSData *data;
+@property (nonatomic, readonly) NSString       *magic;
+@property (nonatomic, readonly) NSUInteger     headerLength;
+@property (nonatomic, readonly) NSUInteger     dataLength;
+@property (nonatomic, readonly) NSUInteger     version;
+@property (nonatomic, readonly) ISCPMessage    *message;
 
+/*!
+ @brief Initialize with data packet from network.
+ */
 - (id) initWithData:(NSData *)packet;
+
+/*!
+ @brief Initialize with a ISCP message.
+ */
+- (id) initWithMessage:(ISCPMessage *)message;
 
 @end

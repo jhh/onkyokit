@@ -11,7 +11,6 @@
 @interface ONKControllerTest : XCTestCase <ONKDelegate>
 
 @property ONKController *controller;
-@property ONKEvent *event;
 @property (getter = hasPassed) BOOL passed;
 @property NSCondition *condition;
 
