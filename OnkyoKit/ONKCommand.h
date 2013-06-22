@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Jeff Hutchison. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 #import <OnkyoKit/EISCPPacket.h>
 
 @class ISCPMessage;
@@ -26,6 +26,6 @@ Creates and returns a data object containing an eISCP packet with the contents o
 
 @bug Should not return NSData.
 */
-+ (NSData *) commandWithMessage:(ISCPMessage *)command;
++ (instancetype) commandWithMessage:(ISCPMessage *)command;
 
 @end

@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Jeff Hutchison. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 @class ISCPMessage;
 
 /**
@@ -38,6 +38,11 @@ Version of the eISCP packet.
 The packet payload.
 */
 @property (nonatomic, readonly) ISCPMessage    *message;
+
+/**
+The packet data.
+*/
+@property (nonatomic, readonly) NSData *data;
 
 /**
 Initialize with data packet from network.

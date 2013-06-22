@@ -9,9 +9,6 @@
 #import "ONKControllerTest.h"
 #import <OnkyoKit/ISCPMessage.h>
 
-#define NO_EVENT 0
-#define HAS_EVENT 1
-
 // Tests sending command and receiving corresponding event.
 //
 // These tests is run as part of the "OnkyoKit Mac Network Tests" scheme. To run
@@ -44,6 +41,7 @@
     XCTAssertNotNil(self.controller, @"Could not create test subject.");
     
     NSString *address = [[NSProcessInfo processInfo] environment][@"ONK_ADDRESS"];
+    NSAssert(address != nil, @"ONK_ADDRESS environment variable must be set - see test comments");
     XCTAssertTrue([self.controller connectToHost:address error:nil], @"Could not connect to remote device");
 
     self.condition = [NSCondition new];
