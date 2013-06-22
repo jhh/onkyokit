@@ -41,6 +41,7 @@
     XCTAssertNotNil(self.controller, @"Could not create test subject.");
     
     NSString *address = [[NSProcessInfo processInfo] environment][@"ONK_ADDRESS"];
+    NSAssert(address != nil, @"ONK_ADDRESS environment variable must be set - see test comments");
     XCTAssertTrue([self.controller connectToHost:address error:nil], @"Could not connect to remote device");
 
     self.condition = [NSCondition new];
