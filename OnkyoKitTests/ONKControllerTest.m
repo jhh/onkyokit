@@ -9,9 +9,6 @@
 #import "ONKControllerTest.h"
 #import <OnkyoKit/ISCPMessage.h>
 
-#define NO_EVENT 0
-#define HAS_EVENT 1
-
 // Tests sending command and receiving corresponding event.
 //
 // These tests is run as part of the "OnkyoKit Mac Network Tests" scheme. To run
