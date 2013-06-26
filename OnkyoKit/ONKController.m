@@ -18,13 +18,20 @@
 
 /** Private property declarations.
 */
-@interface ONKController ()
+@interface ONKController () {
 
-/** GCD IO channel. */
-@property (nonatomic, readwrite) dispatch_io_t     channel;
+    /** GCD IO channel. */
+    dispatch_io_t _channel;
 
-/** GCD timer used to delay sending commands. */
-@property (nonatomic, readwrite) dispatch_source_t timer;
+    /** GCD timer used to delay sending commands. */
+    dispatch_source_t _timer;
+
+    /** A GCD queue created to handle network traffic. */
+    dispatch_queue_t _socketQueue;
+
+
+
+}
 
 @end
 

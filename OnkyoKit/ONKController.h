@@ -33,9 +33,6 @@
 /** The GCD queue that the delegate receives events on. */
 @property (nonatomic, readwrite) dispatch_queue_t      delegateQueue;
 
-/** A GCD queue created to handle network traffic. */
-@property (nonatomic, readonly) dispatch_queue_t       socketQueue;
-
 /**
 Initialize a controller object with delegate. A network connection is not opened until -connectToHost:error: is called.
 
