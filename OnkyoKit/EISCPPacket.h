@@ -47,11 +47,11 @@ The packet data.
 /**
 Initialize with data packet from network.
 */
-- (id) initWithData:(NSData *)packet;
+- (instancetype) initWithData:(NSData *)packet;
 
 /**
 Initialize with a ISCP message.
 */
-- (id) initWithMessage:(ISCPMessage *)message;
+- (instancetype) initWithMessage:(ISCPMessage *)message;
 
 @end

@@ -43,7 +43,7 @@ Initialize a controller object with delegate. A network connection is not opened
 @param delegateQueue queue to call back the delegate on (usually the main thread's queue, i.e. dispatch_get_main_queue()).
 @return A controller object with delegate.
 */
-- (id) initWithDelegate:(id<ONKDelegate>)delegate delegateQueue:(dispatch_queue_t)delegateQueue;
+- (instancetype) initWithDelegate:(id<ONKDelegate>)delegate delegateQueue:(dispatch_queue_t)delegateQueue;
 
 /** Connect to remote device using default port 60128. */
 - (BOOL) connectToHost:(NSString *)host error:(NSError **)error;

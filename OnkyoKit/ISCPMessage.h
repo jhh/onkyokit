@@ -34,13 +34,13 @@ Initialize the message with the contents of the eISCP data segment.
 
 @param data the full message payload as received from network.
 */
-- (id) initWithData:(NSData *)data;
+- (instancetype) initWithData:(NSData *)data;
 
 /**
 Initialize the message with an command or event string.
 
 @param message the message, without delimeters, to be sent to device.
 */
-- (id) initWithMessage:(NSString *)message;
+- (instancetype) initWithMessage:(NSString *)message;
 
 @end

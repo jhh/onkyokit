@@ -30,7 +30,7 @@
 
 @implementation ONKController
 
-- (id) initWithDelegate:(id<ONKDelegate>)delegate delegateQueue:(dispatch_queue_t)delegateQueue {
+- (instancetype) initWithDelegate:(id<ONKDelegate>)delegate delegateQueue:(dispatch_queue_t)delegateQueue {
     NSParameterAssert(delegate != nil);
     NSParameterAssert(delegateQueue != NULL);
 

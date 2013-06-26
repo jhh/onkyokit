@@ -17,7 +17,7 @@ static NSCharacterSet *endCharSet;
     endCharSet = [NSCharacterSet characterSetWithCharactersInString:@"\x0a\x0d\x1a"];
 }
 
-- (id) initWithData:(NSData *)data {
+- (instancetype) initWithData:(NSData *)data {
     NSParameterAssert(data != nil);
     
     self = [super init];
@@ -32,7 +32,7 @@ static NSCharacterSet *endCharSet;
     return self;
 }
 
-- (id) initWithMessage:(NSString *)message {
+- (instancetype) initWithMessage:(NSString *)message {
     NSParameterAssert(message != nil);
     
     self = [super init];
