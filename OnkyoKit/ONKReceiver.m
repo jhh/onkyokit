@@ -11,14 +11,14 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <unistd.h>
-#import "ONKController.h"
+#import "ONKReceiver.h"
 #import "ONKEvent.h"
 #import "ONKCommand.h"
 #import "ISCPMessage.h"
 
 /** Private property declarations.
 */
-@interface ONKController () {
+@interface ONKReceiver () {
 
     /** GCD IO channel. */
     dispatch_io_t _channel;
@@ -35,7 +35,7 @@
 
 @end
 
-@implementation ONKController
+@implementation ONKReceiver
 
 - (instancetype) initWithDelegate:(id<ONKDelegate>)delegate delegateQueue:(dispatch_queue_t)delegateQueue {
     NSParameterAssert(delegate != nil);
@@ -118,7 +118,7 @@
     size_t length;
     __unused dispatch_data_t tmpData = dispatch_data_create_map(data, &buffer, &length);
     NSData *response = [NSData dataWithBytes:buffer length:length];
-    [self.delegate controller:self didReceiveEvent:[[ONKEvent alloc] initWithData:response]];
+    [self.delegate receiver:self didSendEvent:[[ONKEvent alloc] initWithData:response]];
 }
 
 @end

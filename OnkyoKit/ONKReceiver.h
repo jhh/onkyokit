@@ -7,7 +7,7 @@
 //
 
 @import Foundation;
-@class ONKController;
+@class ONKReceiver;
 @class ONKEvent;
 
 /** Delegates implement this protocol to receive events from connected device implement this protocol.
@@ -19,13 +19,13 @@
 @param controller The controller receiving the event.
 @param event The received event.
 */
-- (void) controller:(ONKController *)controller didReceiveEvent:(ONKEvent *)event;
+- (void) receiver:(ONKReceiver *)receiver didSendEvent:(ONKEvent *)event;
 
 @end
 
 /** Represents a controller session with an Onkyo device.
 */
-@interface ONKController : NSObject
+@interface ONKReceiver : NSObject
 
 /** Delegate that receives events from device this controller is connected to.  */
 @property (nonatomic, weak, readwrite) id<ONKDelegate> delegate;

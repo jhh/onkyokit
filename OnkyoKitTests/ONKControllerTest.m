@@ -20,7 +20,7 @@
 // asynchronous.
 @implementation ONKControllerTest
 
-- (void) controller:(ONKController *)controller didReceiveEvent:(ONKEvent *)event {
+- (void) receiver:(ONKReceiver *)receiver didSendEvent:(ONKEvent *)event {
     NSLog(@"ONKControllerTest event received: %@", event);
 
     // sanity checks on recieved packets
@@ -36,19 +36,19 @@
 }
 
 - (void)testSendCommand {
-    self.controller = [[ONKController alloc] initWithDelegate:self
+    self.receiver = [[ONKReceiver alloc] initWithDelegate:self
                                                 delegateQueue:dispatch_queue_create("ONKControllerTest", DISPATCH_QUEUE_SERIAL)];
-    XCTAssertNotNil(self.controller, @"Could not create test subject.");
+    XCTAssertNotNil(self.receiver, @"Could not create test subject.");
     
     NSString *address = [[NSProcessInfo processInfo] environment][@"ONK_ADDRESS"];
     NSAssert(address != nil, @"ONK_ADDRESS environment variable must be set - see test comments");
-    XCTAssertTrue([self.controller connectToHost:address error:nil], @"Could not connect to remote device");
+    XCTAssertTrue([self.receiver connectToHost:address error:nil], @"Could not connect to remote device");
 
     self.condition = [NSCondition new];
 
     [self.condition lock];
     self.passed = NO;
-    [self.controller sendCommand:@"PWRQSTN"];
+    [self.receiver sendCommand:@"PWRQSTN"];
     
     // wait 1 sec for response to be sent.
     [self.condition waitUntilDate:[NSDate dateWithTimeIntervalSinceNow:1]];
@@ -56,7 +56,7 @@
     XCTAssertTrue(self.hasPassed, @"Did not see event for command sent.");
     [self.condition unlock];
     
-    [self.controller close];
+    [self.receiver close];
 }
 
 @end

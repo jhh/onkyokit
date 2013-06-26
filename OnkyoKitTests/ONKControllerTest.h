@@ -10,11 +10,11 @@
 
 @interface ONKControllerTest : XCTestCase <ONKDelegate>
 
-@property ONKController *controller;
+@property ONKReceiver *receiver;
 @property (getter = hasPassed) BOOL passed;
 @property NSCondition *condition;
 
 
-- (void) controller:(ONKController *)controller didReceiveEvent:(ONKEvent *)event;
+- (void) receiver:(ONKReceiver *)receiver didSendEvent:(ONKEvent *)event;
 
 @end

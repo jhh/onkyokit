@@ -20,8 +20,8 @@
 		1F3538F01764E0AC002DBECD /* ISCPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3538EE1764E0AC002DBECD /* ISCPMessage.m */; };
 		1F35390A17651B19002DBECD /* EISCPPacket.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F35390817651B19002DBECD /* EISCPPacket.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		1F35390B17651B19002DBECD /* EISCPPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35390917651B19002DBECD /* EISCPPacket.m */; };
-		1F561C041762439B0015A8AF /* ONKController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F561C021762439B0015A8AF /* ONKController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1F561C051762439B0015A8AF /* ONKController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F561C031762439B0015A8AF /* ONKController.m */; };
+		1F561C041762439B0015A8AF /* ONKReceiver.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F561C021762439B0015A8AF /* ONKReceiver.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F561C051762439B0015A8AF /* ONKReceiver.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F561C031762439B0015A8AF /* ONKReceiver.m */; };
 		1F561C1C176364E50015A8AF /* ONKEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F561C1A176364E50015A8AF /* ONKEvent.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F561C1D176364E50015A8AF /* ONKEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F561C1B176364E50015A8AF /* ONKEvent.m */; };
 		1F561C5E17639D150015A8AF /* ONKCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F561C5C17639D150015A8AF /* ONKCommand.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -60,8 +60,8 @@
 		1F3538EE1764E0AC002DBECD /* ISCPMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISCPMessage.m; sourceTree = "<group>"; };
 		1F35390817651B19002DBECD /* EISCPPacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EISCPPacket.h; sourceTree = "<group>"; };
 		1F35390917651B19002DBECD /* EISCPPacket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EISCPPacket.m; sourceTree = "<group>"; };
-		1F561C021762439B0015A8AF /* ONKController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONKController.h; sourceTree = "<group>"; };
-		1F561C031762439B0015A8AF /* ONKController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKController.m; sourceTree = "<group>"; };
+		1F561C021762439B0015A8AF /* ONKReceiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONKReceiver.h; sourceTree = "<group>"; };
+		1F561C031762439B0015A8AF /* ONKReceiver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKReceiver.m; sourceTree = "<group>"; };
 		1F561C1A176364E50015A8AF /* ONKEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONKEvent.h; sourceTree = "<group>"; };
 		1F561C1B176364E50015A8AF /* ONKEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKEvent.m; sourceTree = "<group>"; };
 		1F561C5C17639D150015A8AF /* ONKCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONKCommand.h; sourceTree = "<group>"; };
@@ -187,8 +187,8 @@
 		1FBB18E2175BB57B00E7B9C7 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				1F561C021762439B0015A8AF /* ONKController.h */,
-				1F561C031762439B0015A8AF /* ONKController.m */,
+				1F561C021762439B0015A8AF /* ONKReceiver.h */,
+				1F561C031762439B0015A8AF /* ONKReceiver.m */,
 				1F561BF9176243350015A8AF /* Models */,
 			);
 			name = Classes;
@@ -231,7 +231,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FC1B4BE175BF50600AD1B0C /* OnkyoKit.h in Headers */,
-				1F561C041762439B0015A8AF /* ONKController.h in Headers */,
+				1F561C041762439B0015A8AF /* ONKReceiver.h in Headers */,
 				1F561C1C176364E50015A8AF /* ONKEvent.h in Headers */,
 				1F561C5E17639D150015A8AF /* ONKCommand.h in Headers */,
 				1F3538EF1764E0AC002DBECD /* ISCPMessage.h in Headers */,
@@ -395,7 +395,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F561C051762439B0015A8AF /* ONKController.m in Sources */,
+				1F561C051762439B0015A8AF /* ONKReceiver.m in Sources */,
 				1F561C1D176364E50015A8AF /* ONKEvent.m in Sources */,
 				1F561C5F17639D150015A8AF /* ONKCommand.m in Sources */,
 				1F3538F01764E0AC002DBECD /* ISCPMessage.m in Sources */,
@@ -573,10 +573,7 @@
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OnkyoKitTests/OnkyoKitTests-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					External/specta/src,
-					"External/expecta/src/**",
-				);
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "OnkyoKitTests/OnkyoKitTests-Info.plist";
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -590,10 +587,7 @@
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OnkyoKitTests/OnkyoKitTests-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					External/specta/src,
-					"External/expecta/src/**",
-				);
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "OnkyoKitTests/OnkyoKitTests-Info.plist";
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
