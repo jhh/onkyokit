@@ -10,7 +10,7 @@
 
 @interface AppDelegate ()
 
-@property (nonatomic, strong, readwrite) ONKController *onkyoController;
+@property (nonatomic, strong, readwrite) ONKReceiver *onkyoReceiver;
 @property (nonatomic, strong, readwrite) NSDictionary *eventAttrs;
 @property (nonatomic, strong, readwrite) NSDateFormatter *dateFormatter;
 
@@ -25,14 +25,14 @@
     [self.dateFormatter setDateFormat:@"HH:mm:ss.SSS"];
 
 
-    self.onkyoController = [[ONKController alloc] initWithDelegate:self delegateQueue:dispatch_get_main_queue()];
+    self.onkyoReceiver = [[ONKReceiver alloc] initWithDelegate:self delegateQueue:dispatch_get_main_queue()];
     NSError *error;
     // TODO: hangs on refused connection
-    [_onkyoController connectToHost:@"192.168.1.69" error:&error];
-    [_onkyoController sendCommand:@"PWRQSTN"];
+    [_onkyoReceiver connectToHost:@"192.168.1.69" error:&error];
+    [_onkyoReceiver sendCommand:@"PWRQSTN"];
 }
 
-- (void) controller:(ONKController *)controller didReceiveEvent:(ONKEvent *)event {
+- (void) receiver:(ONKReceiver *)controller didSendEvent:(ONKEvent *)event {
     NSString *message = [NSString stringWithFormat:@"%@: %@\n", [self.dateFormatter stringFromDate:[NSDate date]], [event description]];
     NSAttributedString *as = [[NSAttributedString alloc] initWithString:message attributes:self.eventAttrs];
     NSTextStorage *text = self.consoleTextView.textStorage;
@@ -43,6 +43,6 @@
 }
 
 - (IBAction)sendCommand:(NSTextField *)sender {
-    [_onkyoController sendCommand:[sender stringValue]];
+    [_onkyoReceiver sendCommand:[sender stringValue]];
 }
 @end

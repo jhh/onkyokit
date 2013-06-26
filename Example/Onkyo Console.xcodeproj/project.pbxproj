@@ -18,6 +18,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		1F2855BA177BAFD3004B680D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F561C47176396420015A8AF /* OnkyoKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1F2318441768A9CC0025FA12;
+			remoteInfo = "OnkyoKit Mac Network Tests";
+		};
 		1F561C4C176396430015A8AF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1F561C47176396420015A8AF /* OnkyoKit.xcodeproj */;
@@ -148,7 +155,8 @@
 			isa = PBXGroup;
 			children = (
 				1F561C4D176396430015A8AF /* OnkyoKit.framework */,
-				1F561C4F176396430015A8AF /* OnkyoKit Mac Tests.octest */,
+				1F561C4F176396430015A8AF /* OnkyoKit Mac Tests.xctest */,
+				1F2855BB177BAFD3004B680D /* OnkyoKit Mac Network Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -181,7 +189,7 @@
 		1F561C1F176395F20015A8AF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Jeff Hutchison";
 			};
 			buildConfigurationList = 1F561C22176395F20015A8AF /* Build configuration list for PBXProject "Onkyo Console" */;
@@ -208,6 +216,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		1F2855BB177BAFD3004B680D /* OnkyoKit Mac Network Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = folder;
+			path = "OnkyoKit Mac Network Tests.xctest";
+			remoteRef = 1F2855BA177BAFD3004B680D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		1F561C4D176396430015A8AF /* OnkyoKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -215,10 +230,10 @@
 			remoteRef = 1F561C4C176396430015A8AF /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		1F561C4F176396430015A8AF /* OnkyoKit Mac Tests.octest */ = {
+		1F561C4F176396430015A8AF /* OnkyoKit Mac Tests.xctest */ = {
 			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "OnkyoKit Mac Tests.octest";
+			fileType = folder;
+			path = "OnkyoKit Mac Tests.xctest";
 			remoteRef = 1F561C4E176396430015A8AF /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -289,9 +304,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -322,9 +337,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
