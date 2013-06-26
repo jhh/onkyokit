@@ -109,8 +109,7 @@
 - (void) processData:(dispatch_data_t)data {
     const void *buffer;
     size_t length;
-    dispatch_data_t tmpData;
-    tmpData = dispatch_data_create_map(data, &buffer, &length);
+    __unused dispatch_data_t tmpData = dispatch_data_create_map(data, &buffer, &length);
     NSData *response = [NSData dataWithBytes:buffer length:length];
     [self.delegate controller:self didReceiveEvent:[[ONKEvent alloc] initWithData:response]];
 }
