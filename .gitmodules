@@ -1,0 +1,9 @@
+[submodule "External/specta"]
+	path = External/specta
+	url = git://github.com/github/specta.git
+[submodule "External/expecta"]
+	path = External/expecta
+	url = git://github.com/github/expecta.git
+[submodule "External/ocmock"]
+	path = External/ocmock
+	url = git://github.com/erikdoe/ocmock.git
