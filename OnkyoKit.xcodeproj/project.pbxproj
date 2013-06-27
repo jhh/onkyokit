@@ -534,6 +534,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
@@ -544,6 +545,8 @@
 				INSTALL_PATH = "@executable_path/../Frameworks";
 				LD_DYLIB_INSTALL_NAME = "$(DYLIB_INSTALL_NAME_BASE:standardizepath)/$(EXECUTABLE_PATH)";
 				PRODUCT_NAME = OnkyoKit;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = ONK;
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Debug;
@@ -552,6 +555,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
@@ -562,6 +566,8 @@
 				INSTALL_PATH = "@executable_path/../Frameworks";
 				LD_DYLIB_INSTALL_NAME = "$(DYLIB_INSTALL_NAME_BASE:standardizepath)/$(EXECUTABLE_PATH)";
 				PRODUCT_NAME = OnkyoKit;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = ONK;
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Release;
