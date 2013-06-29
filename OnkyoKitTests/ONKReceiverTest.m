@@ -9,7 +9,7 @@
 #import <XCTest/XCTest.h>
 #import <OnkyoKit/ISCPMessage.h>
 
-@interface ONKControllerTest : XCTestCase <ONKDelegate>
+@interface ONKReceiverTest : XCTestCase <ONKDelegate>
 @property ONKReceiver *receiver;
 @property (getter = hasPassed) BOOL passed;
 @property NSCondition *condition;
@@ -25,7 +25,7 @@
 //
 // We utilize NSCondition to synchronize between GCD threads since this is
 // asynchronous.
-@implementation ONKControllerTest
+@implementation ONKReceiverTest
 
 - (void) receiver:(ONKReceiver *)receiver didSendEvent:(ONKEvent *)event {
     NSLog(@"ONKControllerTest event received: %@", event);
