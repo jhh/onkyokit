@@ -6,8 +6,15 @@
 //  Copyright (c) 2013 Jeff Hutchison. All rights reserved.
 //
 
-#import "ONKControllerTest.h"
+#import <XCTest/XCTest.h>
 #import <OnkyoKit/ISCPMessage.h>
+
+@interface ONKControllerTest : XCTestCase <ONKDelegate>
+@property ONKReceiver *receiver;
+@property (getter = hasPassed) BOOL passed;
+@property NSCondition *condition;
+- (void) receiver:(ONKReceiver *)receiver didSendEvent:(ONKEvent *)event;
+@end
 
 // Tests sending command and receiving corresponding event.
 //

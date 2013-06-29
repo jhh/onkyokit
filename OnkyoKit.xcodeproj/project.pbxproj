@@ -53,7 +53,6 @@
 /* Begin PBXFileReference section */
 		1F1155F5177661DB00B18A08 /* EISCPPacketTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EISCPPacketTest.m; sourceTree = "<group>"; };
 		1F2318441768A9CC0025FA12 /* OnkyoKit Mac Network Tests.xctest */ = {isa = PBXFileReference; explicitFileType = folder; includeInIndex = 0; path = "OnkyoKit Mac Network Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F23185C1768AA7B0025FA12 /* ONKControllerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONKControllerTest.h; sourceTree = "<group>"; };
 		1F23185D1768AA7B0025FA12 /* ONKControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKControllerTest.m; sourceTree = "<group>"; };
 		1F2A3D3217751A15001F1CAC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		1F3538ED1764E0AC002DBECD /* ISCPMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISCPMessage.h; sourceTree = "<group>"; };
@@ -114,7 +113,6 @@
 		1F2318561768A9FF0025FA12 /* Network Tests */ = {
 			isa = PBXGroup;
 			children = (
-				1F23185C1768AA7B0025FA12 /* ONKControllerTest.h */,
 				1F23185D1768AA7B0025FA12 /* ONKControllerTest.m */,
 			);
 			name = "Network Tests";
