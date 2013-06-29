@@ -33,6 +33,7 @@
     // sanity checks on recieved packets
     XCTAssertEqualObjects(@"ISCP", event.magic, @"Packet magic did not match.");
     XCTAssertEquals(1UL, event.version, @"Packet version did not match.");
+    XCTAssertEquals(16UL, event.headerLength, @"Header length did not match.");
 
     if ([[event description] hasPrefix:@"PWR"]) {
         [self.condition lock];
@@ -40,6 +41,16 @@
         [self.condition signal];
         [self.condition unlock];
     }
+}
+
+- (void)setUp {
+    [super setUp];
+    self.condition = [NSCondition new];
+}
+
+- (void)tearDown {
+    self.condition = nil;
+    [super tearDown];
 }
 
 - (void)testSendCommand {
@@ -50,8 +61,6 @@
     NSString *address = [[NSProcessInfo processInfo] environment][@"ONK_ADDRESS"];
     NSAssert(address != nil, @"ONK_ADDRESS environment variable must be set - see test comments");
     XCTAssertTrue([self.receiver connectToHost:address error:nil], @"Could not connect to remote device");
-
-    self.condition = [NSCondition new];
 
     [self.condition lock];
     self.passed = NO;
