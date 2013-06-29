@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 
+// This is set manually to allow testing for the time being
+#define RECEIVER_ADDRESS @"192.168.1.69"
+
 @interface AppDelegate ()
 
 @property (nonatomic, strong, readwrite) ONKReceiver *onkyoReceiver;
@@ -28,7 +31,7 @@
     self.onkyoReceiver = [[ONKReceiver alloc] initWithDelegate:self delegateQueue:dispatch_get_main_queue()];
     NSError *error;
     // TODO: hangs on refused connection
-    [_onkyoReceiver connectToHost:@"192.168.1.69" error:&error];
+    [_onkyoReceiver connectToHost:RECEIVER_ADDRESS error:&error];
     [_onkyoReceiver sendCommand:@"PWRQSTN"];
 }
 
