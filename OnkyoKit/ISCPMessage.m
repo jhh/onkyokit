@@ -17,9 +17,13 @@ static NSCharacterSet *endCharSet;
     endCharSet = [NSCharacterSet characterSetWithCharactersInString:@"\x0a\x0d\x1a"];
 }
 
++ (instancetype)deviceSearchMessage {
+    return [[self alloc] initDeviceSearchMessage];
+}
+
 - (instancetype) initWithData:(NSData *)data {
     NSParameterAssert(data != nil);
-    
+
     self = [super init];
 	if (self == nil) return nil;
 
@@ -34,7 +38,7 @@ static NSCharacterSet *endCharSet;
 
 - (instancetype) initWithMessage:(NSString *)message {
     NSParameterAssert(message != nil);
-    
+
     self = [super init];
 	if (self == nil) return nil;
 
@@ -44,5 +48,14 @@ static NSCharacterSet *endCharSet;
     return self;
 }
 
+- (instancetype) initDeviceSearchMessage {
+    self = [super init];
+	if (self == nil) return nil;
+
+    _message = @"ECNQSTN";
+    _data = [[NSString stringWithFormat:@"!x%@\r", _message] dataUsingEncoding:NSASCIIStringEncoding];
+
+    return self;
+}
 
 @end
