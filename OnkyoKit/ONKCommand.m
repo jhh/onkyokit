@@ -11,7 +11,8 @@
 
 @implementation ONKCommand
 
-+ (instancetype) commandWithMessage:(ISCPMessage *)command {
++ (instancetype)commandWithMessage:(ISCPMessage *)command
+{
     return [[ONKCommand alloc] initWithMessage:command];
 }
 

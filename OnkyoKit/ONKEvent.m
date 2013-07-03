@@ -12,7 +12,8 @@
 
 @implementation ONKEvent
 
-- (NSString *) description {
+- (NSString *)description
+{
     return self.message.message;
 }
 

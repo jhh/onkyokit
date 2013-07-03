@@ -49,18 +49,21 @@
     XCTFail(@"%s %@", __PRETTY_FUNCTION__, [error localizedDescription]);
 }
 
-- (void)setUp {
+- (void)setUp
+{
     [super setUp];
     self.condition = [NSCondition new];
     self.passed = NO;
 }
 
-- (void)tearDown {
+- (void)tearDown
+{
     self.condition = nil;
     [super tearDown];
 }
 
-- (void)testSendCommand {
+- (void)testSendCommand
+{
     NSString *address = [[NSProcessInfo processInfo] environment][@"ONK_ADDRESS"];
     NSAssert(address != nil, @"ONK_ADDRESS environment variable must be set - see test comments");
 

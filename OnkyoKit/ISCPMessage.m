@@ -12,16 +12,19 @@ static NSCharacterSet *endCharSet;
 
 @implementation ISCPMessage
 
-+ (void) initialize {
++ (void)initialize
+{
     // LF (\x0a), CR (\x0d), EOF (\x1a)
     endCharSet = [NSCharacterSet characterSetWithCharactersInString:@"\x0a\x0d\x1a"];
 }
 
-+ (instancetype)deviceSearchMessage {
++ (instancetype)deviceSearchMessage
+{
     return [[self alloc] initDeviceSearchMessage];
 }
 
-- (instancetype) initWithData:(NSData *)data {
+- (instancetype)initWithData:(NSData *)data
+{
     NSParameterAssert(data != nil);
 
     self = [super init];
@@ -36,7 +39,8 @@ static NSCharacterSet *endCharSet;
     return self;
 }
 
-- (instancetype) initWithMessage:(NSString *)message {
+- (instancetype)initWithMessage:(NSString *)message
+{
     NSParameterAssert(message != nil);
 
     self = [super init];
@@ -48,7 +52,8 @@ static NSCharacterSet *endCharSet;
     return self;
 }
 
-- (instancetype) initDeviceSearchMessage {
+- (instancetype)initDeviceSearchMessage
+{
     self = [super init];
 	if (self == nil) return nil;
 

@@ -11,7 +11,8 @@
 
 @implementation EISCPPacket
 
-- (instancetype) initWithData:(NSData *)packet {
+- (instancetype)initWithData:(NSData *)packet
+{
     NSParameterAssert(packet != nil);
 
     self = [super init];
@@ -34,7 +35,8 @@
     return self;
 }
 
-- (instancetype) initWithMessage:(ISCPMessage *)message {
+- (instancetype)initWithMessage:(ISCPMessage *)message
+{
     NSParameterAssert(message != nil);
 
     self = [super init];

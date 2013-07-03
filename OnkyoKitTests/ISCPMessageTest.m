@@ -15,25 +15,29 @@
 
 @implementation ISCPMessageTest
 
-- (void)testConvertDataDelimitedByEOF {
+- (void)testConvertDataDelimitedByEOF
+{
     NSString *msg = @"PWR01";
     ISCPMessage *iscp = [[ISCPMessage alloc] initWithData:[[NSString stringWithFormat:@"!1%@\x1a", msg] dataUsingEncoding:NSASCIIStringEncoding]];
     XCTAssertEqualObjects(iscp.message, msg, @"should convert data delimeted by EOF");
 }
 
-- (void)testConvertDataDelimitedByEOF_CR {
+- (void)testConvertDataDelimitedByEOF_CR
+{
     NSString *msg = @"PWR01";
     ISCPMessage *iscp = [[ISCPMessage alloc] initWithData:[[NSString stringWithFormat:@"!1%@\x1a\r", msg] dataUsingEncoding:NSASCIIStringEncoding]];
     XCTAssertEqualObjects(iscp.message, msg, @"should convert data delimeted by EOF");
 }
 
-- (void)testConvertDataDelimitedByEOF_CR_LF {
+- (void)testConvertDataDelimitedByEOF_CR_LF
+{
     NSString *msg = @"PWR01";
     ISCPMessage *iscp = [[ISCPMessage alloc] initWithData:[[NSString stringWithFormat:@"!1%@\x1a\r\x0a", msg] dataUsingEncoding:NSASCIIStringEncoding]];
     XCTAssertEqualObjects(iscp.message, msg, @"should convert data delimeted by EOF");
 }
 
-- (void)testConvertMessageToData {
+- (void)testConvertMessageToData
+{
     NSString *msg = @"NLTF300001100120000FFFF00NE";
     ISCPMessage *iscp = [[ISCPMessage alloc] initWithMessage:msg];
     XCTAssertEqualObjects(iscp.data, ([[NSString stringWithFormat:@"!1%@\r", msg] dataUsingEncoding:NSASCIIStringEncoding]), @"should convert message to data");
