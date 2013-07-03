@@ -30,6 +30,11 @@ The string contents of the message, without ISCP delimiters.
 @property (readonly) NSString *message;
 
 /**
+Returns a device search message.
+*/
++ (instancetype)deviceSearchMessage;
+
+/**
 Initialize the message with the contents of the eISCP data segment.
 
 @param data the full message payload as received from network.

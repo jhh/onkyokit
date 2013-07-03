@@ -5,60 +5,52 @@
 //  Created by Jeff Hutchison on 6/7/13.
 //  Copyright (c) 2013 Jeff Hutchison. All rights reserved.
 //
-
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <arpa/inet.h>
-#include <unistd.h>
+@import Darwin;
 #import "ONKReceiver.h"
+#import "ONKDeviceBrowser.h"
 #import "ONKEvent.h"
 #import "ONKCommand.h"
 #import "ISCPMessage.h"
 
-/** Private property declarations.
-*/
-@interface ONKReceiver () {
+NSString *const ONKReceiverWasDiscoveredNotification = @"ONKReceiverWasDiscoveredNotification";
 
-    /** GCD IO channel. */
-    dispatch_io_t _channel;
-
-    /** GCD timer used to delay sending commands. */
-    dispatch_source_t _timer;
-
-    /** A GCD queue created to handle network traffic. */
-    dispatch_queue_t _socketQueue;
-
-
-
-}
-
-@end
-
+// TODO: implement error reporting
 @implementation ONKReceiver
 
-- (instancetype) initWithDelegate:(id<ONKDelegate>)delegate delegateQueue:(dispatch_queue_t)delegateQueue {
-    NSParameterAssert(delegate != nil);
-    NSParameterAssert(delegateQueue != NULL);
+#pragma mark Class Methods
+
++ (void)startReceiverDiscoveryWithCompletionHandler:(void (^)(void))completionHandler
+{
+    ONKDeviceBrowser *browser = [[ONKDeviceBrowser alloc] initWithCompletionHandler:completionHandler];
+    [browser start];
+}
+
+
+#pragma mark Instance Methods
+- (instancetype)initWithHost:(NSString *)host onPort:(NSUInteger)port
+{
+    NSParameterAssert(host != nil);
+    NSParameterAssert(port > 0 && port < 65535);
 
     self = [super init];
 	if (self == nil) return nil;
-    _delegate = delegate;
-    _delegateQueue = delegateQueue;
-    _socketQueue = dispatch_queue_create("OnkyoKitSocket", DISPATCH_QUEUE_SERIAL);
+    _socketQueue = dispatch_queue_create("com.jeffhutchison.OnkyoKit.socket", DISPATCH_QUEUE_SERIAL);
+    _delegateQueue = dispatch_queue_create("com.jeffhutchison.OnkyoKit.delegate", DISPATCH_QUEUE_SERIAL);
+    _host = [host copy];
+    _port = port;
     return self;
 }
 
-- (BOOL) connectToHost:(NSString *)host error:(NSError **)error {
-    return [self connectToHost:host onPort:60128 error:error];
-}
-
-- (BOOL) connectToHost:(NSString *)host onPort:(uint16_t)port error:(NSError **)error {
-    // TODO: error handling
-    dispatch_fd_t fd = [self fileDescriptorForHost:host onPort:port];
-    _channel = dispatch_io_create(DISPATCH_IO_STREAM, fd, _socketQueue, 0);
+- (void)resume
+{
+    dispatch_fd_t fd = [self fileDescriptorForHost:_host onPort:_port];
+    if (fd  == -1) {
+        // TODO: send error to delegate
+        return;
+    }
+    _channel = dispatch_io_create(DISPATCH_IO_STREAM, fd, _socketQueue, NULL);
     dispatch_io_set_low_water(_channel, 5);
-    
+
     dispatch_io_read(_channel, 0, SIZE_MAX, _delegateQueue, ^(bool done, dispatch_data_t data, int error) {
         if(data) {
             [self processData:data];
@@ -66,54 +58,68 @@
         if(error) NSLog(@"READ ERROR!!!");
         if(done) NSLog(@"READ DONE!!!");
     });
-    return TRUE;
 }
 
-- (void) close {
-    NSAssert(_channel != nil, @"dispatch io channel is not nil");
+- (void)suspend
+{
     dispatch_io_close(_channel, 0);
+    _channel = nil;
 }
 
-- (void) sendCommand:(NSString *)command {
+- (void)sendCommand:(NSString *)command
+{
     ONKCommand *packet = [ONKCommand commandWithMessage:[[ISCPMessage alloc] initWithMessage:command]];
     dispatch_data_t message = dispatch_data_create([packet.data bytes], [packet.data length], dispatch_get_global_queue(0, 0), DISPATCH_DATA_DESTRUCTOR_DEFAULT);
     dispatch_time_t delay = dispatch_time(DISPATCH_TIME_NOW, 2000ull*NSEC_PER_USEC); // 200 ms
     dispatch_after(delay, dispatch_get_global_queue(0, 0), ^{
         dispatch_io_write(_channel, 0, message, _socketQueue, ^(bool done, dispatch_data_t data, int error) {
             if(error) NSLog(@"WRITE ERROR!!!");
-            if(done) NSLog(@"WRITE DONE!!!");
         });
-    });    
+    });
 }
 
-- (void) sendCommand:(NSString *)command withInterval:(NSUInteger)interval {
-    
+- (void)sendCommand:(NSString *)command withInterval:(NSUInteger)interval
+{
+    // TODO
+}
+
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"<%@ at %@:%lu>", [self class], _host, (unsigned long)_port];
 }
 
 #pragma mark Private Methods
 
-- (dispatch_fd_t) fileDescriptorForHost:(NSString *)host onPort:(uint16_t)port {
-    
+- (dispatch_fd_t)fileDescriptorForHost:(NSString *)host onPort:(uint16_t)port
+{
     struct sockaddr_in sock_addr;
-    
-    int sock = socket(PF_INET, SOCK_STREAM, 0);
+
+    dispatch_fd_t sock = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP);
     if (sock == -1) {
         NSLog(@"Socket error: %s (%d)", strerror(errno), errno);
+        return -1;
     }
-    
-    bzero(&sock_addr, sizeof(sock_addr));
+
+    bzero(&sock_addr, sizeof sock_addr);
     sock_addr.sin_family = PF_INET;
     sock_addr.sin_port = htons(port);
-    inet_pton(AF_INET, [host cStringUsingEncoding:NSASCIIStringEncoding], &sock_addr.sin_addr);
-    
-    if (connect(sock, (struct sockaddr *) &sock_addr, sizeof(sock_addr)) == -1) {
+    if (inet_pton(AF_INET, [host cStringUsingEncoding:NSASCIIStringEncoding], &sock_addr.sin_addr) < 1) {
+        NSLog(@"Error parsing address: %s (%d)", strerror(errno), errno);
+        close(sock);
+        return -1;
+    }
+
+    if (connect(sock, (struct sockaddr *) &sock_addr, sizeof sock_addr) == -1) {
         NSLog(@"Connect error to %@: %s (%d)", host, strerror(errno), errno);
+        close(sock);
+        return -1;
     }
     NSLog(@"Connected to %@", host);
     return sock;
 }
 
-- (void) processData:(dispatch_data_t)data {
+- (void)processData:(dispatch_data_t)data
+{
     const void *buffer;
     size_t length;
     __unused dispatch_data_t tmpData = dispatch_data_create_map(data, &buffer, &length);

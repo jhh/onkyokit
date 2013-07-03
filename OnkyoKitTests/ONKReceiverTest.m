@@ -9,7 +9,7 @@
 #import <XCTest/XCTest.h>
 #import <OnkyoKit/ISCPMessage.h>
 
-@interface ONKControllerTest : XCTestCase <ONKDelegate>
+@interface ONKReceiverTest : XCTestCase <ONKDelegate>
 @property ONKReceiver *receiver;
 @property (getter = hasPassed) BOOL passed;
 @property NSCondition *condition;
@@ -25,14 +25,16 @@
 //
 // We utilize NSCondition to synchronize between GCD threads since this is
 // asynchronous.
-@implementation ONKControllerTest
+@implementation ONKReceiverTest
 
-- (void) receiver:(ONKReceiver *)receiver didSendEvent:(ONKEvent *)event {
+- (void)receiver:(ONKReceiver *)receiver didSendEvent:(ONKEvent *)event
+{
     NSLog(@"ONKControllerTest event received: %@", event);
 
     // sanity checks on recieved packets
     XCTAssertEqualObjects(@"ISCP", event.magic, @"Packet magic did not match.");
     XCTAssertEquals(1UL, event.version, @"Packet version did not match.");
+    XCTAssertEquals(16UL, event.headerLength, @"Header length did not match.");
 
     if ([[event description] hasPrefix:@"PWR"]) {
         [self.condition lock];
@@ -42,28 +44,40 @@
     }
 }
 
+- (void)receiver:(ONKReceiver *)receiver didFailWithError:(NSError *)error
+{
+    XCTFail(@"%s %@", __PRETTY_FUNCTION__, [error localizedDescription]);
+}
+
+- (void)setUp {
+    [super setUp];
+    self.condition = [NSCondition new];
+    self.passed = NO;
+}
+
+- (void)tearDown {
+    self.condition = nil;
+    [super tearDown];
+}
+
 - (void)testSendCommand {
-    self.receiver = [[ONKReceiver alloc] initWithDelegate:self
-                                                delegateQueue:dispatch_queue_create("ONKControllerTest", DISPATCH_QUEUE_SERIAL)];
-    XCTAssertNotNil(self.receiver, @"Could not create test subject.");
-    
     NSString *address = [[NSProcessInfo processInfo] environment][@"ONK_ADDRESS"];
     NSAssert(address != nil, @"ONK_ADDRESS environment variable must be set - see test comments");
-    XCTAssertTrue([self.receiver connectToHost:address error:nil], @"Could not connect to remote device");
 
-    self.condition = [NSCondition new];
+    self.receiver = [[ONKReceiver alloc] initWithHost:address onPort:60128];
+    self.receiver.delegate = self;
+    [self.receiver resume];
 
     [self.condition lock];
-    self.passed = NO;
     [self.receiver sendCommand:@"PWRQSTN"];
-    
+
     // wait 1 sec for response to be sent.
     [self.condition waitUntilDate:[NSDate dateWithTimeIntervalSinceNow:1]];
 
     XCTAssertTrue(self.hasPassed, @"Did not see event for command sent.");
     [self.condition unlock];
-    
-    [self.receiver close];
+
+    [self.receiver suspend];
 }
 
 @end
