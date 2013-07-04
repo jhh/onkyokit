@@ -21,17 +21,27 @@
 
 @implementation AppDelegate
 
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
+- (void)setUpTextView
 {
     NSFont *font = [NSFont fontWithName:@"Monaco" size:12.0];
     self.eventAttrs = @{ NSFontAttributeName : font };
     self.dateFormatter = [[NSDateFormatter alloc] init];
     [self.dateFormatter setDateFormat:@"HH:mm:ss.SSS"];
+}
 
+- (void)startReceiverConnection
+{
     self.onkyoReceiver = [[ONKReceiver alloc] initWithHost:RECEIVER_ADDRESS onPort:60128];
     self.onkyoReceiver.delegate = self;
     [self.onkyoReceiver resume];
     [_onkyoReceiver sendCommand:@"PWRQSTN"];
+}
+
+- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
+{
+    [self setUpTextView];
+
+    [self startReceiverConnection];
 }
 
 // this is called on a non-main serial queue
