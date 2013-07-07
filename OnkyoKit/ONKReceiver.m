@@ -86,7 +86,8 @@ NSString *const ONKReceiverWasDiscoveredNotification = @"ONKReceiverWasDiscovere
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@ at %@:%lu>", [self class], _host, (unsigned long)_port];
+    return [NSString stringWithFormat:@"<%@ at %@:%lu (unique identifier: %@)>",
+            self.model, self.address, (unsigned long)_port, self.uniqueIdentifier];
 }
 
 #pragma mark Private Methods

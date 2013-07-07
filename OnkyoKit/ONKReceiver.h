@@ -58,8 +58,15 @@ extern NSString *const ONKReceiverWasDiscoveredNotification;
 #pragma mark Properties
 /** Delegate that receives events from device this controller is connected to.  */
 @property (weak, readwrite) id<ONKDelegate> delegate;
+
+/** The model name of the device. */
 @property NSString *model;
+
+/** The IP address of the device. */
 @property (readonly) NSString *address;
+
+/** The MAC address of the device. */
+@property NSString *uniqueIdentifier;
 
 #pragma mark Class Methods
 /**

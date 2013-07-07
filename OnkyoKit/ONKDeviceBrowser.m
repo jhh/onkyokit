@@ -120,13 +120,14 @@
     }
 }
 
-// TODO: set receiver model
 - (ONKReceiver *)receiverFromDiscoveryData:(NSData *)message atAddress:(NSString *)address
 {
     ONKEvent *event = [[ONKEvent alloc] initWithData:message];
     NSArray *components = [event.message.message componentsSeparatedByString:@"/"];
     ONKReceiver *receiver = [[ONKReceiver alloc] initWithHost:address onPort:[components[1] integerValue]];
-    receiver.model = [components[0] substringFromIndex:3];
+    receiver.model = [components[0] substringFromIndex:3]; // trim leading 'ECN'
+    NSString *mac = components[3]; // MAC address, max length 12 per onkyo docs
+    receiver.uniqueIdentifier = [mac length] > 12 ? [mac substringToIndex:12] : mac;
     return receiver;
 }
 
