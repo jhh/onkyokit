@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F312285178787C5002D3A59 /* ReceiverBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F312284178787C5002D3A59 /* ReceiverBrowser.m */; };
 		1F33969A177CEDD2008CE758 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F339699177CEDD2008CE758 /* Media.xcassets */; };
 		1F561C2B176395F20015A8AF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F561C2A176395F20015A8AF /* Cocoa.framework */; };
 		1F561C35176395F20015A8AF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F561C33176395F20015A8AF /* InfoPlist.strings */; };
@@ -16,6 +17,7 @@
 		1F561C41176395F20015A8AF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F561C3F176395F20015A8AF /* MainMenu.xib */; };
 		1F561C56176396820015A8AF /* OnkyoKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F561C4D176396430015A8AF /* OnkyoKit.framework */; };
 		1F561C581763969F0015A8AF /* OnkyoKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1F561C4D176396430015A8AF /* OnkyoKit.framework */; };
+		1F6061A4178632E5000A174B /* ReceiverSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F6061A2178632E5000A174B /* ReceiverSheet.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1F312283178787C5002D3A59 /* ReceiverBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReceiverBrowser.h; sourceTree = "<group>"; };
+		1F312284178787C5002D3A59 /* ReceiverBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReceiverBrowser.m; sourceTree = "<group>"; };
 		1F339699177CEDD2008CE758 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Media.xcassets; path = "Onkyo Console/Media.xcassets"; sourceTree = "<group>"; };
 		1F561C27176395F20015A8AF /* Onkyo Console.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Onkyo Console.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F561C2A176395F20015A8AF /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -78,6 +82,7 @@
 		1F561C3D176395F20015A8AF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1F561C40176395F20015A8AF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		1F561C47176396420015A8AF /* OnkyoKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OnkyoKit.xcodeproj; path = ../OnkyoKit.xcodeproj; sourceTree = "<group>"; };
+		1F6061A3178632E5000A174B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ReceiverSheet.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +142,9 @@
 				1F561C3C176395F20015A8AF /* AppDelegate.h */,
 				1F561C3D176395F20015A8AF /* AppDelegate.m */,
 				1F561C3F176395F20015A8AF /* MainMenu.xib */,
+				1F6061A2178632E5000A174B /* ReceiverSheet.xib */,
+				1F312283178787C5002D3A59 /* ReceiverBrowser.h */,
+				1F312284178787C5002D3A59 /* ReceiverBrowser.m */,
 				1F561C31176395F20015A8AF /* Supporting Files */,
 			);
 			path = "Onkyo Console";
@@ -251,6 +259,7 @@
 				1F561C3B176395F20015A8AF /* Credits.rtf in Resources */,
 				1F33969A177CEDD2008CE758 /* Media.xcassets in Resources */,
 				1F561C41176395F20015A8AF /* MainMenu.xib in Resources */,
+				1F6061A4178632E5000A174B /* ReceiverSheet.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F561C37176395F20015A8AF /* main.m in Sources */,
+				1F312285178787C5002D3A59 /* ReceiverBrowser.m in Sources */,
 				1F561C3E176395F20015A8AF /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -299,6 +309,14 @@
 				1F561C40176395F20015A8AF /* en */,
 			);
 			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		1F6061A2178632E5000A174B /* ReceiverSheet.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F6061A3178632E5000A174B /* en */,
+			);
+			name = ReceiverSheet.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

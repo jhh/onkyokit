@@ -21,6 +21,15 @@
 
 @implementation AppDelegate
 
+- (void)receiverBrowser:(ReceiverBrowser *)browser didSelectReceiver:(ONKReceiver *)receiver
+{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    self.onkyoReceiver = receiver;
+    self.onkyoReceiver.delegate = self;
+    [self.onkyoReceiver resume];
+    [_onkyoReceiver sendCommand:@"PWRQSTN"];
+}
+
 - (void)setUpTextView
 {
     NSFont *font = [NSFont fontWithName:@"Monaco" size:12.0];
@@ -29,19 +38,14 @@
     [self.dateFormatter setDateFormat:@"HH:mm:ss.SSS"];
 }
 
-- (void)startReceiverConnection
-{
-    self.onkyoReceiver = [[ONKReceiver alloc] initWithHost:RECEIVER_ADDRESS onPort:60128];
-    self.onkyoReceiver.delegate = self;
-    [self.onkyoReceiver resume];
-    [_onkyoReceiver sendCommand:@"PWRQSTN"];
-}
-
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     [self setUpTextView];
 
-    [self startReceiverConnection];
+    if (!self.receiverBrowser) {
+        self.receiverBrowser = [[ReceiverBrowser alloc] initWithParentWindow:self.window delegate:self];
+    }
+    [self.receiverBrowser show];
 }
 
 // this is called on a non-main serial queue
@@ -68,4 +72,6 @@
 {
     [_onkyoReceiver sendCommand:[sender stringValue]];
 }
+
+
 @end

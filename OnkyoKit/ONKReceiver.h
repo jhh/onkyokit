@@ -57,7 +57,9 @@ extern NSString *const ONKReceiverWasDiscoveredNotification;
 
 #pragma mark Properties
 /** Delegate that receives events from device this controller is connected to.  */
-@property (nonatomic, weak, readwrite) id<ONKDelegate> delegate;
+@property (weak, readwrite) id<ONKDelegate> delegate;
+@property NSString *model;
+@property (readonly) NSString *address;
 
 #pragma mark Class Methods
 /**

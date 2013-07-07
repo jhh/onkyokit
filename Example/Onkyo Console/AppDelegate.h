@@ -8,11 +8,13 @@
 
 #import <Cocoa/Cocoa.h>
 #import <OnkyoKit/OnkyoKit.h>
+#import "ReceiverBrowser.h"
 
-@interface AppDelegate : NSObject <NSApplicationDelegate, ONKDelegate>
+@interface AppDelegate : NSObject <NSApplicationDelegate, ReceiverBrowserDelegate, ONKDelegate>
 
-@property (assign) IBOutlet NSWindow *window;
+@property ReceiverBrowser *receiverBrowser;
 @property (unsafe_unretained) IBOutlet NSTextView *consoleTextView;
+@property (unsafe_unretained) IBOutlet NSWindow *window;
 
 - (IBAction)sendCommand:(NSTextField *)sender;
 

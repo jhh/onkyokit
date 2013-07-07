@@ -125,7 +125,9 @@
 {
     ONKEvent *event = [[ONKEvent alloc] initWithData:message];
     NSArray *components = [event.message.message componentsSeparatedByString:@"/"];
-    return [[ONKReceiver alloc] initWithHost:address onPort:[components[1] integerValue]];
+    ONKReceiver *receiver = [[ONKReceiver alloc] initWithHost:address onPort:[components[1] integerValue]];
+    receiver.model = [components[0] substringFromIndex:3];
+    return receiver;
 }
 
 - (void)closeSocket

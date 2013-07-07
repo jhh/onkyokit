@@ -37,6 +37,7 @@ NSString *const ONKReceiverWasDiscoveredNotification = @"ONKReceiverWasDiscovere
     _socketQueue = dispatch_queue_create("com.jeffhutchison.OnkyoKit.socket", DISPATCH_QUEUE_SERIAL);
     _delegateQueue = dispatch_queue_create("com.jeffhutchison.OnkyoKit.delegate", DISPATCH_QUEUE_SERIAL);
     _host = [host copy];
+    _address = _host; // TODO: replace host with address
     _port = port;
     return self;
 }
