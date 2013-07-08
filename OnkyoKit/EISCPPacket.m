@@ -52,11 +52,11 @@
     NSMutableData *tmpData = [NSMutableData dataWithCapacity:30];
     [tmpData appendData:[_magic dataUsingEncoding:NSASCIIStringEncoding]];
     uint32_t swapped_int = CFSwapInt32HostToBig((uint32_t)_headerLength);
-    [tmpData appendBytes:&swapped_int length:4];
+    [tmpData appendBytes:&swapped_int length:sizeof(swapped_int)];
     swapped_int = CFSwapInt32HostToBig((uint32_t)_dataLength);
-    [tmpData appendBytes:&swapped_int length:4];
+    [tmpData appendBytes:&swapped_int length:sizeof(swapped_int)];
     swapped_int = CFSwapInt32HostToBig(0x01000000);
-    [tmpData appendBytes:&swapped_int length:4];
+    [tmpData appendBytes:&swapped_int length:sizeof(swapped_int)];
     [tmpData appendData:message.data];
     _data = [tmpData copy];
 
