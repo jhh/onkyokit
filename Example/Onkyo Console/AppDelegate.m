@@ -8,9 +8,6 @@
 
 #import "AppDelegate.h"
 
-// This is set manually to allow testing for the time being
-#define RECEIVER_ADDRESS @"192.168.1.69"
-
 @interface AppDelegate ()
 
 @property (nonatomic, strong, readwrite) ONKReceiver *onkyoReceiver;
