@@ -51,7 +51,7 @@
 // this is called on a non-main serial queue
 - (void) receiver:(ONKReceiver *)controller didSendEvent:(ONKEvent *)event
 {
-    dispatch_async(dispatch_get_main_queue(), ^{
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
         NSString *message = [NSString stringWithFormat:@"%@: %@\n", [self.dateFormatter stringFromDate:[NSDate date]], [event description]];
         NSAttributedString *as = [[NSAttributedString alloc] initWithString:message attributes:self.eventAttrs];
         NSTextStorage *text = self.consoleTextView.textStorage;
@@ -59,7 +59,7 @@
         [text appendAttributedString:as];
         [text endEditing];
         [self.consoleTextView scrollRangeToVisible:NSMakeRange(text.length, 0)];
-    });
+    }];
 }
 
 // this is called on a non-main serial queue
