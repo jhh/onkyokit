@@ -21,7 +21,6 @@
 
     NSArray *topLevelObjects;
     [[NSBundle mainBundle] loadNibNamed:@"ReceiverSheet" owner:self topLevelObjects:&topLevelObjects];
-    NSLog(@"%s %@", __PRETTY_FUNCTION__, topLevelObjects);
 
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
     [nc addObserverForName:ONKReceiverWasDiscoveredNotification
@@ -40,11 +39,7 @@
         modalDelegate: self
        didEndSelector: @selector(didEndSheet:returnCode:contextInfo:)
           contextInfo: nil];
-    [ONKReceiver startReceiverDiscoveryWithCompletionHandler:^{
-        NSLog(@"%s completion handler: %@", __PRETTY_FUNCTION__, self.receivers);
-        dispatch_async(dispatch_get_main_queue(), ^{
-        });
-    }];
+    [ONKReceiver startReceiverDiscoveryWithCompletionHandler:NULL];
 
 }
 
