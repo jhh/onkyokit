@@ -35,7 +35,6 @@ NSString *const ONKReceiverWasDiscoveredNotification = @"ONKReceiverWasDiscovere
     self = [super init];
 	if (self == nil) return nil;
     _socketQueue = dispatch_queue_create("com.jeffhutchison.OnkyoKit.socket", DISPATCH_QUEUE_SERIAL);
-    _delegateQueue = dispatch_queue_create("com.jeffhutchison.OnkyoKit.delegate", DISPATCH_QUEUE_SERIAL);
     _host = [host copy];
     _address = _host; // TODO: replace host with address
     _port = port;
@@ -44,6 +43,7 @@ NSString *const ONKReceiverWasDiscoveredNotification = @"ONKReceiverWasDiscovere
 
 - (void)resume
 {
+    NSAssert(self.delegateQueue != nil, @"delegateQueue parameter not set");
     dispatch_fd_t fd = [self fileDescriptorForHost:_host onPort:_port];
     if (fd  == -1) {
         // TODO: send error to delegate
@@ -52,7 +52,7 @@ NSString *const ONKReceiverWasDiscoveredNotification = @"ONKReceiverWasDiscovere
     _channel = dispatch_io_create(DISPATCH_IO_STREAM, fd, _socketQueue, NULL);
     dispatch_io_set_low_water(_channel, 5);
 
-    dispatch_io_read(_channel, 0, SIZE_MAX, _delegateQueue, ^(bool done, dispatch_data_t data, int error) {
+    dispatch_io_read(_channel, 0, SIZE_MAX, _socketQueue, ^(bool done, dispatch_data_t data, int error) {
         if(data) {
             [self processData:data];
         }
@@ -122,11 +122,13 @@ NSString *const ONKReceiverWasDiscoveredNotification = @"ONKReceiverWasDiscovere
 
 - (void)processData:(dispatch_data_t)data
 {
-    const void *buffer;
-    size_t length;
-    __unused dispatch_data_t tmpData = dispatch_data_create_map(data, &buffer, &length);
-    NSData *response = [NSData dataWithBytes:buffer length:length];
-    [self.delegate receiver:self didSendEvent:[[ONKEvent alloc] initWithData:response]];
+    [self.delegateQueue addOperationWithBlock:^{
+        const void *buffer;
+        size_t length;
+        __unused dispatch_data_t tmpData = dispatch_data_create_map(data, &buffer, &length);
+        NSData *response = [NSData dataWithBytes:buffer length:length];
+        [self.delegate receiver:self didSendEvent:[[ONKEvent alloc] initWithData:response]];
+    }];
 }
 
 @end

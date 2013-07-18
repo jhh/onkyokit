@@ -23,6 +23,7 @@
     NSLog(@"%s", __PRETTY_FUNCTION__);
     self.onkyoReceiver = receiver;
     self.onkyoReceiver.delegate = self;
+    self.onkyoReceiver.delegateQueue = [NSOperationQueue mainQueue];
     [self.onkyoReceiver resume];
     [_onkyoReceiver sendCommand:@"PWRQSTN"];
 }

@@ -13,8 +13,7 @@
 extern NSString *const ONKReceiverWasDiscoveredNotification;
 
 /** Delegates implement this protocol to receive events from connected device implement this protocol.
- Messages delivered are sent on a non-main queue. The delegate is responsible for handling the messages
- on a different queue or thread if it is required.
+ Messages delivered are sent on a queue you specify with the delegateQueue parameter.
 */
 @protocol ONKDelegate <NSObject>
 
@@ -42,7 +41,6 @@ extern NSString *const ONKReceiverWasDiscoveredNotification;
     @private
     NSString *_host;
     NSUInteger _port;
-    dispatch_queue_t _delegateQueue;
 
     /** GCD IO channel. */
     dispatch_io_t _channel;
@@ -58,6 +56,9 @@ extern NSString *const ONKReceiverWasDiscoveredNotification;
 #pragma mark Properties
 /** Delegate that receives events from device this controller is connected to.  */
 @property (weak, readwrite) id<ONKDelegate> delegate;
+
+/** Operation queue that delegate messages are sent on.  */
+@property (retain, readwrite) NSOperationQueue *delegateQueue;
 
 /** The model name of the device. */
 @property NSString *model;
