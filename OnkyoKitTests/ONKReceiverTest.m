@@ -69,6 +69,7 @@
 
     self.receiver = [[ONKReceiver alloc] initWithHost:address onPort:60128];
     self.receiver.delegate = self;
+    self.receiver.delegateQueue = [NSOperationQueue currentQueue];
     [self.receiver resume];
 
     [self.condition lock];
