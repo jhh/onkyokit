@@ -34,6 +34,7 @@
 
 - (void)show
 {
+    [self.receivers removeAllObjects];
     [NSApp beginSheet: self.window
        modalForWindow: self.parentWindow
         modalDelegate: self
@@ -46,12 +47,12 @@
 - (IBAction)acceptSelection:(id)sender
 {
     [NSApp endSheet:self.window];
-    [self.delegate receiverBrowser:self didSelectReceiver:self.receivers[self.arrayController.selectionIndex]];
 }
 
 - (void)didEndSheet:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
 {
     [sheet orderOut:self];
+    [self.delegate receiverBrowser:self didSelectReceiver:self.receivers[self.arrayController.selectionIndex]];
 }
 
 

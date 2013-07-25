@@ -31,8 +31,8 @@
         [self broadcastDiscoveryPacket];
         [self discover];
         [self closeSocket];
-        if (_discoveryCompletionHandler != NULL) {
-            _discoveryCompletionHandler();
+        if (self->_discoveryCompletionHandler != NULL) {
+            self->_discoveryCompletionHandler();
         }
     });
 }

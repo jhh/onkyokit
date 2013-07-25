@@ -46,7 +46,7 @@ extern NSString *const ONKReceiverWasDiscoveredNotification;
     dispatch_io_t _channel;
 
     /** GCD timer used to delay sending commands. */
-    dispatch_source_t _timer;
+//    dispatch_source_t _timer;
 
     /** A GCD queue created to handle network traffic. */
     dispatch_queue_t _socketQueue;
@@ -61,13 +61,16 @@ extern NSString *const ONKReceiverWasDiscoveredNotification;
 @property (retain, readwrite) NSOperationQueue *delegateQueue;
 
 /** The model name of the device. */
-@property NSString *model;
+@property (copy) NSString *model;
 
 /** The IP address of the device. */
 @property (readonly) NSString *address;
 
 /** The MAC address of the device. */
 @property NSString *uniqueIdentifier;
+
+/** Contains any encountered error. */
+@property NSError *error;
 
 #pragma mark Class Methods
 /**

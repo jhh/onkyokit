@@ -16,6 +16,7 @@
 		1F23185B1768AA520025FA12 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1FE378F9175EC6D900971013 /* InfoPlist.strings */; };
 		1F23185E1768AA7B0025FA12 /* ONKReceiverTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F23185D1768AA7B0025FA12 /* ONKReceiverTest.m */; };
 		1F2A3D3317751A15001F1CAC /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F2A3D3217751A15001F1CAC /* XCTest.framework */; };
+		1F2D4E60179C410F00B9471B /* ONKReceiverErrorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2D4E5F179C410F00B9471B /* ONKReceiverErrorTest.m */; };
 		1F3538EF1764E0AC002DBECD /* ISCPMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F3538ED1764E0AC002DBECD /* ISCPMessage.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		1F3538F01764E0AC002DBECD /* ISCPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3538EE1764E0AC002DBECD /* ISCPMessage.m */; };
 		1F35390A17651B19002DBECD /* EISCPPacket.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F35390817651B19002DBECD /* EISCPPacket.h */; settings = {ATTRIBUTES = (Private, ); }; };
@@ -58,6 +59,7 @@
 		1F2318441768A9CC0025FA12 /* OnkyoKit Mac Network Tests.xctest */ = {isa = PBXFileReference; explicitFileType = folder; includeInIndex = 0; path = "OnkyoKit Mac Network Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F23185D1768AA7B0025FA12 /* ONKReceiverTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKReceiverTest.m; sourceTree = "<group>"; };
 		1F2A3D3217751A15001F1CAC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		1F2D4E5F179C410F00B9471B /* ONKReceiverErrorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKReceiverErrorTest.m; sourceTree = "<group>"; };
 		1F3538ED1764E0AC002DBECD /* ISCPMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISCPMessage.h; sourceTree = "<group>"; };
 		1F3538EE1764E0AC002DBECD /* ISCPMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISCPMessage.m; sourceTree = "<group>"; };
 		1F35390817651B19002DBECD /* EISCPPacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EISCPPacket.h; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 		1FE37926175ECF8700971013 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				1F2D4E5F179C410F00B9471B /* ONKReceiverErrorTest.m */,
 				1F90DE971767E2F7006D2A5C /* ISCPMessageTest.m */,
 				1F1155F5177661DB00B18A08 /* EISCPPacketTest.m */,
 			);
@@ -417,6 +420,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F2D4E60179C410F00B9471B /* ONKReceiverErrorTest.m in Sources */,
 				1F1155F6177661DB00B18A08 /* EISCPPacketTest.m in Sources */,
 				1F90DE981767E2F7006D2A5C /* ISCPMessageTest.m in Sources */,
 			);
@@ -493,6 +497,10 @@
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_EXPLICIT_OWNERSHIP_TYPE = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_RECEIVER_WEAK = YES;
+				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -526,11 +534,16 @@
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_EXPLICIT_OWNERSHIP_TYPE = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_RECEIVER_WEAK = YES;
+				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = fast;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;

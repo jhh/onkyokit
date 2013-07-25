@@ -46,25 +46,35 @@ NSString *const ONKReceiverWasDiscoveredNotification = @"ONKReceiverWasDiscovere
     NSAssert(self.delegateQueue != nil, @"delegateQueue parameter not set");
     dispatch_fd_t fd = [self fileDescriptorForHost:_host onPort:_port];
     if (fd  == -1) {
-        // TODO: send error to delegate
+        id<ONKDelegate> strongDelegate = self.delegate;
+        [strongDelegate receiver:self didFailWithError:self.error];
         return;
     }
     _channel = dispatch_io_create(DISPATCH_IO_STREAM, fd, _socketQueue, NULL);
     dispatch_io_set_low_water(_channel, 1);
 
+    __weak ONKReceiver *weakSelf = self;
     dispatch_io_read(_channel, 0, SIZE_MAX, _socketQueue, ^(bool done, dispatch_data_t data, int error) {
-        if(data) {
-            [self processData:data];
+        ONKReceiver *strongSelf = weakSelf;
+        if(error == 0) {
+            [strongSelf processData:data];
+        } else {
+            [strongSelf setErrorWithDescription:@"Network read error" code:error];
+            [strongSelf.delegateQueue addOperationWithBlock:^{
+                id<ONKDelegate> strongDelegate = self.delegate;
+                [strongDelegate receiver:strongSelf didFailWithError:strongSelf.error];
+            }];
         }
-        if(error) NSLog(@"READ ERROR!!!");
         if(done) NSLog(@"READ DONE!!!");
     });
 }
 
 - (void)suspend
 {
-    dispatch_io_close(_channel, 0);
-    _channel = nil;
+    if (_channel) {
+        dispatch_io_close(_channel, 0);
+        _channel = NULL;
+    }
 }
 
 - (void)sendCommand:(NSString *)command
@@ -73,7 +83,7 @@ NSString *const ONKReceiverWasDiscoveredNotification = @"ONKReceiverWasDiscovere
     dispatch_data_t message = dispatch_data_create([packet.data bytes], [packet.data length], dispatch_get_global_queue(0, 0), DISPATCH_DATA_DESTRUCTOR_DEFAULT);
     dispatch_time_t delay = dispatch_time(DISPATCH_TIME_NOW, 2000ull*NSEC_PER_USEC); // 200 ms
     dispatch_after(delay, dispatch_get_global_queue(0, 0), ^{
-        dispatch_io_write(_channel, 0, message, _socketQueue, ^(bool done, dispatch_data_t data, int error) {
+        dispatch_io_write(self->_channel, 0, message, self->_socketQueue, ^(bool done, dispatch_data_t data, int error) {
             if(error) NSLog(@"WRITE ERROR!!!");
         });
     });
@@ -98,7 +108,7 @@ NSString *const ONKReceiverWasDiscoveredNotification = @"ONKReceiverWasDiscovere
 
     dispatch_fd_t sock = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP);
     if (sock == -1) {
-        NSLog(@"Socket error: %s (%d)", strerror(errno), errno);
+        [self setErrorWithDescription:@"Socket error" code:errno];
         return -1;
     }
 
@@ -106,13 +116,13 @@ NSString *const ONKReceiverWasDiscoveredNotification = @"ONKReceiverWasDiscovere
     sock_addr.sin_family = PF_INET;
     sock_addr.sin_port = htons(port);
     if (inet_pton(AF_INET, [host cStringUsingEncoding:NSASCIIStringEncoding], &sock_addr.sin_addr) < 1) {
-        NSLog(@"Error parsing address: %s (%d)", strerror(errno), errno);
+        [self setErrorWithDescription:[NSString stringWithFormat:@"Address %@ error", host] code:errno];
         close(sock);
         return -1;
     }
 
     if (connect(sock, (struct sockaddr *) &sock_addr, sizeof sock_addr) == -1) {
-        NSLog(@"Connect error to %@: %s (%d)", host, strerror(errno), errno);
+        [self setErrorWithDescription:[NSString stringWithFormat:@"Connect error to %@", host] code:errno];
         close(sock);
         return -1;
     }
@@ -127,8 +137,17 @@ NSString *const ONKReceiverWasDiscoveredNotification = @"ONKReceiverWasDiscovere
         size_t length;
         __unused dispatch_data_t tmpData = dispatch_data_create_map(data, &buffer, &length);
         NSData *response = [NSData dataWithBytes:buffer length:length];
-        [self.delegate receiver:self didSendEvent:[[ONKEvent alloc] initWithData:response]];
+        id<ONKDelegate> strongDelegate = self.delegate;
+        [strongDelegate receiver:self didSendEvent:[[ONKEvent alloc] initWithData:response]];
     }];
+}
+
+- (void)setErrorWithDescription:(NSString*)description code:(int)errorNumber
+{
+    NSString *localizedDescription = [NSString stringWithFormat:@"%@: %s", description, strerror(errorNumber)];
+    NSDictionary *userInfo = @{NSLocalizedDescriptionKey: localizedDescription};
+    self.error = [NSError errorWithDomain:NSPOSIXErrorDomain code:errorNumber userInfo:userInfo];
+    NSLog(@"Error: %@", self.error);
 }
 
 @end
