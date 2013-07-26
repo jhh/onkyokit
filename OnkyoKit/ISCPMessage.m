@@ -14,8 +14,10 @@ static NSCharacterSet *endCharSet;
 
 + (void)initialize
 {
-    // LF (\x0a), CR (\x0d), EOF (\x1a)
-    endCharSet = [NSCharacterSet characterSetWithCharactersInString:@"\x0a\x0d\x1a"];
+    if (self == [ISCPMessage class]) {
+        // LF (\x0a), CR (\x0d), EOF (\x1a)
+        endCharSet = [NSCharacterSet characterSetWithCharactersInString:@"\x0a\x0d\x1a"];
+    }
 }
 
 + (instancetype)deviceSearchMessage
