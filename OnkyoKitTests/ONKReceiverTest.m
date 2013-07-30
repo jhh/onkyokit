@@ -33,8 +33,8 @@
 
     // sanity checks on recieved packets
     XCTAssertEqualObjects(@"ISCP", event.magic, @"Packet magic did not match.");
-    XCTAssertEquals(1UL, event.version, @"Packet version did not match.");
-    XCTAssertEquals(16UL, event.headerLength, @"Header length did not match.");
+    XCTAssertEqual(1UL, event.version, @"Packet version did not match.");
+    XCTAssertEqual(16UL, event.headerLength, @"Header length did not match.");
 
     if ([[event description] hasPrefix:@"PWR"]) {
         [self.condition lock];
