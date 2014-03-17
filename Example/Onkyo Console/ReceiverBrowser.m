@@ -25,7 +25,7 @@
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
     [nc addObserverForName:ONKReceiverWasDiscoveredNotification
                     object:nil
-                     queue:nil
+                     queue:[NSOperationQueue mainQueue]
                 usingBlock:^(NSNotification *note){
                     [self.arrayController addObject:note.object];
                 }];

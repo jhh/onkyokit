@@ -56,7 +56,7 @@
 
 /* Begin PBXFileReference section */
 		1F1155F5177661DB00B18A08 /* EISCPPacketTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EISCPPacketTest.m; sourceTree = "<group>"; };
-		1F2318441768A9CC0025FA12 /* OnkyoKit Mac Network Tests.xctest */ = {isa = PBXFileReference; explicitFileType = folder; includeInIndex = 0; path = "OnkyoKit Mac Network Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F2318441768A9CC0025FA12 /* OnkyoKit Mac Network Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "OnkyoKit Mac Network Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F23185D1768AA7B0025FA12 /* ONKReceiverTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKReceiverTest.m; sourceTree = "<group>"; };
 		1F2A3D3217751A15001F1CAC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		1F2D4E5F179C410F00B9471B /* ONKReceiverErrorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKReceiverErrorTest.m; sourceTree = "<group>"; };
@@ -80,7 +80,7 @@
 		1FBB18D7175BB1AE00E7B9C7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1FBB18D9175BB1AE00E7B9C7 /* OnkyoKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OnkyoKit-Prefix.pch"; sourceTree = "<group>"; };
 		1FBB18DA175BB1AE00E7B9C7 /* OnkyoKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OnkyoKit.h; sourceTree = "<group>"; };
-		1FE378F0175EC6D800971013 /* OnkyoKit Mac Tests.xctest */ = {isa = PBXFileReference; explicitFileType = folder; includeInIndex = 0; path = "OnkyoKit Mac Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FE378F0175EC6D800971013 /* OnkyoKit Mac Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "OnkyoKit Mac Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FE378F8175EC6D900971013 /* OnkyoKitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OnkyoKitTests-Info.plist"; sourceTree = "<group>"; };
 		1FE378FA175EC6D900971013 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1FE378FF175EC6D900971013 /* OnkyoKitTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OnkyoKitTests-Prefix.pch"; sourceTree = "<group>"; };
