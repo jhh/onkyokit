@@ -31,9 +31,9 @@
     ISCPMessage *message = [[ISCPMessage alloc] initWithMessage:@"PWRQSTN"];
     EISCPPacket *packet = [[EISCPPacket alloc] initWithMessage:message];
     XCTAssertEqualObjects(packet.magic, @"ISCP");
-    XCTAssertEquals(packet.headerLength, 16UL);
-    XCTAssertEquals(packet.dataLength, 10UL);
-    XCTAssertEquals(packet.version, 1UL);
+    XCTAssertEqual(packet.headerLength, 16UL);
+    XCTAssertEqual(packet.dataLength, 10UL);
+    XCTAssertEqual(packet.version, 1UL);
 }
 
 @end
