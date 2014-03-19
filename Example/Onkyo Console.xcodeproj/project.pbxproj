@@ -179,6 +179,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1F561C44176395F20015A8AF /* Build configuration list for PBXNativeTarget "Onkyo Console" */;
 			buildPhases = (
+				1F48A43D18DA0A6B0037F84F /* ShellScript */,
 				1F561C23176395F20015A8AF /* Sources */,
 				1F561C24176395F20015A8AF /* Frameworks */,
 				1F561C25176395F20015A8AF /* Resources */,
@@ -264,6 +265,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1F48A43D18DA0A6B0037F84F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#Update build number with number of git commits if in release mode\nif [ ${CONFIGURATION} == \"Release\" ]; then\nbuildNumber=$(git rev-list HEAD | wc -l | tr -d ' ')\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\nfi;";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1F561C23176395F20015A8AF /* Sources */ = {
