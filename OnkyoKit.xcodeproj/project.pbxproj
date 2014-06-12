@@ -138,10 +138,17 @@
 				1F3538EE1764E0AC002DBECD /* ISCPMessage.m */,
 				1F35390817651B19002DBECD /* EISCPPacket.h */,
 				1F35390917651B19002DBECD /* EISCPPacket.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		1F5CC712194A373D002D1DD4 /* Services */ = {
+			isa = PBXGroup;
+			children = (
 				1F61D7411782583700FAF0BF /* ONKDeviceBrowser.h */,
 				1F61D7421782583700FAF0BF /* ONKDeviceBrowser.m */,
 			);
-			name = Models;
+			name = Services;
 			sourceTree = "<group>";
 		};
 		1FBB18C0175BB1AE00E7B9C7 = {
@@ -198,6 +205,7 @@
 			children = (
 				1F561C021762439B0015A8AF /* ONKReceiver.h */,
 				1F561C031762439B0015A8AF /* ONKReceiver.m */,
+				1F5CC712194A373D002D1DD4 /* Services */,
 				1F561BF9176243350015A8AF /* Models */,
 			);
 			name = Classes;
