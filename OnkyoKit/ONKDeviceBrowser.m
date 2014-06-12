@@ -113,7 +113,7 @@
                 NSLog(@"%s recvfrom: %s", __PRETTY_FUNCTION__, strerror(errno));
             }
 
-            NSString *address = [NSString stringWithCString:inet_ntoa(dest_addr.sin_addr) encoding:NSASCIIStringEncoding];
+            NSString *address = @(inet_ntoa(dest_addr.sin_addr));
             ONKReceiver *receiver = [self receiverFromDiscoveryData:[NSData dataWithBytes:recv_buf length:numbytes] atAddress:address];
             [[NSNotificationCenter defaultCenter] postNotificationName:ONKReceiverWasDiscoveredNotification object:receiver];
         }
