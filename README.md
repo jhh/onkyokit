@@ -1,6 +1,6 @@
 # OnkyoKit
 
-OnkyoKit is a Cocoa (and eventually Cocoa Touch) framework to control Onkyo receivers using the eISCP network protocol. See the [Example](Example/) directory for a simple OS X example application that uses OnkyoKit.
+OnkyoKit is a Cocoa (and eventually Cocoa Touch) framework to control Onkyo receivers using the eISCP network protocol. See the [Example](Example/) directory for a simple OS X example application that uses OnkyoKit. *The public API is not stable.*
 
 Current development is on the
 [develop](https://github.com/jhh/onkyokit/tree/develop) branch with releases tagged on the [master](https://github.com/jhh/onkyokit/tree/master) branch.
