@@ -12,19 +12,8 @@
 #import "ONKCommand.h"
 #import "ISCPMessage.h"
 
-NSString *const ONKReceiverWasDiscoveredNotification = @"ONKReceiverWasDiscoveredNotification";
-
 // TODO: implement error reporting
 @implementation ONKReceiver
-
-#pragma mark Class Methods
-
-+ (void)startReceiverDiscoveryWithCompletionHandler:(void (^)(void))completionHandler
-{
-    ONKDeviceBrowser *browser = [[ONKDeviceBrowser alloc] initWithCompletionHandler:completionHandler];
-    [browser start];
-}
-
 
 #pragma mark Instance Methods
 - (instancetype)initWithHost:(NSString *)host onPort:(NSUInteger)port
@@ -53,17 +42,19 @@ NSString *const ONKReceiverWasDiscoveredNotification = @"ONKReceiverWasDiscovere
     _channel = dispatch_io_create(DISPATCH_IO_STREAM, fd, _socketQueue, NULL);
     dispatch_io_set_low_water(_channel, 1);
 
-    __weak ONKReceiver *weakSelf = self;
+    __weak ONKReceiver * weakSelf = self;
     dispatch_io_read(_channel, 0, SIZE_MAX, _socketQueue, ^(bool done, dispatch_data_t data, int error) {
         ONKReceiver *strongSelf = weakSelf;
-        if(error == 0) {
+        if(strongSelf && error == 0) {
             [strongSelf processData:data];
-        } else {
+        } else if (strongSelf) {
             [strongSelf setErrorWithDescription:@"Network read error" code:error];
             [strongSelf.delegateQueue addOperationWithBlock:^{
                 id<ONKDelegate> strongDelegate = self.delegate;
                 [strongDelegate receiver:strongSelf didFailWithError:strongSelf.error];
             }];
+        } else {
+            NSLog(@"strongSelf was nil");
         }
         if(done) NSLog(@"READ DONE!!!");
     });

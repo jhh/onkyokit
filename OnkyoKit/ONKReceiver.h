@@ -10,8 +10,6 @@
 @class ONKReceiver;
 @class ONKEvent;
 
-extern NSString *const ONKReceiverWasDiscoveredNotification;
-
 /** Delegates implement this protocol to receive events from connected device implement this protocol.
  Messages delivered are sent on a queue you specify with the delegateQueue parameter.
 */
@@ -71,21 +69,6 @@ extern NSString *const ONKReceiverWasDiscoveredNotification;
 
 /** Contains any encountered error. */
 @property NSError *error;
-
-#pragma mark Class Methods
-/**
-Start browsing for AV receivers on the local network.
-
-The host searches asynchronously for discoverable AV receivers. Whenever a new receiver is discovered,
-a ONKReceiverWasDiscoveredNotification notification is posted. When no more receivers can be found or
-the discovery process times out, the completion handler is called.
-
-If this method is called multiple times, only the block associated with the last invocation is called
-when discovery times out.
-
-@param completionHandler A block to call when browsing ends.
-*/
-+ (void)startReceiverDiscoveryWithCompletionHandler:(void (^)(void))completionHandler;
 
 #pragma mark Instance Methods
 /**

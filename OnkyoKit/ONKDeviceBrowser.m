@@ -16,25 +16,59 @@
 // TODO: implement error reporting
 @implementation ONKDeviceBrowser
 
-- (instancetype)initWithCompletionHandler:(void (^)(void))completionHandler
+- (instancetype)init
 {
     self = [super init];
-	if (self == nil) return nil;
-    _discoveryCompletionHandler = completionHandler;
+    if (self) {
+        _queue = [[NSOperationQueue alloc] init];
+        _queue.name = @"Device Browser Queue";
+        _discoveredReceiversMap = [[NSMutableDictionary alloc] init];
+    }
     return self;
 }
 
-- (void)start
+- (void)setDelegate:(id<ONKReceiverBrowserDelegate>)delegate delegateQueue:(NSOperationQueue *)delegateQueue
 {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [self setupSocket];
-        [self broadcastDiscoveryPacket];
-        [self discover];
-        [self closeSocket];
-        if (self->_discoveryCompletionHandler != NULL) {
-            self->_discoveryCompletionHandler();
+    _delegate = delegate;
+    _delegateQueue = delegateQueue;
+}
+
+- (NSOperationQueue *)delegateQueue
+{
+    if (!_delegateQueue) {
+        _delegateQueue = [[NSOperationQueue alloc] init];
+    }
+    return _delegateQueue;
+}
+
+- (NSArray *)discoveredReceivers
+{
+    return [_discoveredReceiversMap allValues];
+}
+
+
+- (void)startSearchingForNewReceivers
+{
+    _operation = [[NSBlockOperation alloc] init];
+    __weak NSBlockOperation *weakOp = _operation;
+    __weak ONKDeviceBrowser *weakSelf = self;
+    [_operation addExecutionBlock:^{
+        NSBlockOperation *op = weakOp;
+        ONKDeviceBrowser *browser = weakSelf;
+        [browser setupSocket];
+        for (;;) {
+            if ([op isCancelled]) break;
+            [browser broadcastDiscoveryPacket];
+            [browser listenForDevices];
         }
-    });
+        [browser closeSocket];
+    }];
+    [_queue addOperation:_operation];
+}
+
+- (void)stopSearchingForNewReceivers
+{
+    [_operation cancel];
 }
 
 #pragma mark Private Methods
@@ -81,7 +115,7 @@
     }
 }
 
-- (void)discover
+- (void)listenForDevices
 {
     struct sockaddr_in dest_addr;
     ssize_t numbytes;
@@ -113,9 +147,15 @@
                 NSLog(@"%s recvfrom: %s", __PRETTY_FUNCTION__, strerror(errno));
             }
 
-            NSString *address = [NSString stringWithCString:inet_ntoa(dest_addr.sin_addr) encoding:NSASCIIStringEncoding];
+            NSString *address = @(inet_ntoa(dest_addr.sin_addr));
             ONKReceiver *receiver = [self receiverFromDiscoveryData:[NSData dataWithBytes:recv_buf length:numbytes] atAddress:address];
-            [[NSNotificationCenter defaultCenter] postNotificationName:ONKReceiverWasDiscoveredNotification object:receiver];
+            if (![_discoveredReceiversMap objectForKey:receiver.uniqueIdentifier]) {
+                [_discoveredReceiversMap setObject:receiver forKey:receiver.uniqueIdentifier];
+                id<ONKReceiverBrowserDelegate> strongDelegate = self.delegate;
+                [self.delegateQueue addOperationWithBlock:^{
+                    [strongDelegate receiverBrowser:self didFindNewReceiver:receiver];
+                }];
+            }
         }
     }
 }

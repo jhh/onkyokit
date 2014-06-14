@@ -6,9 +6,10 @@
 //  Copyright (c) 2013 Jeff Hutchison. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
+#import <OnkyoKit/OnkyoKit.h>
+
 @class ReceiverBrowser;
-@class ONKReceiver;
 
 @protocol ReceiverBrowserDelegate <NSObject>
 
@@ -16,7 +17,11 @@
 
 @end
 
-@interface ReceiverBrowser : NSObject
+@interface ReceiverBrowser : NSObject <ONKReceiverBrowserDelegate>
+{
+    @private
+    ONKDeviceBrowser *_browser;
+}
 
 @property (strong) IBOutlet NSWindow *window;
 
