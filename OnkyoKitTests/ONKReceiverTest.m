@@ -9,7 +9,7 @@
 #import <XCTest/XCTest.h>
 #import <OnkyoKit/ISCPMessage.h>
 
-@interface ONKReceiverTest : XCTestCase <ONKDelegate>
+@interface ONKReceiverTest : XCTestCase <ONKReceiverDelegate>
 @property ONKReceiver *receiver;
 @property (getter = hasPassed) BOOL passed;
 @property NSCondition *condition;

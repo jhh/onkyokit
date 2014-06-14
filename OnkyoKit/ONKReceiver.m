@@ -47,7 +47,7 @@
     NSAssert(self.delegateQueue != nil, @"delegateQueue parameter not set");
     dispatch_fd_t fd = [self fileDescriptorForHost:_host onPort:_port];
     if (fd  == -1) {
-        id<ONKDelegate> strongDelegate = self.delegate;
+        id<ONKReceiverDelegate> strongDelegate = self.delegate;
         [strongDelegate receiver:self didFailWithError:self.error];
         return;
     }
@@ -62,7 +62,7 @@
         } else if (strongSelf) {
             [strongSelf setErrorWithDescription:@"Network read error" code:error];
             [strongSelf.delegateQueue addOperationWithBlock:^{
-                id<ONKDelegate> strongDelegate = self.delegate;
+                id<ONKReceiverDelegate> strongDelegate = self.delegate;
                 [strongDelegate receiver:strongSelf didFailWithError:strongSelf.error];
             }];
         } else {
@@ -140,7 +140,7 @@
         size_t length;
         __unused dispatch_data_t tmpData = dispatch_data_create_map(data, &buffer, &length);
         NSData *response = [NSData dataWithBytes:buffer length:length];
-        id<ONKDelegate> strongDelegate = self.delegate;
+        id<ONKReceiverDelegate> strongDelegate = self.delegate;
         [strongDelegate receiver:self didSendEvent:[[ONKEvent alloc] initWithData:response]];
     }];
 }

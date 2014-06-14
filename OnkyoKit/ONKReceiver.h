@@ -13,7 +13,7 @@
 /** Delegates implement this protocol to receive events from connected device implement this protocol.
  Messages delivered are sent on a queue you specify with the delegateQueue parameter.
 */
-@protocol ONKDelegate <NSObject>
+@protocol ONKReceiverDelegate <NSObject>
 
 /** Sent when an event is recieved from the remote device.
 
@@ -38,7 +38,7 @@
 
 #pragma mark Properties
 /** Delegate that receives events from device this controller is connected to.  */
-@property (weak, readwrite) id<ONKDelegate> delegate;
+@property (weak, readwrite) id<ONKReceiverDelegate> delegate;
 
 /** Operation queue that delegate messages are sent on.  */
 @property (retain, readwrite) NSOperationQueue *delegateQueue;

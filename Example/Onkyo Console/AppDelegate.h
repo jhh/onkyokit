@@ -10,7 +10,7 @@
 #import <OnkyoKit/OnkyoKit.h>
 #import "ReceiverBrowser.h"
 
-@interface AppDelegate : NSObject <NSApplicationDelegate, ReceiverBrowserDelegate, ONKDelegate>
+@interface AppDelegate : NSObject <NSApplicationDelegate, ReceiverBrowserDelegate, ONKReceiverDelegate>
 
 @property ReceiverBrowser *receiverBrowser;
 @property (unsafe_unretained) IBOutlet NSTextView *consoleTextView;

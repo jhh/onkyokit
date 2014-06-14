@@ -9,7 +9,7 @@
 #import <XCTest/XCTest.h>
 #import "OnkyoKit/OnkyoKit.h"
 
-@interface ONKReceiverErrorTest : XCTestCase <ONKDelegate>
+@interface ONKReceiverErrorTest : XCTestCase <ONKReceiverDelegate>
 @property (getter = hasPassed) BOOL passed;
 @end
 
