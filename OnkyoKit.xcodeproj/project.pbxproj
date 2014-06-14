@@ -130,6 +130,8 @@
 		1F561BF9176243350015A8AF /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1F561C021762439B0015A8AF /* ONKReceiver.h */,
+				1F561C031762439B0015A8AF /* ONKReceiver.m */,
 				1F561C1A176364E50015A8AF /* ONKEvent.h */,
 				1F561C1B176364E50015A8AF /* ONKEvent.m */,
 				1F561C5C17639D150015A8AF /* ONKCommand.h */,
@@ -203,8 +205,6 @@
 		1FBB18E2175BB57B00E7B9C7 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				1F561C021762439B0015A8AF /* ONKReceiver.h */,
-				1F561C031762439B0015A8AF /* ONKReceiver.m */,
 				1F5CC712194A373D002D1DD4 /* Services */,
 				1F561BF9176243350015A8AF /* Models */,
 			);
