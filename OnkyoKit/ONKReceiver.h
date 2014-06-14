@@ -35,21 +35,6 @@
 /** Represents a controller session with an Onkyo device.
 */
 @interface ONKReceiver : NSObject
-{
-    @private
-    NSString *_host;
-    NSUInteger _port;
-
-    /** GCD IO channel. */
-    dispatch_io_t _channel;
-
-    /** GCD timer used to delay sending commands. */
-//    dispatch_source_t _timer;
-
-    /** A GCD queue created to handle network traffic. */
-    dispatch_queue_t _socketQueue;
-
-}
 
 #pragma mark Properties
 /** Delegate that receives events from device this controller is connected to.  */

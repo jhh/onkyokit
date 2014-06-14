@@ -12,7 +12,7 @@
 
 /**
  Informs the delegate that a new receiver has been found.
- 
+
  @param browser The browser that found the new receiver.
  @param receiver The new receiver.
  */
@@ -24,24 +24,17 @@
 
 /**
  Browsing for AV receivers on the local network.
- 
+
  The host searches asynchronously for discoverable AV receivers. Whenever a new receiver is discovered,
  it is added to discoveredReceivers. If the delegate has been set, call -receiverBrowser:didFindNewReceiver
  on it.
  */
 @interface ONKDeviceBrowser : NSObject
-{
-    @private
-    int _sock;
-    NSOperationQueue *_queue, *_delegateQueue;
-    NSBlockOperation *_operation;
-    NSMutableDictionary *_discoveredReceiversMap;
-}
 
 #pragma mark Properties
 /**
  Array of receivers discovered during a search. (read-only)
- 
+
  Receivers are instances of ONKReceiver.
  */
 @property (readonly, copy, nonatomic) NSArray *discoveredReceivers;
@@ -59,7 +52,7 @@
 /**
  Set a delegate to receive updates on the discovered receivers. The delegate will be
  called on the supplied delegateQueue.
- 
+
  @param delegate A browser delegate object that receives notification of discovered receivers.
  @param delegateQueue A queue for scheduling the delegate calls. If nil, the browser creates
  a serial operation queue for performing all delegate method calls.

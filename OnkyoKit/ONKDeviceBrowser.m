@@ -15,6 +15,13 @@
 
 // TODO: implement error reporting
 @implementation ONKDeviceBrowser
+{
+    int _sock;
+    NSOperationQueue *_queue, *_delegateQueue;
+    NSBlockOperation *_operation;
+    NSMutableDictionary *_discoveredReceiversMap;
+}
+
 
 - (instancetype)init
 {

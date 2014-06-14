@@ -14,6 +14,18 @@
 
 // TODO: implement error reporting
 @implementation ONKReceiver
+{
+    NSString *_host;
+    NSUInteger _port;
+
+    /** GCD IO channel. */
+    dispatch_io_t _channel;
+
+    /** A GCD queue created to handle network traffic. */
+    dispatch_queue_t _socketQueue;
+
+}
+
 
 #pragma mark Instance Methods
 - (instancetype)initWithHost:(NSString *)host onPort:(NSUInteger)port
