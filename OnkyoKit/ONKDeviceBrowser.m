@@ -9,6 +9,7 @@
 @import Darwin;
 #import "OnkyoKit.h"
 #import "ISCPMessage.h"
+#import "ONKConfiguredReceiver.h"
 
 #define RECV_BUF_LENGTH 100
 #define TIMEOUT 2
@@ -171,7 +172,7 @@
 {
     ONKEvent *event = [[ONKEvent alloc] initWithData:message];
     NSArray *components = [event.message.message componentsSeparatedByString:@"/"];
-    ONKReceiver *receiver = [[ONKReceiver alloc] initWithHost:address onPort:[components[1] integerValue]];
+    ONKReceiver *receiver = [[ONKConfiguredReceiver alloc] initWithAddress:address port:[components[1] integerValue]];
     receiver.model = [components[0] substringFromIndex:3]; // trim leading 'ECN'
     NSString *mac = components[3]; // MAC address, max length 12 per onkyo docs
     receiver.uniqueIdentifier = [mac length] > 12 ? [mac substringToIndex:12] : mac;

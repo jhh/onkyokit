@@ -8,6 +8,8 @@
 
 #import <XCTest/XCTest.h>
 #import "OnkyoKit/OnkyoKit.h"
+#import "ONKConfiguredReceiver.h"
+#import "ONKReceiverSession.h"
 
 @interface ONKReceiverErrorTest : XCTestCase <ONKReceiverDelegate>
 @property (getter = hasPassed) BOOL passed;
@@ -40,20 +42,22 @@
 
 - (void)testAddressParseError
 {
-    ONKReceiver *receiver = [[ONKReceiver alloc] initWithHost:@"-1.-1.-1.-1" onPort:1];
+    ONKConfiguredReceiver *receiver = [[ONKConfiguredReceiver alloc] initWithAddress:@"-1.-1.-1.-1" port:1];
     receiver.delegate = self;
     receiver.delegateQueue = [NSOperationQueue currentQueue];
-    [receiver resume];
+    ONKReceiverSession *session = [[ONKReceiverSession alloc] initWithConfiguredReceiver:receiver];
+    [session resume];
     XCTAssert(self.hasPassed, @"Did not see didFailWithError called");
 }
 
 // assumes this machine is not listening on port 1: Routing Table Maintenance Protocol
 - (void)testConnectError
 {
-    ONKReceiver *receiver = [[ONKReceiver alloc] initWithHost:@"127.0.0.1" onPort:1];
+    ONKConfiguredReceiver *receiver = [[ONKConfiguredReceiver alloc] initWithAddress:@"127.0.0.1" port:1];
     receiver.delegate = self;
     receiver.delegateQueue = [NSOperationQueue currentQueue];
-    [receiver resume];
+    ONKReceiverSession *session = [[ONKReceiverSession alloc] initWithConfiguredReceiver:receiver];
+    [session resume];
     XCTAssert(self.hasPassed, @"Did not see didFailWithError called");
 }
 @end

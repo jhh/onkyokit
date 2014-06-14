@@ -46,36 +46,12 @@
 /** The model name of the device. */
 @property (copy) NSString *model;
 
-/** The IP address of the device. */
-@property (readonly) NSString *address;
-
 /** The MAC address of the device. */
 @property NSString *uniqueIdentifier;
 
-/** Contains any encountered error. */
-@property NSError *error;
-
-#pragma mark Instance Methods
-/**
- Initialize a receiver object with delegate. The receiver is created in the suspended state, calling
- resume starts the connection.
-
-@param host  The host name or IP address of the remote device.
-@param port The port used by the remote device.
-*/
-- (instancetype)initWithHost:(NSString *)host onPort:(NSUInteger)port;
-
-/** Start or resume the connection to the remote device. */
-- (void)resume;
-
-/** Suspend the connection to the remote device. */
-- (void)suspend;
-
-/** Sends command after 200ms delay. */
-- (void)sendCommand:(NSString *)command;
-
-/** Sends command with interval in seconds. Calling multiple time currently cancels previous timer.
-*/
-- (void)sendCommand:(NSString *)command withInterval:(NSUInteger)interval;
+// FIXME: temporary methods for refactoring
+- (void)resume __attribute__((deprecated));
+- (void)suspend __attribute__((deprecated));
+- (void)sendCommand:(NSString *)command __attribute__((deprecated));
 
 @end

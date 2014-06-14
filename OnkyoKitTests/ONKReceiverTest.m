@@ -8,9 +8,11 @@
 
 #import <XCTest/XCTest.h>
 #import <OnkyoKit/ISCPMessage.h>
+#import "ONKConfiguredReceiver.h"
+#import "ONKReceiverSession.h"
 
 @interface ONKReceiverTest : XCTestCase <ONKReceiverDelegate>
-@property ONKReceiver *receiver;
+@property ONKConfiguredReceiver *receiver;
 @property (getter = hasPassed) BOOL passed;
 @property NSCondition *condition;
 - (void) receiver:(ONKReceiver *)receiver didSendEvent:(ONKEvent *)event;
@@ -67,13 +69,15 @@
     NSString *address = [[NSProcessInfo processInfo] environment][@"ONK_ADDRESS"];
     NSAssert(address != nil, @"ONK_ADDRESS environment variable must be set - see test comments");
 
-    self.receiver = [[ONKReceiver alloc] initWithHost:address onPort:60128];
+    self.receiver = [[ONKConfiguredReceiver alloc] initWithAddress:address port:60128];
     self.receiver.delegate = self;
     self.receiver.delegateQueue = [[NSOperationQueue alloc] init];
-    [self.receiver resume];
+    ONKReceiverSession *session = [[ONKReceiverSession alloc] initWithConfiguredReceiver:self.receiver];
+    
+    [session resume];
 
     [self.condition lock];
-    [self.receiver sendCommand:@"PWRQSTN"];
+    [session sendCommand:@"PWRQSTN"];
 
     // wait 1 sec for response to be sent.
     [self.condition waitUntilDate:[NSDate dateWithTimeIntervalSinceNow:1]];
@@ -81,7 +85,7 @@
     XCTAssertTrue(self.hasPassed, @"Did not see event for command sent.");
     [self.condition unlock];
 
-    [self.receiver suspend];
+    [session suspend];
 }
 
 @end
