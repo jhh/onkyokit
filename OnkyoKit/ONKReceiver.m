@@ -42,7 +42,7 @@
     _channel = dispatch_io_create(DISPATCH_IO_STREAM, fd, _socketQueue, NULL);
     dispatch_io_set_low_water(_channel, 1);
 
-    __weak ONKReceiver * weakSelf = self;
+    __weak ONKReceiver *weakSelf = self;
     dispatch_io_read(_channel, 0, SIZE_MAX, _socketQueue, ^(bool done, dispatch_data_t data, int error) {
         ONKReceiver *strongSelf = weakSelf;
         if(strongSelf && error == 0) {
