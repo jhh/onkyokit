@@ -22,13 +22,9 @@
     NSArray *topLevelObjects;
     [[NSBundle mainBundle] loadNibNamed:@"ReceiverSheet" owner:self topLevelObjects:&topLevelObjects];
 
-    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-    [nc addObserverForName:ONKReceiverWasDiscoveredNotification
-                    object:nil
-                     queue:[NSOperationQueue mainQueue]
-                usingBlock:^(NSNotification *note){
-                    [self.arrayController addObject:note.object];
-                }];
+    _browser = [[ONKDeviceBrowser alloc] init];
+    [_browser setDelegate:self delegateQueue:[NSOperationQueue mainQueue]];
+
     return self;
 }
 
@@ -40,12 +36,12 @@
         modalDelegate: self
        didEndSelector: @selector(didEndSheet:returnCode:contextInfo:)
           contextInfo: nil];
-    [ONKReceiver startReceiverDiscoveryWithCompletionHandler:NULL];
-
+    [_browser startSearchingForNewReceivers];
 }
 
 - (IBAction)acceptSelection:(id)sender
 {
+    [_browser stopSearchingForNewReceivers];
     [NSApp endSheet:self.window];
 }
 
@@ -55,6 +51,10 @@
     [self.delegate receiverBrowser:self didSelectReceiver:self.receivers[self.arrayController.selectionIndex]];
 }
 
-
+// Protocol ONKReceiverBrowserDelegate
+- (void)receiverBrowser:(ONKDeviceBrowser *)browser didFindNewReceiver:(ONKReceiver *)receiver
+{
+    [self.arrayController addObject:receiver];
+}
 
 @end

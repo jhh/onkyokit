@@ -9,7 +9,7 @@
 #import <XCTest/XCTest.h>
 #import <OnkyoKit/OnkyoKit.h>
 
-@interface ONKDeviceBrowserTest : XCTestCase
+@interface ONKDeviceBrowserTest : XCTestCase <ONKReceiverBrowserDelegate>
 
 @property NSMutableArray *receivers;
 @property NSCondition *condition;
@@ -29,17 +29,7 @@
 - (void)setUp
 {
     [super setUp];
-    self.receivers = [NSMutableArray array];
     self.notificationCount = 0;
-    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-    [nc addObserverForName:ONKReceiverWasDiscoveredNotification
-                    object:nil
-                     queue:nil
-                usingBlock:^(NSNotification *note){
-                    [self.receivers addObject:note.object];
-                    XCTAssertEqualObjects(ONKReceiverWasDiscoveredNotification, note.name, @"Did not receive correct notification.");
-                    self.notificationCount++;
-                }];
     self.condition = [NSCondition new];
 }
 
@@ -49,27 +39,27 @@
     [super tearDown];
 }
 
+- (void)receiverBrowser:(ONKDeviceBrowser *)browser didFindNewReceiver:(ONKReceiver *)receiver
+{
+    self.notificationCount++;
+    XCTAssertEqual([browser.discoveredReceivers count], self.notificationCount);
+}
+
 - (void)testDiscover
 {
-    ONKDeviceBrowser *browser = [[ONKDeviceBrowser alloc] initWithCompletionHandler:^{
-        [self.condition lock];
-        for (ONKReceiver *r in self.receivers) {
-            XCTAssertNotNil(r);
-            XCTAssertTrue([r isKindOfClass:[ONKReceiver class]]);
-            NSLog(@"%@", r);
-        }
-        [self.condition signal];
-        [self.condition unlock];
-    }];
-
+    ONKDeviceBrowser *browser = [[ONKDeviceBrowser alloc] init];
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    queue.name = @"ONKDeviceBrowserTest Queue";
+    [browser setDelegate:self delegateQueue:queue];
     [self.condition lock];
-    [browser start];
+    [browser startSearchingForNewReceivers];
 
     // wait for completion handler to signal condition
-    [self.condition waitUntilDate:[NSDate dateWithTimeIntervalSinceNow:5]];
+    [self.condition waitUntilDate:[NSDate dateWithTimeIntervalSinceNow:4]];
     [self.condition unlock];
 
     XCTAssertTrue(self.notificationCount > 0, @"Did not receive any notifications.");
+    XCTAssertEqual([browser.discoveredReceivers count], self.notificationCount);
 }
 
 @end
