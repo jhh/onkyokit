@@ -15,7 +15,7 @@
 #define TIMEOUT 2
 
 // TODO: implement error reporting
-@implementation ONKDeviceBrowser
+@implementation ONKReceiverBrowser
 {
     int _sock;
     NSOperationQueue *_queue, *_delegateQueue;
@@ -59,10 +59,10 @@
 {
     _operation = [[NSBlockOperation alloc] init];
     __weak NSBlockOperation *weakOp = _operation;
-    __weak ONKDeviceBrowser *weakSelf = self;
+    __weak ONKReceiverBrowser *weakSelf = self;
     [_operation addExecutionBlock:^{
         NSBlockOperation *op = weakOp;
-        ONKDeviceBrowser *browser = weakSelf;
+        ONKReceiverBrowser *browser = weakSelf;
         [browser setupSocket];
         for (;;) {
             if ([op isCancelled]) break;

@@ -20,7 +20,7 @@
 @interface ReceiverBrowser : NSObject <ONKReceiverBrowserDelegate>
 {
     @private
-    ONKDeviceBrowser *_browser;
+    ONKReceiverBrowser *_browser;
 }
 
 @property (strong) IBOutlet NSWindow *window;

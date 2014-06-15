@@ -22,7 +22,7 @@
     NSArray *topLevelObjects;
     [[NSBundle mainBundle] loadNibNamed:@"ReceiverSheet" owner:self topLevelObjects:&topLevelObjects];
 
-    _browser = [[ONKDeviceBrowser alloc] init];
+    _browser = [[ONKReceiverBrowser alloc] init];
     [_browser setDelegate:self delegateQueue:[NSOperationQueue mainQueue]];
 
     return self;
@@ -52,7 +52,7 @@
 }
 
 // Protocol ONKReceiverBrowserDelegate
-- (void)receiverBrowser:(ONKDeviceBrowser *)browser didFindNewReceiver:(ONKReceiver *)receiver
+- (void)receiverBrowser:(ONKReceiverBrowser *)browser didFindNewReceiver:(ONKReceiver *)receiver
 {
     [self.arrayController addObject:receiver];
 }

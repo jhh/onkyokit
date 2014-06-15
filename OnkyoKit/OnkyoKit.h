@@ -9,4 +9,4 @@
 #import <OnkyoKit/ONKReceiver.h>
 #import <OnkyoKit/ONKEvent.h>
 #import <OnkyoKit/ONKCommand.h>
-#import <OnkyoKit/ONKDeviceBrowser.h>
+#import <OnkyoKit/ONKReceiverBrowser.h>

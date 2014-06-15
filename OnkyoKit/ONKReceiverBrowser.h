@@ -7,7 +7,7 @@
 //
 
 @import Foundation;
-@class ONKDeviceBrowser;
+@class ONKReceiverBrowser;
 
 
 /**
@@ -18,7 +18,7 @@
  */
 @protocol ONKReceiverBrowserDelegate <NSObject>
 
-- (void)receiverBrowser:(ONKDeviceBrowser *)browser didFindNewReceiver:(ONKReceiver *)receiver;
+- (void)receiverBrowser:(ONKReceiverBrowser *)browser didFindNewReceiver:(ONKReceiver *)receiver;
 
 @end
 
@@ -29,7 +29,7 @@
  it is added to discoveredReceivers. If the delegate has been set, call -receiverBrowser:didFindNewReceiver
  on it.
  */
-@interface ONKDeviceBrowser : NSObject
+@interface ONKReceiverBrowser : NSObject
 
 #pragma mark Properties
 /**

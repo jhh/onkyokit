@@ -7,7 +7,7 @@
 //
 @import Darwin;
 #import "ONKReceiverSession.h"
-#import "ONKDeviceBrowser.h"
+#import "ONKReceiverBrowser.h"
 #import "ONKConfiguredReceiver.h"
 #import "ONKEvent.h"
 #import "ONKCommand.h"

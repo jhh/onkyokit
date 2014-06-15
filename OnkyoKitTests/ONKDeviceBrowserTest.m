@@ -39,7 +39,7 @@
     [super tearDown];
 }
 
-- (void)receiverBrowser:(ONKDeviceBrowser *)browser didFindNewReceiver:(ONKReceiver *)receiver
+- (void)receiverBrowser:(ONKReceiverBrowser *)browser didFindNewReceiver:(ONKReceiver *)receiver
 {
     self.notificationCount++;
     XCTAssertEqual([browser.discoveredReceivers count], self.notificationCount);
@@ -47,7 +47,7 @@
 
 - (void)testDiscover
 {
-    ONKDeviceBrowser *browser = [[ONKDeviceBrowser alloc] init];
+    ONKReceiverBrowser *browser = [[ONKReceiverBrowser alloc] init];
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     queue.name = @"ONKDeviceBrowserTest Queue";
     [browser setDelegate:self delegateQueue:queue];
