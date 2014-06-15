@@ -226,8 +226,8 @@
 		1FE378F6175EC6D900971013 /* OnkyoKitTests */ = {
 			isa = PBXGroup;
 			children = (
-				1F2318561768A9FF0025FA12 /* Network Tests */,
 				1FE37926175ECF8700971013 /* Tests */,
+				1F2318561768A9FF0025FA12 /* Network Tests */,
 				1FE378F7175EC6D900971013 /* Supporting Files */,
 			);
 			path = OnkyoKitTests;
