@@ -1,15 +1,15 @@
 //
-//  ONKReceiverImpl.h
+//  ONKReceiver_Private.h
 //  OnkyoKit
 //
-//  Created by Jeff Hutchison on 6/14/14.
+//  Created by Jeff Hutchison on 6/17/14.
 //  Copyright (c) 2014 Jeff Hutchison. All rights reserved.
 //
-@import Foundation;
-#import "ONKReceiver.h"
+
+#import <OnkyoKit/OnkyoKit.h>
 @class ONKReceiverSession;
 
-@interface ONKConfiguredReceiver : ONKReceiver
+@interface ONKReceiver ()
 
 /** The hostname or IP address of the receiver. */
 @property (readonly, nonatomic) NSString *address;

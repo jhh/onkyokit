@@ -7,19 +7,19 @@
 //
 
 @import Foundation;
-#import "ONKConfiguredReceiver.h"
+@class ONKReceiver;
 
 @interface ONKReceiverSession : NSObject
 
 /** The associated receiver. */
-@property (weak, readonly, nonatomic) ONKConfiguredReceiver *receiver;
+@property (weak, readonly, nonatomic) ONKReceiver *receiver;
 
 /** Contains any encountered error. */
 @property (nonatomic) NSError *error;
 
 #pragma mark Initializers
 
-- (instancetype)initWithConfiguredReceiver:(ONKConfiguredReceiver *)receiver;
+- (instancetype)initWithReceiver:(ONKReceiver *)receiver;
 
 #pragma mark Instance Methods
 

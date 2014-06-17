@@ -1,13 +1,12 @@
 //
-//  ONKController.m
+//  ONKReciever.m
 //  OnkyoKit
 //
 //  Created by Jeff Hutchison on 6/7/13.
 //  Copyright (c) 2013 Jeff Hutchison. All rights reserved.
 //
-#import "ONKReceiver.h"
+#import "ONKReceiver_Private.h"
 #import "ONKReceiverSession.h"
-#import "ONKConfiguredReceiver.h"
 #import "ONKService_Private.h"
 
 @implementation ONKReceiver
@@ -21,19 +20,33 @@
     return self;
 }
 
+- (instancetype)initWithAddress:(NSString *)address port:(NSUInteger)port
+{
+    NSParameterAssert(address != nil);
+    NSParameterAssert(port > 0 && port < 65535);
+    
+    self = [super init];
+    if (self) {
+        _address = address;
+        _port = port;
+        _session = [[ONKReceiverSession alloc] initWithReceiver:self];
+    }
+    return self;
+}
+
 - (void)resume
 {
-    [((ONKConfiguredReceiver *)self).session resume];
+    [((ONKReceiver *)self).session resume];
 }
 
 - (void)suspend
 {
-    [((ONKConfiguredReceiver *)self).session suspend];
+    [((ONKReceiver *)self).session suspend];
 }
 
 - (void)sendCommand:(NSString *)command
 {
-    [((ONKConfiguredReceiver *)self).session sendCommand:command];
+    [((ONKReceiver *)self).session sendCommand:command];
 
 }
 

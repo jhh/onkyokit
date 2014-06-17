@@ -7,8 +7,8 @@
 //
 @import Darwin;
 #import "ONKReceiverSession.h"
+#import "ONKReceiver_Private.h"
 #import "ONKReceiverBrowser.h"
-#import "ONKConfiguredReceiver.h"
 #import "ONKEvent.h"
 #import "ONKCommand.h"
 #import "ISCPMessage.h"
@@ -25,7 +25,7 @@
 
 #pragma mark Public Methods
 
-- (instancetype)initWithConfiguredReceiver:(ONKConfiguredReceiver *)receiver
+- (instancetype)initWithReceiver:(ONKReceiver *)receiver
 {
     NSParameterAssert(receiver);
     self = [super init];
@@ -38,7 +38,7 @@
 
 - (void)resume
 {
-    ONKConfiguredReceiver *receiver = self.receiver; // make strong
+    ONKReceiver *receiver = self.receiver; // make strong
     dispatch_fd_t fd = [self fileDescriptorForAddress:receiver.address port:receiver.port];
     if (fd  == -1) {
         id<ONKReceiverDelegate> delegate = receiver.delegate; // make strong

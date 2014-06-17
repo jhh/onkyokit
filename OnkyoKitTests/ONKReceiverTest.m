@@ -8,11 +8,11 @@
 
 #import <XCTest/XCTest.h>
 #import <OnkyoKit/ISCPMessage.h>
-#import "ONKConfiguredReceiver.h"
+#import "ONKReceiver_Private.h"
 #import "ONKReceiverSession.h"
 
 @interface ONKReceiverTest : XCTestCase <ONKReceiverDelegate>
-@property ONKConfiguredReceiver *receiver;
+@property ONKReceiver *receiver;
 @property (getter = hasPassed) BOOL passed;
 @property NSCondition *condition;
 - (void) receiver:(ONKReceiver *)receiver didSendEvent:(ONKEvent *)event;
@@ -69,10 +69,10 @@
     NSString *address = [[NSProcessInfo processInfo] environment][@"ONK_ADDRESS"];
     NSAssert(address != nil, @"ONK_ADDRESS environment variable must be set - see test comments");
 
-    self.receiver = [[ONKConfiguredReceiver alloc] initWithAddress:address port:60128];
+    self.receiver = [[ONKReceiver alloc] initWithAddress:address port:60128];
     self.receiver.delegate = self;
     self.receiver.delegateQueue = [[NSOperationQueue alloc] init];
-    ONKReceiverSession *session = [[ONKReceiverSession alloc] initWithConfiguredReceiver:self.receiver];
+    ONKReceiverSession *session = [[ONKReceiverSession alloc] initWithReceiver:self.receiver];
     
     [session resume];
 
