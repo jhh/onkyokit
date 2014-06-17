@@ -27,6 +27,7 @@
 
 - (instancetype)initWithConfiguredReceiver:(ONKConfiguredReceiver *)receiver
 {
+    NSParameterAssert(receiver);
     self = [super init];
 	if (self) {
         _receiver = receiver;

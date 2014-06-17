@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1F07249D1761565900787CCF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FBB18D2175BB1AE00E7B9C7 /* Foundation.framework */; };
 		1F0724A117615DAE00787CCF /* OnkyoKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FBB18CA175BB1AE00E7B9C7 /* OnkyoKit.framework */; };
+		1F0B84C519509C9000879775 /* ONKService.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0B84C319509C9000879775 /* ONKService.h */; };
+		1F0B84C619509C9000879775 /* ONKService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0B84C419509C9000879775 /* ONKService.m */; };
 		1F1155F6177661DB00B18A08 /* EISCPPacketTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F1155F5177661DB00B18A08 /* EISCPPacketTest.m */; };
 		1F221AEF17751AE400A6F67F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F2A3D3217751A15001F1CAC /* XCTest.framework */; };
 		1F2318591768AA420025FA12 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FBB18D2175BB1AE00E7B9C7 /* Foundation.framework */; };
@@ -17,6 +19,9 @@
 		1F23185E1768AA7B0025FA12 /* ONKReceiverTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F23185D1768AA7B0025FA12 /* ONKReceiverTest.m */; };
 		1F2A3D3317751A15001F1CAC /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F2A3D3217751A15001F1CAC /* XCTest.framework */; };
 		1F2D4E60179C410F00B9471B /* ONKReceiverErrorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2D4E5F179C410F00B9471B /* ONKReceiverErrorTest.m */; };
+		1F331660194DF26800CC08DE /* ONKCharacteristic.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F33165E194DF26800CC08DE /* ONKCharacteristic.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F331661194DF26800CC08DE /* ONKCharacteristic.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F33165F194DF26800CC08DE /* ONKCharacteristic.m */; };
+		1F331667194E7A7600CC08DE /* ONKReceiverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F331666194E7A7600CC08DE /* ONKReceiverTests.m */; };
 		1F3538EF1764E0AC002DBECD /* ISCPMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F3538ED1764E0AC002DBECD /* ISCPMessage.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		1F3538F01764E0AC002DBECD /* ISCPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3538EE1764E0AC002DBECD /* ISCPMessage.m */; };
 		1F35390A17651B19002DBECD /* EISCPPacket.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F35390817651B19002DBECD /* EISCPPacket.h */; settings = {ATTRIBUTES = (Private, ); }; };
@@ -30,9 +35,9 @@
 		1F61D7431782583700FAF0BF /* ONKReceiverBrowser.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F61D7411782583700FAF0BF /* ONKReceiverBrowser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F61D7441782583700FAF0BF /* ONKReceiverBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F61D7421782583700FAF0BF /* ONKReceiverBrowser.m */; };
 		1F61D74617825EFB00FAF0BF /* ONKDeviceBrowserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F61D74517825EFB00FAF0BF /* ONKDeviceBrowserTest.m */; };
-		1F63F8C4194CBDC300D1AE73 /* ONKReceiverSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F63F8C2194CBDC300D1AE73 /* ONKReceiverSession.h */; };
+		1F63F8C4194CBDC300D1AE73 /* ONKReceiverSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F63F8C2194CBDC300D1AE73 /* ONKReceiverSession.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		1F63F8C5194CBDC300D1AE73 /* ONKReceiverSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F63F8C3194CBDC300D1AE73 /* ONKReceiverSession.m */; };
-		1F63F8C8194CD57700D1AE73 /* ONKConfiguredReceiver.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F63F8C6194CD57700D1AE73 /* ONKConfiguredReceiver.h */; };
+		1F63F8C8194CD57700D1AE73 /* ONKConfiguredReceiver.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F63F8C6194CD57700D1AE73 /* ONKConfiguredReceiver.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		1F63F8C9194CD57700D1AE73 /* ONKConfiguredReceiver.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F63F8C7194CD57700D1AE73 /* ONKConfiguredReceiver.m */; };
 		1F90DE981767E2F7006D2A5C /* ISCPMessageTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F90DE971767E2F7006D2A5C /* ISCPMessageTest.m */; };
 		1FBB18D8175BB1AE00E7B9C7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1FBB18D6175BB1AE00E7B9C7 /* InfoPlist.strings */; };
@@ -59,11 +64,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F0B84C319509C9000879775 /* ONKService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONKService.h; sourceTree = "<group>"; };
+		1F0B84C419509C9000879775 /* ONKService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKService.m; sourceTree = "<group>"; };
+		1F0B84E61950E25700879775 /* ONKCharacteristic_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ONKCharacteristic_Private.h; sourceTree = "<group>"; };
+		1F0B84E71950E53100879775 /* ONKService_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ONKService_Private.h; sourceTree = "<group>"; };
 		1F1155F5177661DB00B18A08 /* EISCPPacketTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EISCPPacketTest.m; sourceTree = "<group>"; };
 		1F2318441768A9CC0025FA12 /* OnkyoKit Mac Network Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "OnkyoKit Mac Network Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F23185D1768AA7B0025FA12 /* ONKReceiverTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKReceiverTest.m; sourceTree = "<group>"; };
 		1F2A3D3217751A15001F1CAC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		1F2D4E5F179C410F00B9471B /* ONKReceiverErrorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKReceiverErrorTest.m; sourceTree = "<group>"; };
+		1F33165E194DF26800CC08DE /* ONKCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONKCharacteristic.h; sourceTree = "<group>"; };
+		1F33165F194DF26800CC08DE /* ONKCharacteristic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKCharacteristic.m; sourceTree = "<group>"; };
+		1F331666194E7A7600CC08DE /* ONKReceiverTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKReceiverTests.m; sourceTree = "<group>"; };
 		1F3538ED1764E0AC002DBECD /* ISCPMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISCPMessage.h; sourceTree = "<group>"; };
 		1F3538EE1764E0AC002DBECD /* ISCPMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISCPMessage.m; sourceTree = "<group>"; };
 		1F35390817651B19002DBECD /* EISCPPacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EISCPPacket.h; sourceTree = "<group>"; };
@@ -150,6 +162,12 @@
 				1F3538EE1764E0AC002DBECD /* ISCPMessage.m */,
 				1F35390817651B19002DBECD /* EISCPPacket.h */,
 				1F35390917651B19002DBECD /* EISCPPacket.m */,
+				1F33165E194DF26800CC08DE /* ONKCharacteristic.h */,
+				1F0B84E61950E25700879775 /* ONKCharacteristic_Private.h */,
+				1F33165F194DF26800CC08DE /* ONKCharacteristic.m */,
+				1F0B84C319509C9000879775 /* ONKService.h */,
+				1F0B84E71950E53100879775 /* ONKService_Private.h */,
+				1F0B84C419509C9000879775 /* ONKService.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -249,6 +267,7 @@
 				1F2D4E5F179C410F00B9471B /* ONKReceiverErrorTest.m */,
 				1F90DE971767E2F7006D2A5C /* ISCPMessageTest.m */,
 				1F1155F5177661DB00B18A08 /* EISCPPacketTest.m */,
+				1F331666194E7A7600CC08DE /* ONKReceiverTests.m */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -263,11 +282,13 @@
 				1FC1B4BE175BF50600AD1B0C /* OnkyoKit.h in Headers */,
 				1F561C041762439B0015A8AF /* ONKReceiver.h in Headers */,
 				1F561C1C176364E50015A8AF /* ONKEvent.h in Headers */,
-				1F63F8C4194CBDC300D1AE73 /* ONKReceiverSession.h in Headers */,
 				1F561C5E17639D150015A8AF /* ONKCommand.h in Headers */,
+				1F331660194DF26800CC08DE /* ONKCharacteristic.h in Headers */,
 				1F61D7431782583700FAF0BF /* ONKReceiverBrowser.h in Headers */,
-				1F63F8C8194CD57700D1AE73 /* ONKConfiguredReceiver.h in Headers */,
+				1F63F8C4194CBDC300D1AE73 /* ONKReceiverSession.h in Headers */,
+				1F0B84C519509C9000879775 /* ONKService.h in Headers */,
 				1F3538EF1764E0AC002DBECD /* ISCPMessage.h in Headers */,
+				1F63F8C8194CD57700D1AE73 /* ONKConfiguredReceiver.h in Headers */,
 				1F35390A17651B19002DBECD /* EISCPPacket.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -434,8 +455,10 @@
 				1F561C1D176364E50015A8AF /* ONKEvent.m in Sources */,
 				1F63F8C9194CD57700D1AE73 /* ONKConfiguredReceiver.m in Sources */,
 				1F561C5F17639D150015A8AF /* ONKCommand.m in Sources */,
+				1F331661194DF26800CC08DE /* ONKCharacteristic.m in Sources */,
 				1F3538F01764E0AC002DBECD /* ISCPMessage.m in Sources */,
 				1F35390B17651B19002DBECD /* EISCPPacket.m in Sources */,
+				1F0B84C619509C9000879775 /* ONKService.m in Sources */,
 				1F61D7441782583700FAF0BF /* ONKReceiverBrowser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -445,6 +468,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F2D4E60179C410F00B9471B /* ONKReceiverErrorTest.m in Sources */,
+				1F331667194E7A7600CC08DE /* ONKReceiverTests.m in Sources */,
 				1F1155F6177661DB00B18A08 /* EISCPPacketTest.m in Sources */,
 				1F90DE981767E2F7006D2A5C /* ISCPMessageTest.m in Sources */,
 			);

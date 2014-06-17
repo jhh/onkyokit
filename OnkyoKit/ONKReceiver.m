@@ -8,15 +8,18 @@
 #import "ONKReceiver.h"
 #import "ONKReceiverSession.h"
 #import "ONKConfiguredReceiver.h"
+#import "ONKService_Private.h"
 
-// TODO: implement error reporting
 @implementation ONKReceiver
 
-//- (NSString *)description
-//{
-//    return [NSString stringWithFormat:@"<%@ at %@:%lu (unique identifier: %@)>",
-//            self.model, self.address, (unsigned long)_port, self.uniqueIdentifier];
-//}
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _services = @[ [[ONKService alloc] initWithReceiver:self] ];
+    }
+    return self;
+}
 
 - (void)resume
 {
