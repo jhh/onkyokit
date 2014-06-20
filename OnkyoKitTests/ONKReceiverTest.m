@@ -73,7 +73,7 @@
     self.receiver.delegate = self;
     self.receiver.delegateQueue = [[NSOperationQueue alloc] init];
     ONKReceiverSession *session = [[ONKReceiverSession alloc] initWithReceiver:self.receiver];
-    
+
     [session resume];
 
     [self.condition lock];

@@ -14,13 +14,13 @@
 #import "ISCPMessage.h"
 
 @implementation ONKReceiverSession
-{    
+{
     /** GCD IO channel. */
     dispatch_io_t _channel;
-    
+
     /** A GCD queue created to handle network traffic. */
     dispatch_queue_t _socketQueue;
-    
+
 }
 
 #pragma mark Public Methods
@@ -50,7 +50,7 @@
     }
     _channel = dispatch_io_create(DISPATCH_IO_STREAM, fd, _socketQueue, NULL);
     dispatch_io_set_low_water(_channel, 1);
-    
+
     __weak ONKReceiverSession *weakSelf = self;
     dispatch_io_read(_channel, 0, SIZE_MAX, _socketQueue, ^(bool done, dispatch_data_t data, int error) {
         ONKReceiverSession *strongSelf = weakSelf;
@@ -92,13 +92,13 @@
 - (dispatch_fd_t)fileDescriptorForAddress:(NSString *)address port:(uint16_t)port
 {
     struct sockaddr_in sock_addr;
-    
+
     dispatch_fd_t sock = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP);
     if (sock == -1) {
         [self setErrorWithDescription:@"Socket error" code:errno];
         return -1;
     }
-    
+
     bzero(&sock_addr, sizeof sock_addr);
     sock_addr.sin_family = PF_INET;
     sock_addr.sin_port = htons(port);
@@ -107,7 +107,7 @@
         close(sock);
         return -1;
     }
-    
+
     if (connect(sock, (struct sockaddr *) &sock_addr, sizeof sock_addr) == -1) {
         [self setErrorWithDescription:[NSString stringWithFormat:@"Connect error to %@", address] code:errno];
         close(sock);

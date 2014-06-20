@@ -24,12 +24,12 @@
 
 - (void)writeValue:(id)value completionHandler:(void (^)(NSError *error))completion
 {
-    
+
 }
 
 - (void)readValueWithCompletionHandler:(void (^)(NSError *error))completion
 {
-    
+
 }
 
 

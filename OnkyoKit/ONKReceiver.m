@@ -24,7 +24,7 @@
 {
     NSParameterAssert(address != nil);
     NSParameterAssert(port > 0 && port < 65535);
-    
+
     self = [super init];
     if (self) {
         _address = address;

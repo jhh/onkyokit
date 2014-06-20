@@ -10,6 +10,8 @@
 
 @interface ONKCharacteristic ()
 
+@property(copy, nonatomic) id value;
+
 - (instancetype)initWithService:(ONKService *)service;
 
 @end

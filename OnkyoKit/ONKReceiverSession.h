@@ -9,27 +9,40 @@
 @import Foundation;
 @class ONKReceiver;
 
+/**
+ * @brief An ONKReceiverSession object represents a network session with a
+ * receiver.
+ */
 @interface ONKReceiverSession : NSObject
 
-/** The associated receiver. */
+/**
+ * @brief The associated ONKReceiver instance.
+ */
 @property (weak, readonly, nonatomic) ONKReceiver *receiver;
 
-/** Contains any encountered error. */
+/**
+ * @brief Contains any encountered error.
+ */
 @property (nonatomic) NSError *error;
 
-#pragma mark Initializers
-
+/**
+ * @brief Initialize with a configured ONKReceiver object.
+ */
 - (instancetype)initWithReceiver:(ONKReceiver *)receiver;
 
-#pragma mark Instance Methods
-
-/** Start or resume the connection to the remote device. */
+/**
+ * @brief Start or resume the connection to the remote device.
+ */
 - (void)resume;
 
-/** Suspend the connection to the remote device. */
+/**
+ * @brief Suspend the connection to the remote device.
+ */
 - (void)suspend;
 
-/** Sends command after 200ms delay. */
+/**
+ * @brief Sends command after 200ms delay.
+ */
 - (void)sendCommand:(NSString *)command;
 
 @end

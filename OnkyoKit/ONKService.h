@@ -9,13 +9,20 @@
 @import Foundation;
 @class ONKReceiver;
 
+/**
+ * @brief An ONKService represents a service provided by a receiver.
+ *
+ * A receiver provides multiple services, for example, zones. Services have
+ * characteristics that can be queried to discover their state or modified to
+ * cause the receiver to modify its behavior.
+ */
 @interface ONKService : NSObject
 
-/** Receiver that provides this service. */
+/** @brief Receiver that provides this service. */
 @property(readonly, weak, nonatomic) ONKReceiver *receiver;
 
 
-/** Array of characteristics of this receiver. (read-only) */
+/** @brief Array of characteristics of this receiver. (read-only) */
 @property(readonly, copy, nonatomic) NSArray *characteristics;
 
 @end

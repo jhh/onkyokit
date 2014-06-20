@@ -13,56 +13,77 @@
 
 
 /**
- Represents an Onkyo AV receiver.
-*/
+ * @brief AN ONKReceiver object represents an Onkyo receiver.
+ *
+ * A receiver provides one or more services, represented by instances
+ * of ONKService.
+ */
 @interface ONKReceiver : NSObject
 
-/** The model name of the device. */
+/** @brief The model name of the device. */
 @property (copy) NSString *model;
 
-/** The MAC address of the device. */
+/** @brief The MAC address of the device. */
 @property NSString *uniqueIdentifier;
 
-/** Array of characteristics of this receiver. (read-only) */
+/** @brief Array of characteristics of this receiver. (read-only) */
 @property(readonly, copy, nonatomic) NSArray *services;
 
 
-/** Delegate that receives events from device this controller is connected to.  */
+/** @brief Delegate that receives events from device this controller is connected to.  */
 @property (weak, readwrite) id<ONKReceiverDelegate> delegate;
 
-/** Operation queue that delegate messages are sent on.  */
+/** @brief Operation queue that delegate messages are sent on.  */
 @property (retain, readwrite) NSOperationQueue *delegateQueue;
 
-///////////////////////////////////////////////////////////////////////////////////////
-// FIXME: temporary methods for refactoring
-///////////////////////////////////////////////////////////////////////////////////////
-
-- (void)resume __attribute__((deprecated));
-- (void)suspend __attribute__((deprecated));
-- (void)sendCommand:(NSString *)command __attribute__((deprecated));
+/**
+ * @brief Resume the network connection to the receiver.
+ * @todo This will be moved to another class.
+*/
+- (void)resume;
+/**
+ * @brief Suspend the network connection to the receiver.
+ * @todo This will be moved to another class.
+*/
+- (void)suspend;
+/**
+ * @brief Send a command over the network connection to the receiver.
+ * @todo This will be moved to another class.
+*/
+- (void)sendCommand:(NSString *)command;
 
 @end
 
 /**
- Delegates implement this protocol to receive events from connected device implement this
- protocol. Messages delivered are sent on a queue you specify with the delegateQueue parameter.
+ * @brief A delegate conforming to ONKReceiverDelegate receives status updates
+ * from the receiver.
+ *
+ * Delegates implement this protocol to receive events from connected device
+ * implement this protocol. Messages delivered are sent on a queue you
+ * specify with the delegateQueue parameter.
  */
 @protocol ONKReceiverDelegate <NSObject>
 
-/** Sent when an event is recieved from the remote device.
- 
- @param receiver The receiver sending the message.
- @param event An event object containing the details of the event.
+/**
+ * @brief Sent when an event is recieved from the remote device.
+ *
+ * @param receiver The receiver sending the message.
+ * @param event An event object containing the details of the event.
+ * @todo This method signature needs to change.
  */
-- (void)receiver:(ONKReceiver *)receiver didSendEvent:(ONKEvent *)event __attribute__((deprecated));
+- (void)receiver:(ONKReceiver *)receiver didSendEvent:(ONKEvent *)event;
 
-/** Sent when a connection fails to send or receive from the remote device. Once  the
- delegate receives this message, it will receive no more events from receiver object.
- 
- @param receiver The receiver sending the message.
- @param error An error object containing details of why the connection failed.
+/**
+ * @brief Sent when a connection fails to send or receive from the remote device.
+ *
+ * Once the delegate receives this message, it will receive no more events
+ * from receiver object.
+ *
+ * @param receiver The receiver sending the message.
+ * @param error An error object containing details of why the connection failed.
+ * @todo This method signature needs to change.
  */
-- (void)receiver:(ONKReceiver *)receiver didFailWithError:(NSError *)error __attribute__((deprecated));
+- (void)receiver:(ONKReceiver *)receiver didFailWithError:(NSError *)error;
 
 @end
 

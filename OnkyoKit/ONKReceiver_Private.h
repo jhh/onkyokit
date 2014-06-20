@@ -22,7 +22,7 @@
 
 /**
  Initialize a receiver object.
- 
+
  @param address  The hostname or IP address of the remote device.
  @param port The port used by the remote device.
  */
