@@ -58,16 +58,16 @@
 
 #pragma mark Methods
 /**
- * @brief Set a delegate to receive updates on the discovered receivers. The
- * delegate will be called on the supplied #delegateQueue.
+ * @brief Create a session with the specified delegate and operation queue.
  *
  * @param delegate A browser delegate object that receives notification of
  *                 discovered receivers.
- * @param delegateQueue A queue for scheduling the delegate calls. If nil, the
- *                      browser creates a serial operation queue for performing
- *                      all delegate method calls.
+ * @param queue A queue for scheduling the delegate calls. If nil, the
+ *              browser creates a serial operation queue for performing all
+ *              delegate method calls.
  */
-- (void)setDelegate:(id<ONKReceiverBrowserDelegate>)delegate delegateQueue:(NSOperationQueue *)delegateQueue;
++ (instancetype)browserWithDelegate:(id<ONKReceiverBrowserDelegate>)delegate
+                      delegateQueue:(NSOperationQueue *)queue;
 
 /**
  * @brief Start searching for receivers. When receivers are discovered the

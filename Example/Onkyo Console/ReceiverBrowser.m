@@ -22,8 +22,7 @@
     NSArray *topLevelObjects;
     [[NSBundle mainBundle] loadNibNamed:@"ReceiverSheet" owner:self topLevelObjects:&topLevelObjects];
 
-    _browser = [[ONKReceiverBrowser alloc] init];
-    [_browser setDelegate:self delegateQueue:[NSOperationQueue mainQueue]];
+    _browser = [ONKReceiverBrowser browserWithDelegate:self delegateQueue:[NSOperationQueue mainQueue]];
 
     return self;
 }

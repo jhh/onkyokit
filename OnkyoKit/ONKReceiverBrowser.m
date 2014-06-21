@@ -14,11 +14,18 @@
 #define RECV_BUF_LENGTH 100
 #define TIMEOUT 2
 
+@interface ONKReceiverBrowser ()
+
+@property (weak, nonatomic) id<ONKReceiverBrowserDelegate> delegate;
+@property (nonatomic) NSOperationQueue *delegateQueue;
+
+@end
+
 // TODO: implement error reporting
 @implementation ONKReceiverBrowser
 {
     int _sock;
-    NSOperationQueue *_queue, *_delegateQueue;
+    NSOperationQueue *_workQueue, *_delegateQueue;
     NSBlockOperation *_operation;
     NSMutableDictionary *_discoveredReceiversMap;
 }
@@ -28,25 +35,19 @@
 {
     self = [super init];
     if (self) {
-        _queue = [[NSOperationQueue alloc] init];
-        _queue.name = @"Device Browser Queue";
+        _workQueue = [[NSOperationQueue alloc] init];
+        _workQueue.name = @"ONKRecieverBrowser Work Queue";
         _discoveredReceiversMap = [[NSMutableDictionary alloc] init];
     }
     return self;
 }
 
-- (void)setDelegate:(id<ONKReceiverBrowserDelegate>)delegate delegateQueue:(NSOperationQueue *)delegateQueue
++ (instancetype)browserWithDelegate:(id<ONKReceiverBrowserDelegate>)delegate delegateQueue:(NSOperationQueue *)queue
 {
-    _delegate = delegate;
-    _delegateQueue = delegateQueue;
-}
-
-- (NSOperationQueue *)delegateQueue
-{
-    if (!_delegateQueue) {
-        _delegateQueue = [[NSOperationQueue alloc] init];
-    }
-    return _delegateQueue;
+    ONKReceiverBrowser *browser = [[ONKReceiverBrowser alloc] init];
+    browser.delegate = delegate;
+    browser.delegateQueue = queue ? queue : [[NSOperationQueue alloc] init];
+    return browser;
 }
 
 - (NSArray *)discoveredReceivers
@@ -71,7 +72,7 @@
         }
         [browser closeSocket];
     }];
-    [_queue addOperation:_operation];
+    [_workQueue addOperation:_operation];
 }
 
 - (void)stopSearchingForNewReceivers

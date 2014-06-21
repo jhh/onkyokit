@@ -45,12 +45,27 @@
     XCTAssertEqual([browser.discoveredReceivers count], self.notificationCount);
 }
 
+- (void)testInitWithQueue
+{
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    queue.name = @"Ham Sandwich";
+    ONKReceiverBrowser *browser = [ONKReceiverBrowser browserWithDelegate:self delegateQueue:queue];
+    XCTAssertNotNil(browser.delegateQueue);
+    XCTAssertEqualObjects(queue, browser.delegateQueue);
+}
+
+- (void)testInitWithoutQueue
+{
+    ONKReceiverBrowser *browser = [ONKReceiverBrowser browserWithDelegate:self delegateQueue:nil];
+    XCTAssertNotNil(browser.delegateQueue);
+    XCTAssertTrue([browser.delegateQueue isKindOfClass:[NSOperationQueue class]]);
+}
+
 - (void)testDiscover
 {
-    ONKReceiverBrowser *browser = [[ONKReceiverBrowser alloc] init];
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     queue.name = @"ONKDeviceBrowserTest Queue";
-    [browser setDelegate:self delegateQueue:queue];
+    ONKReceiverBrowser *browser = [ONKReceiverBrowser browserWithDelegate:self delegateQueue:queue];
     [self.condition lock];
     [browser startSearchingForNewReceivers];
 
