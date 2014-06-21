@@ -11,7 +11,7 @@
 #import "ONKReceiver_Private.h"
 #import "ONKReceiverSession.h"
 
-@interface ONKReceiverTest : XCTestCase <ONKReceiverDelegate>
+@interface ONKReceiverNetworkTests : XCTestCase <ONKReceiverDelegate>
 @property ONKReceiver *receiver;
 @property (getter = hasPassed) BOOL passed;
 @property NSCondition *condition;
@@ -27,7 +27,7 @@
 //
 // We utilize NSCondition to synchronize between GCD threads since this is
 // asynchronous.
-@implementation ONKReceiverTest
+@implementation ONKReceiverNetworkTests
 
 - (void)receiver:(ONKReceiver *)receiver didSendEvent:(ONKEvent *)event
 {

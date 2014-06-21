@@ -9,7 +9,7 @@
 #import <XCTest/XCTest.h>
 #import <OnkyoKit/OnkyoKit.h>
 
-@interface ONKDeviceBrowserTest : XCTestCase <ONKReceiverBrowserDelegate>
+@interface ONKDeviceBrowserNetworkTests : XCTestCase <ONKReceiverBrowserDelegate>
 
 @property NSMutableArray *receivers;
 @property NSCondition *condition;
@@ -24,7 +24,7 @@
 // ( https://github.com/jhh/onkyo-simulator/ ) to be running.
 //
 // We utilize NSCondition to synchronize since discovery is asynchronous.
-@implementation ONKDeviceBrowserTest
+@implementation ONKDeviceBrowserNetworkTests
 
 - (void)setUp
 {
