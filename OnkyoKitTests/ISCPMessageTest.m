@@ -43,4 +43,13 @@
     XCTAssertEqualObjects(iscp.data, ([[NSString stringWithFormat:@"!1%@\r", msg] dataUsingEncoding:NSASCIIStringEncoding]), @"should convert message to data");
 }
 
+- (void)testSearchMessage
+{
+    NSString *msg = @"ECNQSTN";
+    ISCPMessage *iscp = [ISCPMessage deviceSearchMessage];
+    XCTAssertEqualObjects(msg, iscp.message);
+    NSData *data = [[NSString stringWithFormat:@"!x%@\r", msg] dataUsingEncoding:NSASCIIStringEncoding];
+    XCTAssertEqualObjects(data, iscp.data, @"should convert message to data");
+}
+
 @end
