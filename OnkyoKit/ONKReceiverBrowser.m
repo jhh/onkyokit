@@ -89,7 +89,7 @@
 
     // UDP socket
     if ((_sock = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP)) == -1) {
-        NSLog(@"%s socket: %s", __PRETTY_FUNCTION__, strerror(errno));
+        NSLog(@"ERROR: %s socket: %s", __PRETTY_FUNCTION__, strerror(errno));
     }
 
     // bind sock to any address and any port
@@ -98,12 +98,12 @@
     my_addr.sin_addr.s_addr = INADDR_ANY;
 
     if (bind(_sock, (struct sockaddr *)&my_addr, sizeof my_addr) == -1) {
-        NSLog(@"%s bind: %s", __PRETTY_FUNCTION__, strerror(errno));
+        NSLog(@"ERROR: %s bind: %s", __PRETTY_FUNCTION__, strerror(errno));
     }
 
     // will broadcast on sock
     if (setsockopt(_sock, SOL_SOCKET, SO_BROADCAST, &broadcast, sizeof broadcast) == -1) {
-        NSLog(@"%s setsockopt: %s", __PRETTY_FUNCTION__, strerror(errno));
+        NSLog(@"ERROR: %s setsockopt: %s", __PRETTY_FUNCTION__, strerror(errno));
     }
 }
 
@@ -119,8 +119,9 @@
     dest_addr.sin_port = htons(60128);
 
     ONKCommand *magic = [[ONKCommand alloc] initWithMessage:[ISCPMessage deviceSearchMessage]];
-    if ((numbytes = sendto(_sock, [magic.data bytes], [magic.data length], 0, (struct sockaddr *)&dest_addr, sizeof dest_addr)) == -1) {
-        NSLog(@"%s sendto: %s", __PRETTY_FUNCTION__, strerror(errno));
+    numbytes = sendto(_sock, [magic.data bytes], [magic.data length], 0, (struct sockaddr *)&dest_addr, sizeof dest_addr);
+    if (numbytes == -1) {
+        NSLog(@"ERROR: %s sendto: %s", __PRETTY_FUNCTION__, strerror(errno));
     }
 }
 
@@ -133,31 +134,41 @@
     struct timeval timeout;
     int ready;
 
-    // use select(2) loop to look for recieved devices
-    FD_ZERO(&read_fds);
-
+    // loop through the number of receivers found on the network
     for (;;) {
-        FD_SET(_sock, &read_fds);
-        timeout.tv_sec = TIMEOUT;
-        timeout.tv_usec = 0;
-        if ((ready = select(_sock+1, &read_fds, NULL, NULL, &timeout)) == -1) {
-            // TODO: check for EINTR
-            NSLog(@"%s select: %s", __PRETTY_FUNCTION__, strerror(errno));
+        // use select to check _sock with timeout
+        do {
+            FD_ZERO(&read_fds);
+            FD_SET(_sock, &read_fds);
+            timeout.tv_sec = TIMEOUT;
+            timeout.tv_usec = 0;
+            ready = select(_sock+1, &read_fds, NULL, NULL, &timeout);
+        } while (ready == -1 && errno == EINTR);
+
+        // break on _sock timeout or error
+        if (ready == 0) {
+            NSLog(@"TIMEOUT: %s", __PRETTY_FUNCTION__);
+            break;
+        } else if (!ready) {
+            NSLog(@"ERROR: %s select: %s", __PRETTY_FUNCTION__, strerror(errno));
             break;
         }
 
-        if (!ready) { // timeout, nothing to receive
-            break;
-        }
-
+        // read from ready _sock
         if (FD_ISSET(_sock, &read_fds)) {
             socklen_t addr_len = sizeof dest_addr;
-            if ((numbytes = recvfrom(_sock, recv_buf, RECV_BUF_LENGTH, 0, (struct sockaddr *)&dest_addr, &addr_len)) == -1) {
-                NSLog(@"%s recvfrom: %s", __PRETTY_FUNCTION__, strerror(errno));
+            numbytes = recvfrom(_sock, recv_buf, RECV_BUF_LENGTH, 0, (struct sockaddr *)&dest_addr, &addr_len);
+            if (numbytes == -1) {
+                NSLog(@"ERROR: %s recvfrom: %s", __PRETTY_FUNCTION__, strerror(errno));
+                break;
             }
 
+            // use data in recv_buf to initialize ONKReceiver object
             NSString *address = @(inet_ntoa(dest_addr.sin_addr));
-            ONKReceiver *receiver = [self receiverFromDiscoveryData:[NSData dataWithBytes:recv_buf length:numbytes] atAddress:address];
+            ONKReceiver *receiver = [self receiverFromDiscoveryData:[NSData dataWithBytes:recv_buf length:numbytes]
+                                                          atAddress:address];
+
+            // call delegate if this is first response from this receiver
             if (![_discoveredReceiversMap objectForKey:receiver.uniqueIdentifier]) {
                 [_discoveredReceiversMap setObject:receiver forKey:receiver.uniqueIdentifier];
                 id<ONKReceiverBrowserDelegate> strongDelegate = self.delegate;
@@ -184,7 +195,7 @@
 {
     // all done
     if (close(_sock) == -1) {
-        NSLog(@"%s close: %s", __PRETTY_FUNCTION__, strerror(errno));
+        NSLog(@"ERROR: %s close: %s", __PRETTY_FUNCTION__, strerror(errno));
     }
 }
 

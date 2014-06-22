@@ -50,4 +50,9 @@
 
 }
 
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"ONKReciever: %@ (%@)", self.model, self.uniqueIdentifier];
+}
+
 @end
