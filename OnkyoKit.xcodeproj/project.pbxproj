@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		1F07249D1761565900787CCF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FBB18D2175BB1AE00E7B9C7 /* Foundation.framework */; };
 		1F0724A117615DAE00787CCF /* OnkyoKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FBB18CA175BB1AE00E7B9C7 /* OnkyoKit.framework */; };
-		1F0B84C519509C9000879775 /* ONKService.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0B84C319509C9000879775 /* ONKService.h */; };
+		1F0B84C519509C9000879775 /* ONKService.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0B84C319509C9000879775 /* ONKService.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		1F0B84C619509C9000879775 /* ONKService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0B84C419509C9000879775 /* ONKService.m */; };
 		1F1155F6177661DB00B18A08 /* EISCPPacketTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F1155F5177661DB00B18A08 /* EISCPPacketTest.m */; };
 		1F221AEF17751AE400A6F67F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F2A3D3217751A15001F1CAC /* XCTest.framework */; };
@@ -427,8 +427,8 @@
 				1F331660194DF26800CC08DE /* ONKCharacteristic.h in Headers */,
 				1F61D7431782583700FAF0BF /* ONKReceiverBrowser.h in Headers */,
 				1F63F8C4194CBDC300D1AE73 /* ONKReceiverSession.h in Headers */,
-				1F0B84C519509C9000879775 /* ONKService.h in Headers */,
 				1F3538EF1764E0AC002DBECD /* ISCPMessage.h in Headers */,
+				1F0B84C519509C9000879775 /* ONKService.h in Headers */,
 				1F35390A17651B19002DBECD /* EISCPPacket.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
