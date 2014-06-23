@@ -10,6 +10,7 @@
 #import "ONKReceiver.h"
 #import "ONKService.h"
 #import "ONKCharacteristic.h"
+#import <OCMock/OCMock.h>
 
 @interface ONKReceiverTests : XCTestCase
 
@@ -53,4 +54,10 @@
     XCTAssertNotNil([characteristic characteristicType]);
 }
 
+- (void)testMock
+{
+    id mock = OCMClassMock([ONKReceiver class]);
+    OCMStub([mock services]).andReturn([NSArray array]);
+    NSLog(@"%@", [mock services]);
+}
 @end
