@@ -20,7 +20,7 @@
     return self;
 }
 
-- (instancetype)initWithAddress:(NSString *)address port:(NSUInteger)port
+- (instancetype)initWithAddress:(NSString *)address port:(UInt16)port
 {
     NSParameterAssert(address != nil);
     NSParameterAssert(port > 0 && port < 65535);

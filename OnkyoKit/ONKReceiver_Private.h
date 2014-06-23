@@ -15,7 +15,7 @@
 @property (readonly, nonatomic) NSString *address;
 
 /** The IP port of the receiver. */
-@property (readonly, nonatomic) NSUInteger port;
+@property (readonly, nonatomic) UInt16 port;
 
 /** The session object used to communicate with the receiver. */
 @property (nonatomic) ONKReceiverSession *session;
@@ -26,6 +26,6 @@
  @param address  The hostname or IP address of the remote device.
  @param port The port used by the remote device.
  */
-- (instancetype)initWithAddress:(NSString *)address port:(NSUInteger)port;
+- (instancetype)initWithAddress:(NSString *)address port:(UInt16)port;
 
 @end

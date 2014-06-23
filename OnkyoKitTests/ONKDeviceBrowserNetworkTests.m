@@ -13,7 +13,7 @@
 
 @property NSMutableArray *receivers;
 @property NSCondition *condition;
-@property NSInteger notificationCount;
+@property NSUInteger notificationCount;
 
 @end
 
