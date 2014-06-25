@@ -171,9 +171,10 @@
             // call delegate if this is first response from this receiver
             if (![_discoveredReceiversMap objectForKey:receiver.uniqueIdentifier]) {
                 [_discoveredReceiversMap setObject:receiver forKey:receiver.uniqueIdentifier];
-                id<ONKReceiverBrowserDelegate> strongDelegate = self.delegate;
+                // block captures strong reference to delegate
+                id<ONKReceiverBrowserDelegate> cachedDelegate = self.delegate;
                 [self.delegateQueue addOperationWithBlock:^{
-                    [strongDelegate receiverBrowser:self didFindNewReceiver:receiver];
+                    [cachedDelegate receiverBrowser:self didFindNewReceiver:receiver];
                 }];
             }
         }
@@ -184,10 +185,12 @@
 {
     ONKEvent *event = [[ONKEvent alloc] initWithData:message];
     NSArray *components = [event.message.message componentsSeparatedByString:@"/"];
-    ONKReceiver *receiver = [[ONKReceiver alloc] initWithAddress:address port:(UInt16)[components[1] integerValue]];
-    receiver.model = [components[0] substringFromIndex:3]; // trim leading 'ECN'
-    NSString *mac = components[3]; // MAC address, max length 12 per onkyo docs
-    receiver.uniqueIdentifier = [mac length] > 12 ? [mac substringToIndex:12] : mac;
+    NSString *mac = components[3];
+
+    ONKReceiver *receiver = [[ONKReceiver alloc] initWithModel:[components[0] substringFromIndex:3] // trim leading 'ECN'
+                                              uniqueIdentifier:[mac substringToIndex:MIN(12ul, [mac length])]
+                                                       address:address
+                                                          port:(UInt16)[components[1] integerValue]];
     return receiver;
 }
 

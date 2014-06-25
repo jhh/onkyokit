@@ -11,21 +11,30 @@
 
 @interface ONKReceiver ()
 
-/** The hostname or IP address of the receiver. */
+/** @brief The hostname or IP address of the receiver. */
 @property (readonly, nonatomic) NSString *address;
 
-/** The IP port of the receiver. */
+/** @brief The IP port of the receiver. */
 @property (readonly, nonatomic) UInt16 port;
 
-/** The session object used to communicate with the receiver. */
+/** @brief The session object used to communicate with the receiver. */
 @property (nonatomic) ONKReceiverSession *session;
 
 /**
- Initialize a receiver object.
-
- @param address  The hostname or IP address of the remote device.
- @param port The port used by the remote device.
+ * @brief Initialize a receiver object at address for the specified model with
+ *        its associated services and characteristics.
+ *
+ * @param model The receiver model identifier.
+ * @param uniqueIdentifier The network MAC address of the receiver.
+ * @param address  The hostname or IP address of the remote device.
+ * @param port The port used by the remote device.
+ * 
+ * @returns A receiver configured for the specified model and address. Returns
+ *          nil if the model services and characteristics can not be parsed.
  */
-- (instancetype)initWithAddress:(NSString *)address port:(UInt16)port;
+- (instancetype)initWithModel:(NSString *)model
+             uniqueIdentifier:(NSString *)uniqueIdentifier
+                      address:(NSString *)address
+                         port:(UInt16)port;
 
 @end

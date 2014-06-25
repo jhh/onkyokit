@@ -11,25 +11,21 @@
 
 @implementation ONKReceiver
 
-- (instancetype)init
+
+- (instancetype)initWithModel:(NSString *)model
+             uniqueIdentifier:(NSString *)uniqueIdentifier
+                      address:(NSString *)address
+                         port:(UInt16)port
 {
     self = [super init];
-    if (self) {
-        _services = @[ [[ONKService alloc] initWithReceiver:self] ];
-    }
-    return self;
-}
-
-- (instancetype)initWithAddress:(NSString *)address port:(UInt16)port
-{
-    NSParameterAssert(address != nil);
-    NSParameterAssert(port > 0 && port < 65535);
-
-    self = [super init];
-    if (self) {
+    if (self && model && uniqueIdentifier && address && port > 0) {
+        _model = [model copy];
+        _uniqueIdentifier = [uniqueIdentifier copy];
         _address = address;
         _port = port;
         _session = [[ONKReceiverSession alloc] initWithReceiver:self];
+    } else {
+        self = nil;
     }
     return self;
 }

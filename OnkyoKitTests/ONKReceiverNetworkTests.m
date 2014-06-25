@@ -22,7 +22,7 @@
 //
 // These tests is run as part of the "OnkyoKit Mac Network Tests" scheme. To run
 // these tests you must set the ONK_ADDRESS environment variable to the address of
-// a suitable Onkyo test device. The ONK_ADDRESS variable is set in the scheme
+// a suitable Onkyo test device. The ONK_ADDRESS variable is set in the Xcode scheme
 // definition.
 //
 // We utilize NSCondition to synchronize between GCD threads since this is
@@ -69,7 +69,7 @@
     NSString *address = [[NSProcessInfo processInfo] environment][@"ONK_ADDRESS"];
     NSAssert(address != nil, @"ONK_ADDRESS environment variable must be set - see test comments");
 
-    self.receiver = [[ONKReceiver alloc] initWithAddress:address port:60128];
+    self.receiver = [[ONKReceiver alloc] initWithModel:@"Test" uniqueIdentifier:@"123" address:address port:60128];
     self.receiver.delegate = self;
     self.receiver.delegateQueue = [[NSOperationQueue alloc] init];
     ONKReceiverSession *session = [[ONKReceiverSession alloc] initWithReceiver:self.receiver];

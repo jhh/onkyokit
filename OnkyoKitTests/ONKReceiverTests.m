@@ -7,7 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "ONKReceiver.h"
+#import "ONKReceiver_Private.h"
 #import "ONKService.h"
 #import "ONKCharacteristic.h"
 #import <OCMock/OCMock.h>
@@ -26,9 +26,7 @@
 - (void)setUp
 {
     [super setUp];
-    receiver = [[ONKReceiver alloc] init];
-    service = receiver.services[0];
-    characteristic = service.characteristics[0];
+    // setup here
 }
 
 - (void)tearDown
@@ -37,27 +35,22 @@
     [super tearDown];
 }
 
-- (void)testServicesArray
+- (void)testReceiverProperties
 {
-    XCTAssertNotNil(receiver.services);
-    XCTAssertTrue([service isKindOfClass:[ONKService class]]);
+    receiver = [[ONKReceiver alloc] initWithModel:@"Test Model" uniqueIdentifier:@"123ABC" address:@"127.0.0.1" port:60128];
+    XCTAssertNotNil(receiver);
 }
 
-- (void)testCharacteristicsArray
+- (void)testServiceProperties
 {
-    XCTAssertNotNil(service.characteristics);
-    XCTAssertTrue([characteristic isKindOfClass:[ONKCharacteristic class]]);
+//    XCTAssertNotNil(service.characteristics);
+//    XCTAssertTrue([characteristic isKindOfClass:[ONKCharacteristic class]]);
 }
 
-- (void)testCharacteristic
+- (void)testCharacteristicProperties
 {
-    XCTAssertNotNil([characteristic characteristicType]);
+//    XCTAssertNotNil([characteristic characteristicType]);
 }
 
-- (void)testMock
-{
-    id mock = OCMClassMock([ONKReceiver class]);
-    OCMStub([mock services]).andReturn([NSArray array]);
-    NSLog(@"%@", [mock services]);
-}
+
 @end

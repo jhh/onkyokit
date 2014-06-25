@@ -40,9 +40,21 @@
     [super tearDown];
 }
 
+- (void)testInitializer
+{
+    ONKReceiver *receiver = [[ONKReceiver alloc] initWithModel:nil uniqueIdentifier:@"a" address:@"b" port:1];
+    XCTAssertNil(receiver);
+    receiver = [[ONKReceiver alloc] initWithModel:@"a" uniqueIdentifier:nil address:@"b" port:1];
+    XCTAssertNil(receiver);
+    receiver = [[ONKReceiver alloc] initWithModel:@"a" uniqueIdentifier:@"b" address:nil port:1];
+    XCTAssertNil(receiver);
+    receiver = [[ONKReceiver alloc] initWithModel:@"a" uniqueIdentifier:@"b" address:@"c" port:0];
+    XCTAssertNil(receiver);
+}
+
 - (void)testAddressParseError
 {
-    ONKReceiver *receiver = [[ONKReceiver alloc] initWithAddress:@"-1.-1.-1.-1" port:1];
+    ONKReceiver *receiver = [[ONKReceiver alloc] initWithModel:@"Model A" uniqueIdentifier:@"1234" address:@"-1.-1.-1.-1" port:1];
     receiver.delegate = self;
     receiver.delegateQueue = [NSOperationQueue currentQueue];
     ONKReceiverSession *session = [[ONKReceiverSession alloc] initWithReceiver:receiver];
@@ -53,7 +65,7 @@
 // assumes this machine is not listening on port 1: Routing Table Maintenance Protocol
 - (void)testConnectError
 {
-    ONKReceiver *receiver = [[ONKReceiver alloc] initWithAddress:@"127.0.0.1" port:1];
+    ONKReceiver *receiver = [[ONKReceiver alloc] initWithModel:@"Model A" uniqueIdentifier:@"1234" address:@"127.0.0.1" port:1];
     receiver.delegate = self;
     receiver.delegateQueue = [NSOperationQueue currentQueue];
     ONKReceiverSession *session = [[ONKReceiverSession alloc] initWithReceiver:receiver];

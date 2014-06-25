@@ -21,20 +21,20 @@
 @interface ONKReceiver : NSObject
 
 /** @brief The model name of the device. */
-@property (copy) NSString *model;
+@property (readonly, copy, nonatomic) NSString *model;
 
 /** @brief The MAC address of the device. */
-@property NSString *uniqueIdentifier;
+@property(readonly, copy, nonatomic) NSString *uniqueIdentifier;
 
 /** @brief Array of characteristics of this receiver. (read-only) */
 @property(readonly, copy, nonatomic) NSArray *services;
 
 
 /** @brief Delegate that receives events from device this controller is connected to.  */
-@property (weak, readwrite) id<ONKReceiverDelegate> delegate;
+@property(weak, nonatomic) id<ONKReceiverDelegate> delegate;
 
 /** @brief Operation queue that delegate messages are sent on.  */
-@property (retain, readwrite) NSOperationQueue *delegateQueue;
+@property(nonatomic) NSOperationQueue *delegateQueue;
 
 /**
  * @brief Resume the network connection to the receiver.

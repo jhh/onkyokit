@@ -41,26 +41,27 @@
     ONKReceiver *receiver = self.receiver; // make strong
     dispatch_fd_t fd = [self fileDescriptorForAddress:receiver.address port:receiver.port];
     if (fd  == -1) {
-        id<ONKReceiverDelegate> delegate = receiver.delegate; // make strong
+        id<ONKReceiverDelegate> cachedDelegate = receiver.delegate; // make strong for clang
         [receiver.delegateQueue addOperationWithBlock:^{
-            [delegate receiver:receiver didFailWithError:self.error];
+            [cachedDelegate receiver:receiver didFailWithError:self.error];
         }];
-        [delegate receiver:receiver didFailWithError:self.error];
+        [cachedDelegate receiver:receiver didFailWithError:self.error];
         return;
     }
     _channel = dispatch_io_create(DISPATCH_IO_STREAM, fd, _socketQueue, NULL);
     dispatch_io_set_low_water(_channel, 1);
 
-    __weak ONKReceiverSession *weakSelf = self;
+    __weak ONKReceiverSession *weakSelf = self; // avoid strong reference cycle while capturing self
     dispatch_io_read(_channel, 0, SIZE_MAX, _socketQueue, ^(bool done, dispatch_data_t data, int error) {
-        ONKReceiverSession *strongSelf = weakSelf;
+        ONKReceiverSession *cachedSelf = weakSelf; // make strong for clang
+        NSAssert(cachedSelf, @"ASSERT: cachedSelf cannot be nil");
         if(error == 0) {
-            [strongSelf processData:data];
+            [cachedSelf processData:data];
         } else {
-            [strongSelf setErrorWithDescription:@"Network read error" code:error];
+            [cachedSelf setErrorWithDescription:@"ERROR: network read" code:error];
             [receiver.delegateQueue addOperationWithBlock:^{
-                id<ONKReceiverDelegate> delegate = receiver.delegate; // make strong
-                [delegate receiver:strongSelf.receiver didFailWithError:strongSelf.error];
+                id<ONKReceiverDelegate> cachedDelegate = receiver.delegate; // make strong for clang
+                [cachedDelegate receiver:cachedSelf.receiver didFailWithError:cachedSelf.error];
             }];
         }
         if(done) NSLog(@"READ DONE!!!");
@@ -78,7 +79,8 @@
 - (void)sendCommand:(NSString *)command
 {
     ONKCommand *packet = [ONKCommand commandWithMessage:[[ISCPMessage alloc] initWithMessage:command]];
-    dispatch_data_t message = dispatch_data_create([packet.data bytes], [packet.data length], dispatch_get_global_queue(0, 0), DISPATCH_DATA_DESTRUCTOR_DEFAULT);
+    dispatch_data_t message = dispatch_data_create([packet.data bytes], [packet.data length],
+                                                   dispatch_get_global_queue(0, 0), DISPATCH_DATA_DESTRUCTOR_DEFAULT);
     dispatch_time_t delay = dispatch_time(DISPATCH_TIME_NOW, 2000ull*NSEC_PER_USEC); // 200 ms
     dispatch_after(delay, dispatch_get_global_queue(0, 0), ^{
         dispatch_io_write(self->_channel, 0, message, self->_socketQueue, ^(bool done, dispatch_data_t data, int error) {
@@ -119,14 +121,15 @@
 
 - (void)processData:(dispatch_data_t)data
 {
-    ONKReceiver *receiver = self.receiver; // make strong
-    [receiver.delegateQueue addOperationWithBlock:^{
+    // capture strong reference to receiver in block, avoid reference cycle to self
+    ONKReceiver *cachedReceiver = self.receiver;
+    [cachedReceiver.delegateQueue addOperationWithBlock:^{
         const void *buffer;
         size_t length;
         __unused dispatch_data_t tmpData = dispatch_data_create_map(data, &buffer, &length);
         NSData *response = [NSData dataWithBytes:buffer length:length];
-        id<ONKReceiverDelegate> delegate = receiver.delegate; // make strong
-        [delegate receiver:self.receiver didSendEvent:[[ONKEvent alloc] initWithData:response]];
+        id<ONKReceiverDelegate> cachedDelegate = cachedReceiver.delegate; // make strong for clang
+        [cachedDelegate receiver:self.receiver didSendEvent:[[ONKEvent alloc] initWithData:response]];
     }];
 }
 
