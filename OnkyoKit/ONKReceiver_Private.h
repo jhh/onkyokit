@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Jeff Hutchison. All rights reserved.
 //
 
-#import <OnkyoKit/OnkyoKit.h>
+#import "ONKReceiver.h"
 @class ONKReceiverSession;
 
 @interface ONKReceiver ()

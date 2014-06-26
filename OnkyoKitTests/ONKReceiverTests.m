@@ -37,8 +37,13 @@
 
 - (void)testReceiverProperties
 {
-    receiver = [[ONKReceiver alloc] initWithModel:@"Test Model" uniqueIdentifier:@"123ABC" address:@"127.0.0.1" port:60128];
+    NSString *name = @"Test Receiver A", *uniqueID = @"hVaUtiBeQHh2w", *addr = @"127.0.0.1";
+    receiver = [[ONKReceiver alloc] initWithModel:name uniqueIdentifier:uniqueID address:addr port:60128];
     XCTAssertNotNil(receiver);
+    XCTAssertEqualObjects(receiver.model, name);
+    XCTAssertEqualObjects(receiver.uniqueIdentifier, uniqueID);
+    XCTAssertEqualObjects(receiver.address, addr);
+    XCTAssertEqual(receiver.port, 60128);
 }
 
 - (void)testServiceProperties
