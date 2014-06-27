@@ -6,10 +6,9 @@
 //  Copyright (c) 2013 Jeff Hutchison. All rights reserved.
 //
 
-#import <XCTest/XCTest.h>
-#import "OnkyoKit/OnkyoKit.h"
+@import XCTest;
+@import OnkyoKit;
 #import "ONKReceiver_Private.h"
-#import "ONKReceiverSession.h"
 
 @interface ONKReceiverErrorTest : XCTestCase <ONKReceiverDelegate>
 @property (getter = hasPassed) BOOL passed;

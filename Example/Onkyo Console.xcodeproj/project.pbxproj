@@ -16,7 +16,7 @@
 		1F561C3E176395F20015A8AF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F561C3D176395F20015A8AF /* AppDelegate.m */; };
 		1F561C41176395F20015A8AF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F561C3F176395F20015A8AF /* MainMenu.xib */; };
 		1F561C56176396820015A8AF /* OnkyoKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F561C4D176396430015A8AF /* OnkyoKit.framework */; };
-		1F561C581763969F0015A8AF /* OnkyoKit.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 1F561C4D176396430015A8AF /* OnkyoKit.framework */; };
+		1F561C581763969F0015A8AF /* OnkyoKit.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 1F561C4D176396430015A8AF /* OnkyoKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		1F6061A4178632E5000A174B /* ReceiverSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F6061A2178632E5000A174B /* ReceiverSheet.xib */; };
 /* End PBXBuildFile section */
 
@@ -283,7 +283,7 @@
 		1F561C1F176395F20015A8AF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = "Jeff Hutchison";
 			};
 			buildConfigurationList = 1F561C22176395F20015A8AF /* Build configuration list for PBXProject "Onkyo Console" */;
@@ -434,6 +434,7 @@
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -468,6 +469,7 @@
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";

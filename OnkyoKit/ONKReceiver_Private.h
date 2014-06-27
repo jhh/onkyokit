@@ -28,7 +28,7 @@
  * @param uniqueIdentifier The network MAC address of the receiver.
  * @param address  The hostname or IP address of the remote device.
  * @param port The port used by the remote device.
- * 
+ *
  * @returns A receiver configured for the specified model and address. Returns
  *          nil if the model services and characteristics can not be parsed.
  */

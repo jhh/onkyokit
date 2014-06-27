@@ -6,9 +6,8 @@
 //  Copyright (c) 2013 Jeff Hutchison. All rights reserved.
 //
 
-#import <XCTest/XCTest.h>
-#import <OnkyoKit/EISCPPacket.h>
-#import <OnkyoKit/ISCPMessage.h>
+@import XCTest;
+@import OnkyoKit;
 
 @interface EISCPPacketTest : XCTestCase
 

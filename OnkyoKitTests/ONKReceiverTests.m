@@ -6,10 +6,9 @@
 //  Copyright (c) 2014 Jeff Hutchison. All rights reserved.
 //
 
-#import <XCTest/XCTest.h>
+@import XCTest;
+@import OnkyoKit;
 #import "ONKReceiver_Private.h"
-#import "ONKService.h"
-#import "ONKCharacteristic.h"
 #import <OCMock/OCMock.h>
 
 @interface ONKReceiverTests : XCTestCase

@@ -6,10 +6,9 @@
 //  Copyright (c) 2013 Jeff Hutchison. All rights reserved.
 //
 
-#import <XCTest/XCTest.h>
-#import <OnkyoKit/ISCPMessage.h>
+@import XCTest;
+@import OnkyoKit;
 #import "ONKReceiver_Private.h"
-#import "ONKReceiverSession.h"
 
 @interface ONKReceiverNetworkTests : XCTestCase <ONKReceiverDelegate>
 @property ONKReceiver *receiver;
