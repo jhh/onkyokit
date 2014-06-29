@@ -11,7 +11,6 @@
 
 @implementation ONKReceiver
 
-
 - (instancetype)initWithModel:(NSString *)model
              uniqueIdentifier:(NSString *)uniqueIdentifier
                       address:(NSString *)address
@@ -24,10 +23,23 @@
         _address = address;
         _port = port;
         _session = [[ONKReceiverSession alloc] initWithReceiver:self];
+        [self _registerServices];
     } else {
         self = nil;
     }
     return self;
+}
+
+- (void)_registerServices
+{
+    NSBundle *bundle = [NSBundle bundleWithIdentifier:@"com.jeffhutchison.OnkyoKit"];
+    NSURL *url = [bundle URLForResource:@"TX-NR616" withExtension:@"plist"];
+    NSArray *serviceDefinitions = [NSArray arrayWithContentsOfURL:url];
+    NSMutableArray *tempServices = [NSMutableArray array];
+    for (NSDictionary *serviceDict in serviceDefinitions) {
+        [tempServices addObject:[[ONKService alloc] initWithReceiver:self serviceDictionary:serviceDict]];
+    }
+    _services = [tempServices copy];
 }
 
 - (void)resume

@@ -9,14 +9,20 @@
 #import "ONKService.h"
 #import "ONKCharacteristic_Private.h"
 
+NSString * const ONKServiceDefinitionName = @"onkyo.service.name";
+
+
 @implementation ONKService
 
-- (instancetype)initWithReceiver:(ONKReceiver *)receiver
+- (instancetype)initWithReceiver:(ONKReceiver *)receiver serviceDictionary:(NSDictionary *)serviceDictionary
 {
     self = [super init];
-    if (self) {
+    if (self && receiver && serviceDictionary) {
         _receiver = receiver;
+        _name = serviceDictionary[ONKServiceDefinitionName];
         _characteristics = @[ [[ONKCharacteristic alloc] initWithService:self] ];
+    } else {
+        self = nil;
     }
     return self;
 }

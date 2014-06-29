@@ -37,6 +37,7 @@
 		1F61D74617825EFB00FAF0BF /* ONKDeviceBrowserNetworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F61D74517825EFB00FAF0BF /* ONKDeviceBrowserNetworkTests.m */; };
 		1F63F8C4194CBDC300D1AE73 /* ONKReceiverSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F63F8C2194CBDC300D1AE73 /* ONKReceiverSession.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F63F8C5194CBDC300D1AE73 /* ONKReceiverSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F63F8C3194CBDC300D1AE73 /* ONKReceiverSession.m */; };
+		1F678FAA195ED2C9003A0599 /* TX-NR616.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F678FA8195ED2C9003A0599 /* TX-NR616.plist */; };
 		1F90DE981767E2F7006D2A5C /* ISCPMessageTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F90DE971767E2F7006D2A5C /* ISCPMessageTest.m */; };
 		1F923BE61957BB930053E8D5 /* OnkyoKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1FBB18CA175BB1AE00E7B9C7 /* OnkyoKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		1F923C2419583FEE0053E8D5 /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F923C1D19583FEE0053E8D5 /* OCMock.framework */; };
@@ -140,6 +141,7 @@
 		1F61D74517825EFB00FAF0BF /* ONKDeviceBrowserNetworkTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKDeviceBrowserNetworkTests.m; sourceTree = "<group>"; };
 		1F63F8C2194CBDC300D1AE73 /* ONKReceiverSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONKReceiverSession.h; sourceTree = "<group>"; };
 		1F63F8C3194CBDC300D1AE73 /* ONKReceiverSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKReceiverSession.m; sourceTree = "<group>"; };
+		1F678FA9195ED2C9003A0599 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = "en.lproj/TX-NR616.plist"; sourceTree = "<group>"; };
 		1F90DE971767E2F7006D2A5C /* ISCPMessageTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISCPMessageTest.m; sourceTree = "<group>"; };
 		1F923BBE1957B68A0053E8D5 /* Common.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Common.xcconfig; sourceTree = "<group>"; };
 		1F923BC01957B68A0053E8D5 /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
@@ -369,6 +371,7 @@
 				1FBB18D5175BB1AE00E7B9C7 /* OnkyoKit-Info.plist */,
 				1FBB18D6175BB1AE00E7B9C7 /* InfoPlist.strings */,
 				1FBB18D9175BB1AE00E7B9C7 /* OnkyoKit-Prefix.pch */,
+				1F678FA8195ED2C9003A0599 /* TX-NR616.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -572,6 +575,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F678FAA195ED2C9003A0599 /* TX-NR616.plist in Resources */,
 				1FBB18D8175BB1AE00E7B9C7 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -673,6 +677,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		1F678FA8195ED2C9003A0599 /* TX-NR616.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F678FA9195ED2C9003A0599 /* en */,
+			);
+			name = "TX-NR616.plist";
+			sourceTree = "<group>";
+		};
 		1FBB18D6175BB1AE00E7B9C7 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

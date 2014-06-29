@@ -28,7 +28,7 @@
 /**
  * @brief Initialize with a configured ONKReceiver object.
  */
-- (instancetype)initWithReceiver:(ONKReceiver *)receiver;
+- (instancetype)initWithReceiver:(ONKReceiver *)receiver NS_DESIGNATED_INITIALIZER;
 
 /**
  * @brief Start or resume the connection to the remote device.

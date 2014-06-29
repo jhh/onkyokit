@@ -18,6 +18,9 @@
  */
 @interface ONKService : NSObject
 
+/** @brief The name of the service */
+@property(readonly, copy, nonatomic) NSString *name;
+
 /** @brief Receiver that provides this service. */
 @property(readonly, weak, nonatomic) ONKReceiver *receiver;
 

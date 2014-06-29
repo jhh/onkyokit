@@ -8,8 +8,11 @@
 
 #import "ONKService.h"
 
+extern NSString * const ONKServiceDefinitionName;
+
 @interface ONKService ()
 
-- (instancetype)initWithReceiver:(ONKReceiver *)receiver;
+@property(copy, nonatomic) NSString *name;
 
+- (instancetype)initWithReceiver:(ONKReceiver *)receiver serviceDictionary:(NSDictionary *)serviceDictionary;
 @end

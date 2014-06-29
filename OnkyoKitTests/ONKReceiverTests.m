@@ -18,14 +18,13 @@
 @implementation ONKReceiverTests
 {
     ONKReceiver *receiver;
-    ONKService *service;
-    ONKCharacteristic *characteristic;
 }
 
 - (void)setUp
 {
     [super setUp];
-    // setup here
+    NSString *name = @"Test Receiver A", *uniqueID = @"hVaUtiBeQHh2w", *addr = @"127.0.0.1";
+    receiver = [[ONKReceiver alloc] initWithModel:name uniqueIdentifier:uniqueID address:addr port:60128];
 }
 
 - (void)tearDown
@@ -36,19 +35,19 @@
 
 - (void)testReceiverProperties
 {
-    NSString *name = @"Test Receiver A", *uniqueID = @"hVaUtiBeQHh2w", *addr = @"127.0.0.1";
-    receiver = [[ONKReceiver alloc] initWithModel:name uniqueIdentifier:uniqueID address:addr port:60128];
     XCTAssertNotNil(receiver);
-    XCTAssertEqualObjects(receiver.model, name);
-    XCTAssertEqualObjects(receiver.uniqueIdentifier, uniqueID);
-    XCTAssertEqualObjects(receiver.address, addr);
+    XCTAssertEqualObjects(receiver.model, @"Test Receiver A");
+    XCTAssertEqualObjects(receiver.uniqueIdentifier, @"hVaUtiBeQHh2w");
+    XCTAssertEqualObjects(receiver.address, @"127.0.0.1");
     XCTAssertEqual(receiver.port, 60128);
+
+    NSArray *services = receiver.services;
+    XCTAssertNotNil(services);
+    XCTAssertTrue([services[0] isKindOfClass:[ONKService class]]);
 }
 
 - (void)testServiceProperties
 {
-//    XCTAssertNotNil(service.characteristics);
-//    XCTAssertTrue([characteristic isKindOfClass:[ONKCharacteristic class]]);
 }
 
 - (void)testCharacteristicProperties

@@ -169,8 +169,8 @@
                                                           atAddress:address];
 
             // call delegate if this is first response from this receiver
-            if (![_discoveredReceiversMap objectForKey:receiver.uniqueIdentifier]) {
-                [_discoveredReceiversMap setObject:receiver forKey:receiver.uniqueIdentifier];
+            if (!_discoveredReceiversMap[receiver.uniqueIdentifier]) {
+                _discoveredReceiversMap[receiver.uniqueIdentifier] = receiver;
                 // block captures strong reference to delegate
                 id<ONKReceiverBrowserDelegate> cachedDelegate = self.delegate;
                 [self.delegateQueue addOperationWithBlock:^{
