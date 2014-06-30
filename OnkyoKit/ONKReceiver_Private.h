@@ -35,6 +35,6 @@
 - (instancetype)initWithModel:(NSString *)model
              uniqueIdentifier:(NSString *)uniqueIdentifier
                       address:(NSString *)address
-                         port:(UInt16)port;
+                         port:(UInt16)port NS_DESIGNATED_INITIALIZER;
 
 @end

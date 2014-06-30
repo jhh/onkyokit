@@ -40,7 +40,7 @@
  *
  * @param data The full message payload as received from network.
  */
-- (instancetype) initWithData:(NSData *)data;
+- (instancetype) initWithData:(NSData *)data NS_DESIGNATED_INITIALIZER;
 
 /**
  * @brief Initialize the message with an command or event string.

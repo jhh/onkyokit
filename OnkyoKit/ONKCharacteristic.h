@@ -33,6 +33,13 @@ extern NSString * const ONKCharacteristicTypeMainVolume;
  *
  * @see @ref characteristicType "Receiver Service Characteristic Types"
  */
+@property (readonly, copy, nonatomic) NSString *name;
+
+/**
+ * @brief The type of the characteristic. (read-only)
+ *
+ * @see @ref characteristicType "Receiver Service Characteristic Types"
+ */
 @property (readonly, copy, nonatomic) NSString *characteristicType;
 
 /**

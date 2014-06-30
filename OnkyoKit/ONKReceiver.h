@@ -8,6 +8,8 @@
 
 @import Foundation;
 @class ONKReceiver;
+@class ONKService;
+@class ONKCharacteristic;
 @class ONKEvent;
 @protocol ONKReceiverDelegate;
 
@@ -56,7 +58,7 @@
 
 /**
  * @brief A delegate conforming to ONKReceiverDelegate receives status updates
- * from the receiver.
+ *        from the receiver.
  *
  * Delegates implement this protocol to receive events from connected device
  * implement this protocol. Messages delivered are sent on a queue you
@@ -64,6 +66,16 @@
  */
 @protocol ONKReceiverDelegate <NSObject>
 
+@optional
+/**
+ * @brief Informs the delegate of a change in value of a characteristic as a
+ *        result of a notification from the receiver.
+ *
+ * @param receiver The receiver.
+ * @param service The service with a changed characteristic value
+ * @param characteristic The characteristic whose value changed.
+ */
+- (void)receiver:(ONKReceiver *)receiver service:(ONKService *)service didUpdateValueForCharacteristic:(ONKCharacteristic *)characteristic;
 /**
  * @brief Sent when an event is recieved from the remote device.
  *

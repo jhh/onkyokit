@@ -9,7 +9,8 @@
 #import "ONKService.h"
 #import "ONKCharacteristic_Private.h"
 
-NSString * const ONKServiceDefinitionName = @"onkyo.service.name";
+NSString * const ONKServiceDefinitionName = @"service.name";
+NSString * const ONKServiceDefinitionCharacteristics = @"service.characteristics";
 
 
 @implementation ONKService
@@ -20,7 +21,12 @@ NSString * const ONKServiceDefinitionName = @"onkyo.service.name";
     if (self && receiver && serviceDictionary) {
         _receiver = receiver;
         _name = serviceDictionary[ONKServiceDefinitionName];
-        _characteristics = @[ [[ONKCharacteristic alloc] initWithService:self] ];
+        NSMutableArray *tempCharacteristics = [NSMutableArray array];
+        for (NSDictionary *characteristicDictionary in serviceDictionary[ONKServiceDefinitionCharacteristics]) {
+            [tempCharacteristics addObject:[[ONKCharacteristic alloc] initWithService:self
+                                                             characteristicDictionary:characteristicDictionary]];
+        }
+        _characteristics = [tempCharacteristics copy];
     } else {
         self = nil;
     }

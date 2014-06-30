@@ -3,19 +3,40 @@
 <plist version="1.0">
 <array>
 	<dict>
-		<key>onkyo.service.name</key>
+		<key>service.name</key>
 		<string>Main Zone</string>
+		<key>service.characteristics</key>
+		<array>
+			<dict>
+				<key>characteristic.name</key>
+				<string>System Power</string>
+				<key>characteristic.type</key>
+				<string>onkyo.pwr</string>
+			</dict>
+			<dict>
+				<key>characteristic.name</key>
+				<string>Audio Muting</string>
+				<key>characteristic.type</key>
+				<string>onkyo.amt</string>
+			</dict>
+			<dict>
+				<key>characteristic.name</key>
+				<string>Master Volume</string>
+				<key>characteristic.type</key>
+				<string>onkyo.mvl</string>
+			</dict>
+		</array>
 	</dict>
 	<dict>
-		<key>onkyo.service.name</key>
+		<key>service.name</key>
 		<string>Zone 1</string>
 	</dict>
 	<dict>
-		<key>onkyo.service.name</key>
+		<key>service.name</key>
 		<string>Zone 2</string>
 	</dict>
 	<dict>
-		<key>onkyo.service.name</key>
+		<key>service.name</key>
 		<string>Zone 3</string>
 	</dict>
 </array>

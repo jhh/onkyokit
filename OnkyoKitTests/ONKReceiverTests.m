@@ -18,6 +18,7 @@
 @implementation ONKReceiverTests
 {
     ONKReceiver *receiver;
+    ONKService *service;
 }
 
 - (void)setUp
@@ -25,6 +26,7 @@
     [super setUp];
     NSString *name = @"Test Receiver A", *uniqueID = @"hVaUtiBeQHh2w", *addr = @"127.0.0.1";
     receiver = [[ONKReceiver alloc] initWithModel:name uniqueIdentifier:uniqueID address:addr port:60128];
+    service = receiver.services[0];
 }
 
 - (void)tearDown
@@ -41,19 +43,22 @@
     XCTAssertEqualObjects(receiver.address, @"127.0.0.1");
     XCTAssertEqual(receiver.port, 60128);
 
-    NSArray *services = receiver.services;
-    XCTAssertNotNil(services);
-    XCTAssertTrue([services[0] isKindOfClass:[ONKService class]]);
 }
 
 - (void)testServiceProperties
 {
+    XCTAssertEqualObjects(service.name, @"Main Zone");
+    ONKReceiver *cachedReceiver = service.receiver;
+    XCTAssertEqual(cachedReceiver, receiver);
 }
 
 - (void)testCharacteristicProperties
 {
-//    XCTAssertNotNil([characteristic characteristicType]);
+    ONKCharacteristic *characteristic = service.characteristics[0];
+    XCTAssertEqualObjects(characteristic.name, @"System Power");
+    XCTAssertEqualObjects(characteristic.characteristicType, @"onkyo.pwr");
+    ONKService *cachedService = characteristic.service;
+    XCTAssertEqual(cachedService, service);
 }
-
 
 @end

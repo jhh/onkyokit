@@ -8,10 +8,14 @@
 
 #import <OnkyoKit/OnkyoKit.h>
 
+extern NSString * const ONKCharacteristicDefinitionName;
+extern NSString * const ONKCharacteristicDefinitionType;
+
 @interface ONKCharacteristic ()
 
 @property(copy, nonatomic) id value;
 
-- (instancetype)initWithService:(ONKService *)service;
+- (instancetype)initWithService:(ONKService *)service characteristicDictionary:(NSDictionary *)characteristicDictionary;
+
 
 @end

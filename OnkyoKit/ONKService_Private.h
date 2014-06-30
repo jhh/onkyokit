@@ -9,6 +9,7 @@
 #import "ONKService.h"
 
 extern NSString * const ONKServiceDefinitionName;
+extern NSString * const ONKServiceDefinitionCharacteristics;
 
 @interface ONKService ()
 

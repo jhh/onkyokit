@@ -9,14 +9,23 @@
 #import "ONKCharacteristic_Private.h"
 #import "ONKService.h"
 
+NSString * const ONKCharacteristicTypePowerState = @"onkyo.pwr";
+NSString * const ONKCharacteristicTypeMuteState  = @"onkyo.amt";
+NSString * const ONKCharacteristicTypeMainVolume = @"onkyo.mvl";
+
+
+NSString * const ONKCharacteristicDefinitionName = @"characteristic.name";
+NSString * const ONKCharacteristicDefinitionType = @"characteristic.type";
+
 @implementation ONKCharacteristic
 
-- (instancetype)initWithService:(ONKService *)service
+- (instancetype)initWithService:(ONKService *)service characteristicDictionary:(NSDictionary *)characteristicDictionary;
 {
     self = [super init];
     if (self) {
         _service = service;
-        _characteristicType = @"com.jeffhutchison.Type";
+        _name = characteristicDictionary[ONKCharacteristicDefinitionName];
+        _characteristicType = characteristicDictionary[ONKCharacteristicDefinitionType];
     }
     return self;
 }
