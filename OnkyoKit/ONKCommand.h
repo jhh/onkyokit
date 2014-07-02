@@ -14,7 +14,7 @@
 /**
  * @brief Command to be sent over network to device.
  *
- * Sending commands to a device typically result in a ONKEvent being
+ * Sending commands to a device typically result in a EISCPPacket being
  * returned by the device.
 **/
 @interface ONKCommand : EISCPPacket

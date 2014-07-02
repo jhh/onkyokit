@@ -10,7 +10,7 @@
 @class ONKReceiver;
 @class ONKService;
 @class ONKCharacteristic;
-@class ONKEvent;
+@class EISCPPacket;
 @protocol ONKReceiverDelegate;
 
 
@@ -83,7 +83,7 @@
  * @param event An event object containing the details of the event.
  * @todo This method signature needs to change.
  */
-- (void)receiver:(ONKReceiver *)receiver didSendEvent:(ONKEvent *)event;
+- (void)receiver:(ONKReceiver *)receiver didSendEvent:(EISCPPacket *)event;
 
 /**
  * @brief Sent when a connection fails to send or receive from the remote device.

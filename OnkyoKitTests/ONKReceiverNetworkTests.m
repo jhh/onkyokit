@@ -14,7 +14,7 @@
 @property ONKReceiver *receiver;
 @property (getter = hasPassed) BOOL passed;
 @property NSCondition *condition;
-- (void) receiver:(ONKReceiver *)receiver didSendEvent:(ONKEvent *)event;
+- (void) receiver:(ONKReceiver *)receiver didSendEvent:(EISCPPacket *)event;
 @end
 
 // Tests sending command and receiving corresponding event.
@@ -28,7 +28,7 @@
 // asynchronous.
 @implementation ONKReceiverNetworkTests
 
-- (void)receiver:(ONKReceiver *)receiver didSendEvent:(ONKEvent *)event
+- (void)receiver:(ONKReceiver *)receiver didSendEvent:(EISCPPacket *)event
 {
     NSLog(@"ONKControllerTest event received: %@", event);
 

@@ -16,7 +16,7 @@
 
 @implementation ONKReceiverErrorTest
 
-- (void)receiver:(ONKReceiver *)receiver didSendEvent:(ONKEvent *)event
+- (void)receiver:(ONKReceiver *)receiver didSendEvent:(EISCPPacket *)event
 {
 
 }

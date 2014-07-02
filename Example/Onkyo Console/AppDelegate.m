@@ -56,7 +56,7 @@
 }
 
 // this is called on delegateQueue
-- (void) receiver:(ONKReceiver *)controller didSendEvent:(ONKEvent *)event
+- (void) receiver:(ONKReceiver *)controller didSendEvent:(EISCPPacket *)event
 {
     NSString *message = [NSString stringWithFormat:@"%@: %@\n", [self.dateFormatter stringFromDate:[NSDate date]], [event description]];
     NSAttributedString *as = [[NSAttributedString alloc] initWithString:message attributes:self.eventAttrs];

@@ -183,7 +183,7 @@
 
 - (ONKReceiver *)receiverFromDiscoveryData:(NSData *)message atAddress:(NSString *)address
 {
-    ONKEvent *event = [[ONKEvent alloc] initWithData:message];
+    EISCPPacket *event = [[EISCPPacket alloc] initWithData:message];
     NSArray *components = [event.message.message componentsSeparatedByString:@"/"];
     NSString *mac = components[3];
 

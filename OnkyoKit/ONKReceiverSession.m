@@ -8,9 +8,8 @@
 @import Darwin;
 #import "ONKReceiverSession.h"
 #import "ONKReceiver_Private.h"
-#import "ONKReceiverBrowser.h"
-#import "ONKEvent.h"
 #import "ONKCommand.h"
+#import "EISCPPacket.h"
 #import "ISCPMessage.h"
 
 @implementation ONKReceiverSession
@@ -129,7 +128,7 @@
         __unused dispatch_data_t tmpData = dispatch_data_create_map(data, &buffer, &length);
         NSData *response = [NSData dataWithBytes:buffer length:length];
         id<ONKReceiverDelegate> cachedDelegate = cachedReceiver.delegate; // make strong for clang
-        [cachedDelegate receiver:self.receiver didSendEvent:[[ONKEvent alloc] initWithData:response]];
+        [cachedDelegate receiver:self.receiver didSendEvent:[[EISCPPacket alloc] initWithData:response]];
     }];
 }
 
