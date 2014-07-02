@@ -12,32 +12,49 @@
 				<string>System Power</string>
 				<key>characteristic.type</key>
 				<string>onkyo.pwr</string>
+				<key>characteristic.code</key>
+				<string>PWR</string>
 			</dict>
 			<dict>
 				<key>characteristic.name</key>
 				<string>Audio Muting</string>
 				<key>characteristic.type</key>
 				<string>onkyo.amt</string>
+				<key>characteristic.code</key>
+				<string>AMT</string>
 			</dict>
 			<dict>
 				<key>characteristic.name</key>
 				<string>Master Volume</string>
 				<key>characteristic.type</key>
 				<string>onkyo.mvl</string>
+				<key>characteristic.code</key>
+				<string>MVL</string>
 			</dict>
 		</array>
 	</dict>
 	<dict>
 		<key>service.name</key>
-		<string>Zone 1</string>
-	</dict>
-	<dict>
-		<key>service.name</key>
 		<string>Zone 2</string>
-	</dict>
-	<dict>
-		<key>service.name</key>
-		<string>Zone 3</string>
+		<key>service.characteristics</key>
+		<array>
+			<dict>
+				<key>characteristic.name</key>
+				<string>Audio Muting</string>
+				<key>characteristic.type</key>
+				<string>onkyo.zmt</string>
+				<key>characteristic.code</key>
+				<string>ZMT</string>
+			</dict>
+			<dict>
+				<key>characteristic.name</key>
+				<string>Master Volume</string>
+				<key>characteristic.type</key>
+				<string>onkyo.zvl</string>
+				<key>characteristic.code</key>
+				<string>ZVL</string>
+			</dict>
+		</array>
 	</dict>
 </array>
 </plist>

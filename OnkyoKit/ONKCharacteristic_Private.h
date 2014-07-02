@@ -10,10 +10,12 @@
 
 extern NSString * const ONKCharacteristicDefinitionName;
 extern NSString * const ONKCharacteristicDefinitionType;
+extern NSString * const ONKCharacteristicDefinitionCode;
 
 @interface ONKCharacteristic ()
 
 @property(copy, nonatomic) id value;
+@property(readonly, copy, nonatomic) NSString *code;
 
 - (instancetype)initWithService:(ONKService *)service characteristicDictionary:(NSDictionary *)characteristicDictionary;
 

@@ -20,6 +20,9 @@
 /** @brief The session object used to communicate with the receiver. */
 @property (nonatomic) ONKReceiverSession *session;
 
+/** @brief Map from receiver command code to characteristic */
+@property (readonly, nonatomic) NSDictionary *codeMap;
+
 /**
  * @brief Initialize a receiver object at address for the specified model with
  *        its associated services and characteristics.

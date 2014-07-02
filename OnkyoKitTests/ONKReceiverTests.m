@@ -9,6 +9,7 @@
 @import XCTest;
 @import OnkyoKit;
 #import "ONKReceiver_Private.h"
+#import "ONKCharacteristic_Private.h"
 #import <OCMock/OCMock.h>
 
 @interface ONKReceiverTests : XCTestCase
@@ -57,6 +58,7 @@
     ONKCharacteristic *characteristic = service.characteristics[0];
     XCTAssertEqualObjects(characteristic.name, @"System Power");
     XCTAssertEqualObjects(characteristic.characteristicType, @"onkyo.pwr");
+    XCTAssertEqualObjects(characteristic.code, @"PWR");
     ONKService *cachedService = characteristic.service;
     XCTAssertEqual(cachedService, service);
 }

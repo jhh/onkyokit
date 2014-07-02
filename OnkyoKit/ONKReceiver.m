@@ -8,6 +8,7 @@
 #import "ONKReceiver_Private.h"
 #import "ONKReceiverSession.h"
 #import "ONKService_Private.h"
+#import "ONKCharacteristic_Private.h"
 
 @implementation ONKReceiver
 
@@ -32,6 +33,7 @@
 
 - (void)_registerServices
 {
+    // load service definitions from property list
     NSBundle *bundle = [NSBundle bundleWithIdentifier:@"com.jeffhutchison.OnkyoKit"];
     NSURL *url = [bundle URLForResource:@"TX-NR616" withExtension:@"plist"];
     NSArray *serviceDefinitions = [NSArray arrayWithContentsOfURL:url];
@@ -40,6 +42,15 @@
         [tempServices addObject:[[ONKService alloc] initWithReceiver:self serviceDictionary:serviceDict]];
     }
     _services = [tempServices copy];
+    
+    // create map from receiver command code to characteristic
+    NSMutableDictionary *tempDict = [NSMutableDictionary dictionary];
+    for (ONKService *service in _services) {
+        for (ONKCharacteristic *characteristic in service.characteristics) {
+            tempDict[characteristic.code] = characteristic;
+        }
+    }
+    _codeMap = [tempDict copy];
 }
 
 - (void)resume

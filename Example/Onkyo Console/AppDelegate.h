@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Jeff Hutchison. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
-#import <OnkyoKit/OnkyoKit.h>
+@import Cocoa;
+@import OnkyoKit;
 #import "ReceiverBrowser.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate, ReceiverBrowserDelegate, ONKReceiverDelegate>

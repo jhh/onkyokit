@@ -16,6 +16,7 @@ NSString * const ONKCharacteristicTypeMainVolume = @"onkyo.mvl";
 
 NSString * const ONKCharacteristicDefinitionName = @"characteristic.name";
 NSString * const ONKCharacteristicDefinitionType = @"characteristic.type";
+NSString * const ONKCharacteristicDefinitionCode = @"characteristic.code";
 
 @implementation ONKCharacteristic
 
@@ -26,6 +27,7 @@ NSString * const ONKCharacteristicDefinitionType = @"characteristic.type";
         _service = service;
         _name = characteristicDictionary[ONKCharacteristicDefinitionName];
         _characteristicType = characteristicDictionary[ONKCharacteristicDefinitionType];
+        _code = characteristicDictionary[ONKCharacteristicDefinitionCode];
     }
     return self;
 }
