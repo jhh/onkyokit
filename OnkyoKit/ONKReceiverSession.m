@@ -8,7 +8,6 @@
 @import Darwin;
 #import "ONKReceiverSession.h"
 #import "ONKReceiver_Private.h"
-#import "ONKCommand.h"
 #import "EISCPPacket.h"
 #import "ISCPMessage.h"
 
@@ -77,7 +76,7 @@
 
 - (void)sendCommand:(NSString *)command
 {
-    ONKCommand *packet = [ONKCommand commandWithMessage:[[ISCPMessage alloc] initWithMessage:command]];
+    EISCPPacket *packet = [[EISCPPacket alloc] initWithMessage:[[ISCPMessage alloc] initWithMessage:command]];
     dispatch_data_t message = dispatch_data_create([packet.data bytes], [packet.data length],
                                                    dispatch_get_global_queue(0, 0), DISPATCH_DATA_DESTRUCTOR_DEFAULT);
     dispatch_time_t delay = dispatch_time(DISPATCH_TIME_NOW, 2000ull*NSEC_PER_USEC); // 200 ms

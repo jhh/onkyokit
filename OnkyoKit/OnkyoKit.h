@@ -7,7 +7,6 @@
 //
 
 #import <OnkyoKit/ONKCharacteristic.h>
-#import <OnkyoKit/ONKCommand.h>
 #import <OnkyoKit/ONKReceiver.h>
 #import <OnkyoKit/ONKReceiverBrowser.h>
 #import <OnkyoKit/ONKReceiverSession.h>

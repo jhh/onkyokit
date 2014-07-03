@@ -8,6 +8,7 @@
 
 @import Darwin;
 #import "OnkyoKit.h"
+#import "EISCPPacket.h"
 #import "ISCPMessage.h"
 #import "ONKReceiver_Private.h"
 
@@ -118,7 +119,7 @@
     dest_addr.sin_addr.s_addr = inet_addr("255.255.255.255");
     dest_addr.sin_port = htons(60128);
 
-    ONKCommand *magic = [[ONKCommand alloc] initWithMessage:[ISCPMessage deviceSearchMessage]];
+    EISCPPacket *magic = [[EISCPPacket alloc] initWithMessage:[ISCPMessage deviceSearchMessage]];
     numbytes = sendto(_sock, [magic.data bytes], [magic.data length], 0, (struct sockaddr *)&dest_addr, sizeof dest_addr);
     if (numbytes == -1) {
         NSLog(@"ERROR: %s sendto: %s", __PRETTY_FUNCTION__, strerror(errno));
