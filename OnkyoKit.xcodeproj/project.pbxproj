@@ -12,12 +12,10 @@
 		1F0B84C519509C9000879775 /* ONKService.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0B84C319509C9000879775 /* ONKService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F0B84C619509C9000879775 /* ONKService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0B84C419509C9000879775 /* ONKService.m */; };
 		1F1155F6177661DB00B18A08 /* EISCPPacketTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F1155F5177661DB00B18A08 /* EISCPPacketTest.m */; };
-		1F221AEF17751AE400A6F67F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F2A3D3217751A15001F1CAC /* XCTest.framework */; };
 		1F2318591768AA420025FA12 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FBB18D2175BB1AE00E7B9C7 /* Foundation.framework */; };
 		1F23185A1768AA460025FA12 /* OnkyoKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FBB18CA175BB1AE00E7B9C7 /* OnkyoKit.framework */; };
 		1F23185B1768AA520025FA12 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1FE378F9175EC6D900971013 /* InfoPlist.strings */; };
 		1F23185E1768AA7B0025FA12 /* ONKReceiverNetworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F23185D1768AA7B0025FA12 /* ONKReceiverNetworkTests.m */; };
-		1F2A3D3317751A15001F1CAC /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F2A3D3217751A15001F1CAC /* XCTest.framework */; };
 		1F2D4E60179C410F00B9471B /* ONKReceiverErrorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2D4E5F179C410F00B9471B /* ONKReceiverErrorTest.m */; };
 		1F331660194DF26800CC08DE /* ONKCharacteristic.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F33165E194DF26800CC08DE /* ONKCharacteristic.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F331661194DF26800CC08DE /* ONKCharacteristic.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F33165F194DF26800CC08DE /* ONKCharacteristic.m */; };
@@ -38,7 +36,6 @@
 		1F8B25E11972B37800365453 /* ONKCharacteristicMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8B25DF1972B37800365453 /* ONKCharacteristicMetadata.m */; };
 		1F90DE981767E2F7006D2A5C /* ISCPMessageTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F90DE971767E2F7006D2A5C /* ISCPMessageTest.m */; };
 		1F923BE61957BB930053E8D5 /* OnkyoKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1FBB18CA175BB1AE00E7B9C7 /* OnkyoKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		1F923C2419583FEE0053E8D5 /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F923C1D19583FEE0053E8D5 /* OCMock.framework */; };
 		1FBB18D8175BB1AE00E7B9C7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1FBB18D6175BB1AE00E7B9C7 /* InfoPlist.strings */; };
 		1FBB18E7175BB9FC00E7B9C7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FBB18D2175BB1AE00E7B9C7 /* Foundation.framework */; };
 		1FC1B4BE175BF50600AD1B0C /* OnkyoKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FBB18DA175BB1AE00E7B9C7 /* OnkyoKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -52,41 +49,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 1FBB18C9175BB1AE00E7B9C7;
 			remoteInfo = "OnkyoKit Mac";
-		};
-		1F923C1619583FE50053E8D5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1F923C1319583FA90053E8D5 /* OCMock.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 030EF0A714632FD000B04273;
-			remoteInfo = OCMock;
-		};
-		1F923C1C19583FEE0053E8D5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1F923C1319583FA90053E8D5 /* OCMock.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 030EF0A814632FD000B04273;
-			remoteInfo = OCMock;
-		};
-		1F923C1E19583FEE0053E8D5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1F923C1319583FA90053E8D5 /* OCMock.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 03565A3118F0566E003AE91E;
-			remoteInfo = OCMockTests;
-		};
-		1F923C2019583FEE0053E8D5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1F923C1319583FA90053E8D5 /* OCMock.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 030EF0DC14632FF700B04273;
-			remoteInfo = OCMockLib;
-		};
-		1F923C2219583FEE0053E8D5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1F923C1319583FA90053E8D5 /* OCMock.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D31108AD1828DB8700737925;
-			remoteInfo = OCMockLibTests;
 		};
 		1FE37915175ECB2700971013 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -119,7 +81,6 @@
 		1F1155F5177661DB00B18A08 /* EISCPPacketTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EISCPPacketTest.m; sourceTree = "<group>"; };
 		1F2318441768A9CC0025FA12 /* OnkyoKit Mac Network Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "OnkyoKit Mac Network Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F23185D1768AA7B0025FA12 /* ONKReceiverNetworkTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKReceiverNetworkTests.m; sourceTree = "<group>"; };
-		1F2A3D3217751A15001F1CAC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		1F2D4E5F179C410F00B9471B /* ONKReceiverErrorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKReceiverErrorTest.m; sourceTree = "<group>"; };
 		1F33165E194DF26800CC08DE /* ONKCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONKCharacteristic.h; sourceTree = "<group>"; };
 		1F33165F194DF26800CC08DE /* ONKCharacteristic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKCharacteristic.m; sourceTree = "<group>"; };
@@ -156,7 +117,6 @@
 		1F923BCF1957B68A0053E8D5 /* Mac-Framework.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Mac-Framework.xcconfig"; sourceTree = "<group>"; };
 		1F923BD01957B68A0053E8D5 /* Mac-StaticLibrary.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Mac-StaticLibrary.xcconfig"; sourceTree = "<group>"; };
 		1F923BD11957B68A0053E8D5 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		1F923C1319583FA90053E8D5 /* OCMock.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OCMock.xcodeproj; path = External/ocmock/Source/OCMock.xcodeproj; sourceTree = "<group>"; };
 		1FBB18CA175BB1AE00E7B9C7 /* OnkyoKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OnkyoKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FBB18D2175BB1AE00E7B9C7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1FBB18D5175BB1AE00E7B9C7 /* OnkyoKit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OnkyoKit-Info.plist"; sourceTree = "<group>"; };
@@ -174,7 +134,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F221AEF17751AE400A6F67F /* XCTest.framework in Frameworks */,
 				1F23185A1768AA460025FA12 /* OnkyoKit.framework in Frameworks */,
 				1F2318591768AA420025FA12 /* Foundation.framework in Frameworks */,
 			);
@@ -192,10 +151,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F2A3D3317751A15001F1CAC /* XCTest.framework in Frameworks */,
 				1F0724A117615DAE00787CCF /* OnkyoKit.framework in Frameworks */,
 				1F07249D1761565900787CCF /* Foundation.framework in Frameworks */,
-				1F923C2419583FEE0053E8D5 /* OCMock.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,17 +266,6 @@
 			path = "Mac OS X";
 			sourceTree = "<group>";
 		};
-		1F923C1419583FA90053E8D5 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				1F923C1D19583FEE0053E8D5 /* OCMock.framework */,
-				1F923C1F19583FEE0053E8D5 /* OCMockTests.xctest */,
-				1F923C2119583FEE0053E8D5 /* libOCMock.a */,
-				1F923C2319583FEE0053E8D5 /* OCMockLibTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		1FBB18C0175BB1AE00E7B9C7 = {
 			isa = PBXGroup;
 			children = (
@@ -344,9 +290,7 @@
 		1FBB18CC175BB1AE00E7B9C7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1F923C1319583FA90053E8D5 /* OCMock.xcodeproj */,
 				1FBB18D2175BB1AE00E7B9C7 /* Foundation.framework */,
-				1F2A3D3217751A15001F1CAC /* XCTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -484,7 +428,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				1F923C1719583FE50053E8D5 /* PBXTargetDependency */,
 				1FE37916175ECB2700971013 /* PBXTargetDependency */,
 			);
 			name = "OnkyoKit Mac Tests";
@@ -511,12 +454,6 @@
 			mainGroup = 1FBB18C0175BB1AE00E7B9C7;
 			productRefGroup = 1FBB18CB175BB1AE00E7B9C7 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 1F923C1419583FA90053E8D5 /* Products */;
-					ProjectRef = 1F923C1319583FA90053E8D5 /* OCMock.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				1FBB18C9175BB1AE00E7B9C7 /* OnkyoKit Mac */,
@@ -525,37 +462,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		1F923C1D19583FEE0053E8D5 /* OCMock.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = OCMock.framework;
-			remoteRef = 1F923C1C19583FEE0053E8D5 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		1F923C1F19583FEE0053E8D5 /* OCMockTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = OCMockTests.xctest;
-			remoteRef = 1F923C1E19583FEE0053E8D5 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		1F923C2119583FEE0053E8D5 /* libOCMock.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libOCMock.a;
-			remoteRef = 1F923C2019583FEE0053E8D5 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		1F923C2319583FEE0053E8D5 /* OCMockLibTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = OCMockLibTests.xctest;
-			remoteRef = 1F923C2219583FEE0053E8D5 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1F2318411768A9CC0025FA12 /* Resources */ = {
@@ -657,11 +563,6 @@
 			isa = PBXTargetDependency;
 			target = 1FBB18C9175BB1AE00E7B9C7 /* OnkyoKit Mac */;
 			targetProxy = 1F2318571768AA1C0025FA12 /* PBXContainerItemProxy */;
-		};
-		1F923C1719583FE50053E8D5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = OCMock;
-			targetProxy = 1F923C1619583FE50053E8D5 /* PBXContainerItemProxy */;
 		};
 		1FE37916175ECB2700971013 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
