@@ -7,16 +7,18 @@
 //
 
 #import "ONKCharacteristic_Private.h"
+#import "ONKCharacteristicMetadata_Private.h"
 #import "ONKService.h"
 
-NSString * const ONKCharacteristicTypePowerState = @"onkyo.pwr";
-NSString * const ONKCharacteristicTypeMuteState  = @"onkyo.amt";
-NSString * const ONKCharacteristicTypeMainVolume = @"onkyo.mvl";
+NSString * const ONKCharacteristicTypePowerState   = @"onkyo.pwr";
+NSString * const ONKCharacteristicTypeMuteState    = @"onkyo.amt";
+NSString * const ONKCharacteristicTypeMasterVolume = @"onkyo.mvl";
 
 
 NSString * const ONKCharacteristicDefinitionName = @"characteristic.name";
 NSString * const ONKCharacteristicDefinitionType = @"characteristic.type";
 NSString * const ONKCharacteristicDefinitionCode = @"characteristic.code";
+NSString * const ONKCharacteristicDefinitionMetadata = @"characteristic.metadata";
 
 @implementation ONKCharacteristic
 
@@ -28,8 +30,38 @@ NSString * const ONKCharacteristicDefinitionCode = @"characteristic.code";
         _name = characteristicDictionary[ONKCharacteristicDefinitionName];
         _characteristicType = characteristicDictionary[ONKCharacteristicDefinitionType];
         _code = characteristicDictionary[ONKCharacteristicDefinitionCode];
+        _metadata = [[ONKCharacteristicMetadata alloc]
+                     initWithCharacteristicMetadataDictionary:characteristicDictionary[ONKCharacteristicDefinitionMetadata]];
     }
     return self;
+}
+
+- (void)handleMessage:(ISCPMessage *)message
+{
+    NSLog(@"%s code: %@; handling message: %@", __PRETTY_FUNCTION__, self.code, message);
+    NSString *payload = [message.message substringFromIndex:3];
+
+
+    switch (self.metadata.units) {
+        case ONKCharacteristicUnitBoolean:
+            self.value = [NSNumber numberWithBool:[payload boolValue]];
+            break;
+
+        case ONKCharacteristicUnitNumeric: {
+            NSScanner *scanner = [NSScanner scannerWithString:payload];
+            UInt number;
+            if ([scanner scanHexInt:&number]) {
+                self.value = [NSNumber numberWithInteger:number];
+            } else {
+                NSLog(@"NSScanner failed to scan a hexadecimal number in %@", payload);
+                self.value = [NSDecimalNumber notANumber];
+            }
+        }
+            break;
+            
+        default:
+            break;
+    }
 }
 
 

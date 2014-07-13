@@ -14,6 +14,15 @@
 				<string>onkyo.pwr</string>
 				<key>characteristic.code</key>
 				<string>PWR</string>
+				<key>characteristic.metadata</key>
+				<dict>
+					<key>characteristic.metadata.minValue</key>
+					<integer>0</integer>
+                    <key>characteristic.metadata.maxValue</key>
+                    <integer>1</integer>
+                    <key>characteristic.metadata.units</key>
+                    <integer>2</integer>
+				</dict>
 			</dict>
 			<dict>
 				<key>characteristic.name</key>
@@ -22,6 +31,15 @@
 				<string>onkyo.amt</string>
 				<key>characteristic.code</key>
 				<string>AMT</string>
+                <key>characteristic.metadata</key>
+                <dict>
+                    <key>characteristic.metadata.minValue</key>
+                    <integer>0</integer>
+                    <key>characteristic.metadata.maxValue</key>
+                    <integer>1</integer>
+                    <key>characteristic.metadata.units</key>
+                    <integer>2</integer>
+                </dict>
 			</dict>
 			<dict>
 				<key>characteristic.name</key>
@@ -30,6 +48,15 @@
 				<string>onkyo.mvl</string>
 				<key>characteristic.code</key>
 				<string>MVL</string>
+                <key>characteristic.metadata</key>
+                <dict>
+                    <key>characteristic.metadata.minValue</key>
+                    <integer>0</integer>
+                    <key>characteristic.metadata.maxValue</key>
+                    <integer>100</integer>
+                    <key>characteristic.metadata.units</key>
+                    <integer>1</integer>
+                </dict>
 			</dict>
 		</array>
 	</dict>
@@ -45,6 +72,15 @@
 				<string>onkyo.zmt</string>
 				<key>characteristic.code</key>
 				<string>ZMT</string>
+                <key>characteristic.metadata</key>
+                <dict>
+                    <key>characteristic.metadata.minValue</key>
+                    <integer>0</integer>
+                    <key>characteristic.metadata.maxValue</key>
+                    <integer>1</integer>
+                    <key>characteristic.metadata.units</key>
+                    <integer>2</integer>
+                </dict>
 			</dict>
 			<dict>
 				<key>characteristic.name</key>
@@ -53,6 +89,15 @@
 				<string>onkyo.zvl</string>
 				<key>characteristic.code</key>
 				<string>ZVL</string>
+                <key>characteristic.metadata</key>
+                <dict>
+                    <key>characteristic.metadata.minValue</key>
+                    <integer>0</integer>
+                    <key>characteristic.metadata.maxValue</key>
+                    <integer>100</integer>
+                    <key>characteristic.metadata.units</key>
+                    <integer>1</integer>
+                </dict>
 			</dict>
 		</array>
 	</dict>

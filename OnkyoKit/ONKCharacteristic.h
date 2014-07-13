@@ -8,6 +8,7 @@
 
 @import Foundation;
 @class ONKService;
+@class ONKCharacteristicMetadata;
 
 /**
  * @defgroup characteristicType Receiver Service Characteristic Types
@@ -18,7 +19,7 @@
  */
 extern NSString * const ONKCharacteristicTypePowerState;
 extern NSString * const ONKCharacteristicTypeMuteState;
-extern NSString * const ONKCharacteristicTypeMainVolume;
+extern NSString * const ONKCharacteristicTypeMasterVolume;
 /**@}*/
 
 /**
@@ -41,6 +42,12 @@ extern NSString * const ONKCharacteristicTypeMainVolume;
  * @see @ref characteristicType "Receiver Service Characteristic Types"
  */
 @property (readonly, copy, nonatomic) NSString *characteristicType;
+
+/**
+ * @brief Metadata about the units and other properties of the characteristic.
+ *        (read-only)
+ */
+@property(readonly, strong, nonatomic) ONKCharacteristicMetadata *metadata;
 
 /**
  * @brief Service that has this characteristics.

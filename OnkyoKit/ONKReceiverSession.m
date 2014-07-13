@@ -126,8 +126,10 @@
         size_t length;
         __unused dispatch_data_t tmpData = dispatch_data_create_map(data, &buffer, &length);
         NSData *response = [NSData dataWithBytes:buffer length:length];
+        EISCPPacket *packet = [[EISCPPacket alloc] initWithData:response];
         id<ONKReceiverDelegate> cachedDelegate = cachedReceiver.delegate; // make strong for clang
-        [cachedDelegate receiver:self.receiver didSendEvent:[[EISCPPacket alloc] initWithData:response]];
+        [cachedDelegate receiver:self.receiver didSendEvent:packet];
+        [cachedReceiver handleMessage:packet.message];
     }];
 }
 

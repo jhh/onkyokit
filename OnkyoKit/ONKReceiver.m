@@ -31,6 +31,17 @@
     return self;
 }
 
+- (void)handleMessage:(ISCPMessage *)message
+{
+    ONKCharacteristic *characteristic = self.codeMap[message.code];
+    if (characteristic) {
+        [characteristic handleMessage:message];
+    } else {
+        NSLog(@"unrecognized message: %@", message);
+    }
+    
+}
+
 - (void)_registerServices
 {
     // load service definitions from property list

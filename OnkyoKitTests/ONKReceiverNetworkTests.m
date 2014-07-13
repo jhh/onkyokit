@@ -37,7 +37,7 @@
     XCTAssertEqual(1UL, event.version, @"Packet version did not match.");
     XCTAssertEqual(16UL, event.headerLength, @"Header length did not match.");
 
-    if ([[event description] hasPrefix:@"PWR"]) {
+    if ([event.message.code isEqualToString:@"PWR"]) {
         [self.condition lock];
         self.passed = YES;
         [self.condition signal];

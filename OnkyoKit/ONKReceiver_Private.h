@@ -8,6 +8,7 @@
 
 #import "ONKReceiver.h"
 @class ONKReceiverSession;
+@class ISCPMessage;
 
 @interface ONKReceiver ()
 
@@ -39,5 +40,12 @@
              uniqueIdentifier:(NSString *)uniqueIdentifier
                       address:(NSString *)address
                          port:(UInt16)port NS_DESIGNATED_INITIALIZER;
+
+/**
+ * @brief Handle a ISCP message recieved by the associated reciever session.
+ *
+ * @param message The ISCP message.
+ */
+- (void)handleMessage:(ISCPMessage *)message;
 
 @end

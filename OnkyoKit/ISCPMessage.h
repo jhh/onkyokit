@@ -31,6 +31,11 @@
 @property (readonly, copy, nonatomic) NSString *message;
 
 /**
+ * @brief The three letter message code, i.e. "PWR".
+ */
+@property (readonly, copy, nonatomic) NSString *code;
+
+/**
  * @brief Returns a device search message.
  */
 + (instancetype)deviceSearchMessage;
@@ -45,7 +50,8 @@
 /**
  * @brief Initialize the message with an command or event string.
  *
- * @param message The message, without format delimeters, to be sent to device.
+ * @param message The message, without format delimeters, to be sent to device,
+ *                i.e. "PWR01".
  */
 - (instancetype) initWithMessage:(NSString *)message;
 

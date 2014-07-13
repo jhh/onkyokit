@@ -15,5 +15,6 @@ extern NSString * const ONKServiceDefinitionCharacteristics;
 
 @property(copy, nonatomic) NSString *name;
 
-- (instancetype)initWithReceiver:(ONKReceiver *)receiver serviceDictionary:(NSDictionary *)serviceDictionary;
+- (instancetype)initWithReceiver:(ONKReceiver *)receiver
+               serviceDictionary:(NSDictionary *)serviceDictionary NS_DESIGNATED_INITIALIZER;
 @end
