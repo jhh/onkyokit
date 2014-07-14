@@ -50,12 +50,23 @@ extern NSString * const ONKCharacteristicTypeMasterVolume;
 @property(readonly, strong, nonatomic) ONKCharacteristicMetadata *metadata;
 
 /**
+ * @brief \c YES if the characteristic has been set to send notifications,
+ *        \c NO otherwise.
+ */
+@property(nonatomic, getter=isNotificationEnabled) BOOL notificationEnabled;
+
+/**
  * @brief Service that has this characteristics.
  */
 @property(readonly, weak, nonatomic) ONKService *service;
 
 /**
  * @brief The current value of the characteristic. (read-only)
+ *
+ * @details
+ * This is the last value the system saw for the characteristic. The receiver may
+ * be updated manually, by the remote, or by other applications so this value may
+ * change without your application changing it.
  */
 @property(readonly, copy, nonatomic) id value;
 

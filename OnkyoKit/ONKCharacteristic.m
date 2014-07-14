@@ -36,6 +36,12 @@ NSString * const ONKCharacteristicDefinitionMetadata = @"characteristic.metadata
     return self;
 }
 
+- (void)setValue:(id)value
+{
+    // TODO: check for value change and send notification via receiver object
+    _value = [value copy];
+}
+
 - (void)handleMessage:(ISCPMessage *)message
 {
     NSLog(@"%s code: %@; handling message: %@", __PRETTY_FUNCTION__, self.code, message);
