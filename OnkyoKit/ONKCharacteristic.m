@@ -9,6 +9,7 @@
 #import "ONKCharacteristic_Private.h"
 #import "ONKCharacteristicMetadata_Private.h"
 #import "ONKService.h"
+#import "ONKReceiver_Private.h"
 
 NSString * const ONKCharacteristicTypePowerState   = @"onkyo.pwr";
 NSString * const ONKCharacteristicTypeMuteState    = @"onkyo.amt";
@@ -38,8 +39,12 @@ NSString * const ONKCharacteristicDefinitionMetadata = @"characteristic.metadata
 
 - (void)setValue:(id)value
 {
-    // TODO: check for value change and send notification via receiver object
-    _value = [value copy];
+    if (![value isEqual:_value]) {
+        _value = [value copy];
+        ONKService *cachedService = self.service;
+        ONKReceiver *cachedReceiver = cachedService.receiver;
+        [cachedReceiver notifyDelegateWithService:cachedService characteristic:self];
+    }
 }
 
 - (void)handleMessage:(ISCPMessage *)message

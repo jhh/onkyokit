@@ -12,22 +12,26 @@
 #import "ONKCharacteristic_Private.h"
 #import <OCMock/OCMock.h>
 
-@interface ONKReceiverTests : XCTestCase
+@interface ONKReceiverTests : XCTestCase <ONKReceiverDelegate>
+
+@property (nonatomic) ONKReceiver *receiver;
+@property (nonatomic) ONKService *service;
+@property ONKCharacteristic *characteristic;
 
 @end
 
 @implementation ONKReceiverTests
 {
-    ONKReceiver *receiver;
-    ONKService *service;
+    
+    XCTestExpectation *delegateCalledExpectation;
 }
 
 - (void)setUp
 {
     [super setUp];
     NSString *name = @"Test Receiver A", *uniqueID = @"hVaUtiBeQHh2w", *addr = @"127.0.0.1";
-    receiver = [[ONKReceiver alloc] initWithModel:name uniqueIdentifier:uniqueID address:addr port:60128];
-    service = receiver.services[0];
+    self.receiver = [[ONKReceiver alloc] initWithModel:name uniqueIdentifier:uniqueID address:addr port:60128];
+    self.service = self.receiver.services[0];
 }
 
 - (void)tearDown
@@ -38,46 +42,46 @@
 
 - (void)testReceiverProperties
 {
-    XCTAssertNotNil(receiver);
-    XCTAssertEqualObjects(receiver.model, @"Test Receiver A");
-    XCTAssertEqualObjects(receiver.uniqueIdentifier, @"hVaUtiBeQHh2w");
-    XCTAssertEqualObjects(receiver.address, @"127.0.0.1");
-    XCTAssertEqual(receiver.port, 60128);
+    XCTAssertNotNil(self.receiver);
+    XCTAssertEqualObjects(self.receiver.model, @"Test Receiver A");
+    XCTAssertEqualObjects(self.receiver.uniqueIdentifier, @"hVaUtiBeQHh2w");
+    XCTAssertEqualObjects(self.receiver.address, @"127.0.0.1");
+    XCTAssertEqual(self.receiver.port, 60128);
 
 }
 
 - (void)testServiceProperties
 {
-    XCTAssertEqualObjects(service.name, @"Main Zone");
-    ONKReceiver *cachedReceiver = service.receiver;
-    XCTAssertEqual(cachedReceiver, receiver);
+    XCTAssertEqualObjects(self.service.name, @"Main Zone");
+    ONKReceiver *cachedReceiver = self.service.receiver;
+    XCTAssertEqual(cachedReceiver, self.receiver);
 }
 
 - (void)testCharacteristicProperties
 {
-    ONKCharacteristic *characteristic = service.characteristics[0];
-    XCTAssertEqualObjects(characteristic.name, @"System Power");
-    XCTAssertEqualObjects(characteristic.characteristicType, @"onkyo.pwr");
-    XCTAssertEqualObjects(characteristic.code, @"PWR");
-    ONKService *cachedService = characteristic.service;
-    XCTAssertEqual(cachedService, service);
+    ONKCharacteristic *c = self.service.characteristics[0];
+    XCTAssertEqualObjects(c.name, @"System Power");
+    XCTAssertEqualObjects(c.characteristicType, @"onkyo.pwr");
+    XCTAssertEqualObjects(c.code, @"PWR");
+    ONKService *cachedService = c.service;
+    XCTAssertEqual(cachedService, self.service);
 }
 
 - (void)testCharacteristicMetadataProperties
 {
-    ONKCharacteristic *c = service.characteristics[0];
+    ONKCharacteristic *c = self.service.characteristics[0];
     ONKCharacteristicMetadata *meta = c.metadata;
     XCTAssertEqual([meta.minimumValue integerValue], 0);
     XCTAssertEqual([meta.maximumValue integerValue], 1);
     XCTAssertEqual(meta.units, ONKCharacteristicUnitBoolean);
 
-    c = service.characteristics[1];
+    c = self.service.characteristics[1];
     meta = c.metadata;
     XCTAssertEqual([meta.minimumValue integerValue], 0);
     XCTAssertEqual([meta.maximumValue integerValue], 1);
     XCTAssertEqual(meta.units, ONKCharacteristicUnitBoolean);
 
-    c = service.characteristics[2];
+    c = self.service.characteristics[2];
     meta = c.metadata;
     XCTAssertEqual([meta.minimumValue integerValue], 0);
     XCTAssertEqual([meta.maximumValue integerValue], 100);
@@ -86,41 +90,63 @@
 
 - (void)testHandleBoolMessage
 {
-    ONKCharacteristic *c = service.characteristics[0];
+    ONKCharacteristic *c = self.service.characteristics[0];
     XCTAssertEqualObjects(c.characteristicType, ONKCharacteristicTypePowerState);
     XCTAssertEqual([c.value boolValue], NO);
     ISCPMessage *message = [[ISCPMessage alloc] initWithMessage:@"PWR01"];
-    [receiver handleMessage:message];
+    [self.receiver handleMessage:message];
     XCTAssertEqual([c.value boolValue], YES);
 
-    c = service.characteristics[1];
+    c = self.service.characteristics[1];
     XCTAssertEqualObjects(c.characteristicType, ONKCharacteristicTypeMuteState);
     XCTAssertEqual([c.value boolValue], NO);
     message = [[ISCPMessage alloc] initWithMessage:@"AMT01"];
-    [receiver handleMessage:message];
+    [self.receiver handleMessage:message];
     XCTAssertEqual([c.value boolValue], YES);
 }
 
 - (void)testHandleNumericMessage
 {
-    ONKCharacteristic *c = service.characteristics[2];
+    ONKCharacteristic *c = self.service.characteristics[2];
     XCTAssertEqualObjects(c.characteristicType, ONKCharacteristicTypeMasterVolume);
     XCTAssertEqual([c.value integerValue], 0);
     ISCPMessage *message = [[ISCPMessage alloc] initWithMessage:@"MVL08"];
-    [receiver handleMessage:message];
+    [self.receiver handleMessage:message];
     XCTAssertEqual([c.value integerValue], 8);
 
     message = [[ISCPMessage alloc] initWithMessage:@"MVL0A"];
-    [receiver handleMessage:message];
+    [self.receiver handleMessage:message];
     XCTAssertEqual([c.value integerValue], 10);
 
     message = [[ISCPMessage alloc] initWithMessage:@"MVL64"];
-    [receiver handleMessage:message];
+    [self.receiver handleMessage:message];
     XCTAssertEqual([c.value integerValue], 100);
 
     message = [[ISCPMessage alloc] initWithMessage:@"MVLXX"];
-    [receiver handleMessage:message];
+    [self.receiver handleMessage:message];
     XCTAssertEqualObjects(c.value, [NSDecimalNumber notANumber]);
+}
+
+- (void)testCallingDelegate
+{
+    delegateCalledExpectation = [self expectationWithDescription:@"delegate called"];
+    self.receiver.delegate = self;
+    self.receiver.delegateQueue = [[NSOperationQueue alloc] init];
+
+    ISCPMessage *message = [[ISCPMessage alloc] initWithMessage:@"MVL08"];
+    [self.receiver handleMessage:message];
+    
+    [self waitForExpectationsWithTimeout:1 handler:nil];
+}
+
+// ONKReceiverDelegate
+- (void)receiver:(ONKReceiver *)receiver service:(ONKService *)service didUpdateValueForCharacteristic:(ONKCharacteristic *)characteristic
+{
+    self.characteristic = characteristic;
+    ONKCharacteristic *c = self.service.characteristics[2];
+    XCTAssertEqualObjects(c, self.characteristic);
+    XCTAssertEqual([self.characteristic.value integerValue], 8);
+    [delegateCalledExpectation fulfill];
 }
 
 @end

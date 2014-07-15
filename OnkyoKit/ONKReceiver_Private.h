@@ -48,4 +48,12 @@
  */
 - (void)handleMessage:(ISCPMessage *)message;
 
+/**
+ * @brief Notify delegates of characteristic value update.
+ *
+ * @param service The service the characteristic is part of.
+ * @param characteristic The updated characteristic.
+ */
+- (void)notifyDelegateWithService:(ONKService *)service characteristic:(ONKCharacteristic *)characteristic;
+
 @end
