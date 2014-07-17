@@ -76,14 +76,6 @@
  * @param characteristic The characteristic whose value changed.
  */
 - (void)receiver:(ONKReceiver *)receiver service:(ONKService *)service didUpdateValueForCharacteristic:(ONKCharacteristic *)characteristic;
-/**
- * @brief Sent when an event is recieved from the remote device.
- *
- * @param receiver The receiver sending the message.
- * @param event An event object containing the details of the event.
- * @todo This method signature needs to change.
- */
-- (void)receiver:(ONKReceiver *)receiver didSendEvent:(EISCPPacket *)event;
 
 /**
  * @brief Sent when a connection fails to send or receive from the remote device.

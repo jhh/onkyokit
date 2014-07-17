@@ -127,6 +127,19 @@
     XCTAssertEqualObjects(c.value, [NSDecimalNumber notANumber]);
 }
 
+- (void)testDescription
+{
+    ISCPMessage *message = [[ISCPMessage alloc] initWithMessage:@"MVL2C"];
+    ONKCharacteristic *c = self.service.characteristics[2];
+    [c handleMessage:message];
+    NSLog(@"DESCRIPTION: %@", c.description);
+
+    message = [[ISCPMessage alloc] initWithMessage:@"AMT01"];
+    c = self.service.characteristics[1];
+    [c handleMessage:message];
+    NSLog(@"DESCRIPTION: %@", c.description);
+}
+
 - (void)testCallingDelegate
 {
     delegateCalledExpectation = [self expectationWithDescription:@"delegate called"];

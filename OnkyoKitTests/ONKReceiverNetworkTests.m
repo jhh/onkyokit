@@ -9,12 +9,12 @@
 @import XCTest;
 @import OnkyoKit;
 #import "ONKReceiver_Private.h"
+#import "ONKCharacteristic_Private.h"
 
 @interface ONKReceiverNetworkTests : XCTestCase <ONKReceiverDelegate>
 @property ONKReceiver *receiver;
 @property (getter = hasPassed) BOOL passed;
 @property NSCondition *condition;
-- (void) receiver:(ONKReceiver *)receiver didSendEvent:(EISCPPacket *)event;
 @end
 
 // Tests sending command and receiving corresponding event.
@@ -28,16 +28,9 @@
 // asynchronous.
 @implementation ONKReceiverNetworkTests
 
-- (void)receiver:(ONKReceiver *)receiver didSendEvent:(EISCPPacket *)event
+- (void)receiver:(ONKReceiver *)receiver service:(ONKService *)service didUpdateValueForCharacteristic:(ONKCharacteristic *)characteristic
 {
-    NSLog(@"ONKControllerTest event received: %@", event);
-
-    // sanity checks on recieved packets
-    XCTAssertEqualObjects(@"ISCP", event.magic, @"Packet magic did not match.");
-    XCTAssertEqual(1UL, event.version, @"Packet version did not match.");
-    XCTAssertEqual(16UL, event.headerLength, @"Header length did not match.");
-
-    if ([event.message.code isEqualToString:@"PWR"]) {
+    if ([characteristic.code isEqualToString:@"PWR"]) {
         [self.condition lock];
         self.passed = YES;
         [self.condition signal];

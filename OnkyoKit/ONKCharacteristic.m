@@ -75,6 +75,30 @@ NSString * const ONKCharacteristicDefinitionMetadata = @"characteristic.metadata
     }
 }
 
+- (NSString *)description
+{
+    switch (self.metadata.units) {
+        case ONKCharacteristicUnitBoolean:
+            return [NSString stringWithFormat:@"%@ %@ <%@%02i>", self.name,
+                    [(NSNumber *)self.value boolValue] ? @"ON" : @"OFF",
+                    self.code,
+                    (int)[(NSNumber *)self.value integerValue]];
+            
+            case ONKCharacteristicUnitNumeric:
+            return [NSString stringWithFormat:@"%@ %@ <%@%02X>",
+                    self.name,
+                    self.value,
+                    self.code,
+                    (int)[(NSNumber *)self.value integerValue]];
+
+        default:
+            return [NSString stringWithFormat:@"%@ %@ <%@>",
+                    self.name,
+                    self.value,
+                    self.code];
+    }
+}
+
 
 - (void)writeValue:(id)value completionHandler:(void (^)(NSError *error))completion
 {

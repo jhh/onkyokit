@@ -55,25 +55,6 @@
     [self showReceiverBrowser];
 }
 
-// this is called on delegateQueue
-- (void) receiver:(ONKReceiver *)controller didSendEvent:(EISCPPacket *)event
-{
-    NSString *message = [NSString stringWithFormat:@"%@: %@\n", [self.dateFormatter stringFromDate:[NSDate date]], [event description]];
-    NSAttributedString *as = [[NSAttributedString alloc] initWithString:message attributes:self.eventAttrs];
-    NSTextStorage *text = self.consoleTextView.textStorage;
-    [text beginEditing];
-    [text appendAttributedString:as];
-    [text endEditing];
-    [self.consoleTextView scrollRangeToVisible:NSMakeRange(text.length, 0)];
-}
-
-// this is called on delegateQueue
-- (void)receiver:(ONKReceiver *)receiver didFailWithError:(NSError *)error
-{
-    NSLog(@"%s: %@", __PRETTY_FUNCTION__, error);
-    [self.window presentError:error];
-}
-
 - (IBAction)sendCommand:(NSTextField *)sender
 {
     NSString *command = [sender stringValue];
@@ -82,6 +63,20 @@
     } else {
         [self.onkyoReceiver sendCommand:command];
     }
+}
+
+// ONKReceiverDelegate
+// this is called on delegateQueue
+- (void)receiver:(ONKReceiver *)receiver service:(ONKService *)service didUpdateValueForCharacteristic:(ONKCharacteristic *)characteristic
+{
+    NSString *message = [NSString stringWithFormat:@"%@: %@\n",
+                         [self.dateFormatter stringFromDate:[NSDate date]], characteristic];
+    NSAttributedString *as = [[NSAttributedString alloc] initWithString:message attributes:self.eventAttrs];
+    NSTextStorage *text = self.consoleTextView.textStorage;
+    [text beginEditing];
+    [text appendAttributedString:as];
+    [text endEditing];
+    [self.consoleTextView scrollRangeToVisible:NSMakeRange(text.length, 0)];
 }
 
 
