@@ -52,8 +52,7 @@
  * @brief Send a command over the network connection to the receiver.
  * @todo This will be moved to another class.
 */
-- (void)sendCommand:(NSString *)command;
-
+- (void)sendCommand:(NSString *)command withCompletionHandler:(void (^)(NSError *error))completion;
 @end
 
 /**
@@ -75,19 +74,10 @@
  * @param service The service with a changed characteristic value
  * @param characteristic The characteristic whose value changed.
  */
-- (void)receiver:(ONKReceiver *)receiver service:(ONKService *)service didUpdateValueForCharacteristic:(ONKCharacteristic *)characteristic;
+- (void)receiver:(ONKReceiver *)receiver
+         service:(ONKService *)service
+didUpdateValueForCharacteristic:(ONKCharacteristic *)characteristic;
 
-/**
- * @brief Sent when a connection fails to send or receive from the remote device.
- *
- * Once the delegate receives this message, it will receive no more events
- * from receiver object.
- *
- * @param receiver The receiver sending the message.
- * @param error An error object containing details of why the connection failed.
- * @todo This method signature needs to change.
- */
-- (void)receiver:(ONKReceiver *)receiver didFailWithError:(NSError *)error;
 
 @end
 

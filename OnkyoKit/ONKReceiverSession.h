@@ -21,11 +21,6 @@
 @property (weak, readonly, nonatomic) ONKReceiver *receiver;
 
 /**
- * @brief Contains any encountered error.
- */
-@property (nonatomic) NSError *error;
-
-/**
  * @brief Initialize with a configured ONKReceiver object.
  */
 - (instancetype)initWithReceiver:(ONKReceiver *)receiver NS_DESIGNATED_INITIALIZER;
@@ -33,8 +28,7 @@
 /**
  * @brief Start or resume the connection to the remote device.
  */
-- (void)resume;
-
+- (BOOL)resumeWithError:(NSError **)error;
 /**
  * @brief Suspend the connection to the remote device.
  */
@@ -42,7 +36,11 @@
 
 /**
  * @brief Sends command after 200ms delay.
+ * 
+ * @param command The command to send.
+ * @param completion The handler to call when the request is done. This handler is
+ *                   not guaranteed to be called on any particular thread.
  */
-- (void)sendCommand:(NSString *)command;
+- (void)sendCommand:(NSString *)command withCompletionHandler:(void (^)(NSError *error))completion;
 
 @end

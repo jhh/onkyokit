@@ -38,11 +38,6 @@
     }
 }
 
-- (void)receiver:(ONKReceiver *)receiver didFailWithError:(NSError *)error
-{
-    XCTFail(@"%s %@", __PRETTY_FUNCTION__, [error localizedDescription]);
-}
-
 - (void)setUp
 {
     [super setUp];
@@ -66,10 +61,14 @@
     self.receiver.delegateQueue = [[NSOperationQueue alloc] init];
     ONKReceiverSession *session = [[ONKReceiverSession alloc] initWithReceiver:self.receiver];
 
-    [session resume];
+    NSError *error;
+    XCTAssert([session resumeWithError:&error] == YES);
+    XCTAssertNil(error);
 
     [self.condition lock];
-    [session sendCommand:@"PWRQSTN"];
+    [session sendCommand:@"PWRQSTN" withCompletionHandler:^(NSError *error){
+        XCTAssertNil(error);
+    }];
 
     // wait 1 sec for response to be sent.
     [self.condition waitUntilDate:[NSDate dateWithTimeIntervalSinceNow:1]];

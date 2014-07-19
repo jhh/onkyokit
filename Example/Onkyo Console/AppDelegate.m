@@ -29,7 +29,14 @@
     self.onkyoReceiver.delegate = self;
     self.onkyoReceiver.delegateQueue = [NSOperationQueue mainQueue];
     [self.onkyoReceiver resume];
-    [self.onkyoReceiver sendCommand:@"PWRQSTN"];
+    [self.onkyoReceiver sendCommand:@"PWRQSTN" withCompletionHandler:^(NSError *error){
+        if (error) {
+            NSLog(@"%@", error);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [NSApp presentError:error];
+            });
+        }
+    }];
 }
 
 - (void)setUpTextView
@@ -61,7 +68,14 @@
     if ([[command lowercaseString] isEqualToString:@"browse"]) {
         [self showReceiverBrowser];
     } else {
-        [self.onkyoReceiver sendCommand:command];
+        [self.onkyoReceiver sendCommand:command withCompletionHandler:^(NSError *error){
+            if (error) {
+                NSLog(@"%@", error);
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [NSApp presentError:error];
+                });
+            }
+        }];
     }
 }
 
