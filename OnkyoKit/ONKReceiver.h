@@ -39,16 +39,6 @@
 @property(nonatomic) NSOperationQueue *delegateQueue;
 
 /**
- * @brief Resume the network connection to the receiver.
- * @todo This will be moved to another class.
-*/
-- (void)resume;
-/**
- * @brief Suspend the network connection to the receiver.
- * @todo This will be moved to another class.
-*/
-- (void)suspend;
-/**
  * @brief Send a command over the network connection to the receiver.
  * @todo This will be moved to another class.
 */

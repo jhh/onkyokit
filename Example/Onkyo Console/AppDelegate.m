@@ -21,20 +21,15 @@
 - (void)receiverBrowser:(ReceiverBrowser *)browser didSelectReceiver:(ONKReceiver *)receiver
 {
     NSLog(@"%s", __PRETTY_FUNCTION__);
-    if (self.onkyoReceiver) {
-        NSLog(@"Disconnecting from %@", self.onkyoReceiver);
-        [self.onkyoReceiver suspend];
-    }
     self.onkyoReceiver = receiver;
     self.onkyoReceiver.delegate = self;
     self.onkyoReceiver.delegateQueue = [NSOperationQueue mainQueue];
-    [self.onkyoReceiver resume];
     [self.onkyoReceiver sendCommand:@"PWRQSTN" withCompletionHandler:^(NSError *error){
         if (error) {
             NSLog(@"%@", error);
-            dispatch_async(dispatch_get_main_queue(), ^{
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                 [NSApp presentError:error];
-            });
+            }];
         }
     }];
 }
@@ -71,9 +66,9 @@
         [self.onkyoReceiver sendCommand:command withCompletionHandler:^(NSError *error){
             if (error) {
                 NSLog(@"%@", error);
-                dispatch_async(dispatch_get_main_queue(), ^{
+                [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                     [NSApp presentError:error];
-                });
+                }];
             }
         }];
     }

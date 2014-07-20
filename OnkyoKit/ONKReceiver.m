@@ -74,20 +74,9 @@
     _codeMap = [tempDict copy];
 }
 
-- (void)resume
-{
-    assert(true);
-//    [((ONKReceiver *)self).session resumeWithCompletionHandler];
-}
-
-- (void)suspend
-{
-    [((ONKReceiver *)self).session suspend];
-}
-
 - (void)sendCommand:(NSString *)command withCompletionHandler:(void (^)(NSError *error))completion
 {
-    [((ONKReceiver *)self).session sendCommand:command withCompletionHandler:completion];
+    [self.session sendCommand:command withCompletionHandler:completion];
 }
 
 - (NSString *)description
