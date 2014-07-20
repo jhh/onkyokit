@@ -34,7 +34,7 @@
     return self;
 }
 
-- (BOOL)resumeWithError:(__autoreleasing NSError **)error
+- (BOOL)resumeWithError:(NSError * __autoreleasing *)error
 {
     ONKReceiver *receiver = self.receiver; // make strong
     dispatch_fd_t fd = [self _fileDescriptorForAddress:receiver.address port:receiver.port error:error];
@@ -45,7 +45,7 @@
     _channel = dispatch_io_create(DISPATCH_IO_STREAM, fd, _socketQueue, NULL);
     dispatch_io_set_low_water(_channel, 1);
 
-    __weak ONKReceiverSession *weakSelf = self; // avoid strong reference cycle while capturing self
+    ONKReceiverSession * __weak weakSelf = self; // avoid strong reference cycle while capturing self
     dispatch_io_read(_channel, 0, SIZE_MAX, _socketQueue, ^(bool done, dispatch_data_t data, int err) {
         ONKReceiverSession *cachedSelf = weakSelf; // make strong for clang
         if(err == 0) {
@@ -71,7 +71,7 @@
 
 - (void)sendCommand:(NSString *)command withCompletionHandler:(void (^)(NSError *error))completion
 {
-    NSError __autoreleasing *channelError;
+    NSError * __autoreleasing channelError;
     if (!_channel) {
         if (![self resumeWithError:&channelError]) {
             if (completion) {
@@ -98,7 +98,7 @@
 
 #pragma mark Private Methods
 
-- (dispatch_fd_t)_fileDescriptorForAddress:(NSString *)address port:(uint16_t)port error:(__autoreleasing NSError **)error
+- (dispatch_fd_t)_fileDescriptorForAddress:(NSString *)address port:(uint16_t)port error:(NSError * __autoreleasing *)error
 {
     struct sockaddr_in sock_addr;
 

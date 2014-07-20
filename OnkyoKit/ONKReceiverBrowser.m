@@ -60,8 +60,8 @@
 - (void)startSearchingForNewReceivers
 {
     _operation = [[NSBlockOperation alloc] init];
-    __weak NSBlockOperation *weakOp = _operation;
-    __weak ONKReceiverBrowser *weakSelf = self;
+    NSBlockOperation * __weak weakOp = _operation;
+    ONKReceiverBrowser * __weak weakSelf = self;
     [_operation addExecutionBlock:^{
         NSBlockOperation *op = weakOp;
         ONKReceiverBrowser *browser = weakSelf;
