@@ -24,7 +24,9 @@
     self.onkyoReceiver = receiver;
     self.onkyoReceiver.delegate = self;
     self.onkyoReceiver.delegateQueue = [NSOperationQueue mainQueue];
-    [self.onkyoReceiver sendCommand:@"PWRQSTN" withCompletionHandler:^(NSError *error){
+    ONKService *main = self.onkyoReceiver.services[0];
+    ONKCharacteristic *power = [main findCharacteristicWithType:ONKCharacteristicTypePowerState];
+    [power readValueWithCompletionHandler:^(NSError *error){
         if (error) {
             NSLog(@"%@", error);
             [[NSOperationQueue mainQueue] addOperationWithBlock:^{

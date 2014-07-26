@@ -42,16 +42,6 @@
     
 }
 
-- (void)notifyDelegateWithService:(ONKService *)service characteristic:(ONKCharacteristic *)characteristic
-{
-    id<ONKReceiverDelegate> cachedDelegate = self.delegate;
-    if ([cachedDelegate respondsToSelector:@selector(receiver:service:didUpdateValueForCharacteristic:)]) {
-        [self.delegateQueue addOperationWithBlock:^{
-            [cachedDelegate receiver:self service:service didUpdateValueForCharacteristic:characteristic];
-        }];
-    }
-}
-
 - (void)_registerServices
 {
     // load service definitions from property list

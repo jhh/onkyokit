@@ -11,6 +11,7 @@
 		1F0724A117615DAE00787CCF /* OnkyoKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FBB18CA175BB1AE00E7B9C7 /* OnkyoKit.framework */; };
 		1F0B84C519509C9000879775 /* ONKService.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0B84C319509C9000879775 /* ONKService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F0B84C619509C9000879775 /* ONKService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0B84C419509C9000879775 /* ONKService.m */; };
+		1F0C08371983CF2400EF8E77 /* ONKCharacteristicNetworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0C08361983CF2400EF8E77 /* ONKCharacteristicNetworkTests.m */; };
 		1F1155F6177661DB00B18A08 /* EISCPPacketTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F1155F5177661DB00B18A08 /* EISCPPacketTest.m */; };
 		1F2318591768AA420025FA12 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FBB18D2175BB1AE00E7B9C7 /* Foundation.framework */; };
 		1F23185A1768AA460025FA12 /* OnkyoKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FBB18CA175BB1AE00E7B9C7 /* OnkyoKit.framework */; };
@@ -78,6 +79,7 @@
 		1F0B84E61950E25700879775 /* ONKCharacteristic_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ONKCharacteristic_Private.h; sourceTree = "<group>"; };
 		1F0B84E71950E53100879775 /* ONKService_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ONKService_Private.h; sourceTree = "<group>"; };
 		1F0B84E81950E8AE00879775 /* ONKReceiver_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ONKReceiver_Private.h; sourceTree = "<group>"; };
+		1F0C08361983CF2400EF8E77 /* ONKCharacteristicNetworkTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKCharacteristicNetworkTests.m; sourceTree = "<group>"; };
 		1F1155F5177661DB00B18A08 /* EISCPPacketTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EISCPPacketTest.m; sourceTree = "<group>"; };
 		1F2318441768A9CC0025FA12 /* OnkyoKit Mac Network Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "OnkyoKit Mac Network Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F23185D1768AA7B0025FA12 /* ONKReceiverNetworkTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKReceiverNetworkTests.m; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 			children = (
 				1F23185D1768AA7B0025FA12 /* ONKReceiverNetworkTests.m */,
 				1F61D74517825EFB00FAF0BF /* ONKDeviceBrowserNetworkTests.m */,
+				1F0C08361983CF2400EF8E77 /* ONKCharacteristicNetworkTests.m */,
 			);
 			name = "Network Tests";
 			sourceTree = "<group>";
@@ -526,6 +529,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F23185E1768AA7B0025FA12 /* ONKReceiverNetworkTests.m in Sources */,
+				1F0C08371983CF2400EF8E77 /* ONKCharacteristicNetworkTests.m in Sources */,
 				1F61D74617825EFB00FAF0BF /* ONKDeviceBrowserNetworkTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

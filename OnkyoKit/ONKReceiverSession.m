@@ -86,10 +86,10 @@
     dispatch_time_t delay = dispatch_time(DISPATCH_TIME_NOW, 2000ull*NSEC_PER_USEC); // 200 ms
     dispatch_after(delay, dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
         dispatch_io_write(self->_channel, 0, message, self->_socketQueue, ^(bool done, dispatch_data_t data, int error) {
-            if (error) {
+            if (error && completion) {
                 NSError *writeError = [self _errorWithDescription:@"Write error" code:error];
                 completion(writeError);
-            } else if (done) {
+            } else if (done && completion) {
                 completion(nil);
             }
         });

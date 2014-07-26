@@ -23,7 +23,7 @@ NSString * const ONKCharacteristicDefinitionMetadata = @"characteristic.metadata
 
 @implementation ONKCharacteristic
 
-- (instancetype)initWithService:(ONKService *)service characteristicDictionary:(NSDictionary *)characteristicDictionary;
+- (instancetype)initWithService:(ONKService *)service characteristicDictionary:(NSDictionary *)characteristicDictionary
 {
     self = [super init];
     if (self) {
@@ -43,7 +43,13 @@ NSString * const ONKCharacteristicDefinitionMetadata = @"characteristic.metadata
         _value = [value copy];
         ONKService *cachedService = self.service;
         ONKReceiver *cachedReceiver = cachedService.receiver;
-        [cachedReceiver notifyDelegateWithService:cachedService characteristic:self];
+        id<ONKReceiverDelegate> cachedDelegate = cachedReceiver.delegate;
+        if ([cachedDelegate respondsToSelector:@selector(receiver:service:didUpdateValueForCharacteristic:)]) {
+            NSAssert(cachedReceiver.delegateQueue != nil, @"ONKReceiver delegateQueue property not set");
+            [cachedReceiver.delegateQueue addOperationWithBlock:^{
+                [cachedDelegate receiver:cachedReceiver service:cachedService didUpdateValueForCharacteristic:self];
+            }];
+        }
     }
 }
 
@@ -107,7 +113,9 @@ NSString * const ONKCharacteristicDefinitionMetadata = @"characteristic.metadata
 
 - (void)readValueWithCompletionHandler:(void (^)(NSError *error))completion
 {
-
+    ONKService *cachedService = self.service;
+    ONKReceiver *cachedReceiver = cachedService.receiver;
+    [cachedReceiver sendCommand:[NSString stringWithFormat:@"%@QSTN",self.code] withCompletionHandler:completion];
 }
 
 
