@@ -7,7 +7,6 @@
 //
 
 @import XCTest;
-@import OnkyoKit;
 #import "ONKReceiver_Private.h"
 #import "ONKCharacteristic_Private.h"
 #import <OCMock/OCMock.h>
@@ -138,6 +137,14 @@
     c = self.service.characteristics[1];
     [c handleMessage:message];
     NSLog(@"DESCRIPTION: %@", c.description);
+}
+
+- (void)testFindCharacteristicForType
+{
+    ONKCharacteristic *c = [self.service findCharacteristicWithType:ONKCharacteristicTypeMasterVolume];
+    XCTAssertEqualObjects(c.code, @"MVL");
+    c = [self.service findCharacteristicWithType:ONKCharacteristicTypePowerState];
+    XCTAssertEqualObjects(c.code, @"PWR");
 }
 
 - (void)testCallingDelegate

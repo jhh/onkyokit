@@ -33,4 +33,16 @@ NSString * const ONKServiceDefinitionCharacteristics = @"service.characteristics
     return self;
 }
 
+- (ONKCharacteristic *)findCharacteristicWithType:(NSString *)characteristicType
+{
+    for (ONKCharacteristic *c in self.characteristics) {
+        if ([c.characteristicType isEqualToString:characteristicType]) {
+            return c;
+        }
+    }
+    NSLog(@"%s: did not find characteristic for %@", __PRETTY_FUNCTION__, characteristicType);
+    return nil;
+}
+
+
 @end

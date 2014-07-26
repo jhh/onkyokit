@@ -7,7 +7,6 @@
 //
 
 @import XCTest;
-@import OnkyoKit;
 #import "ONKReceiver_Private.h"
 
 @interface ONKReceiverErrorTest : XCTestCase <ONKReceiverDelegate>

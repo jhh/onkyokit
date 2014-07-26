@@ -7,7 +7,6 @@
 //
 
 @import XCTest;
-@import OnkyoKit;
 
 @interface ONKDeviceBrowserNetworkTests : XCTestCase <ONKReceiverBrowserDelegate>
 
