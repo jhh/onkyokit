@@ -39,7 +39,7 @@
     } else {
         NSLog(@"unrecognized message: %@", message);
     }
-    
+
 }
 
 - (void)_registerServices
@@ -53,7 +53,7 @@
         [tempServices addObject:[[ONKService alloc] initWithReceiver:self serviceDictionary:serviceDict]];
     }
     _services = [tempServices copy];
-    
+
     // create map from receiver command code to characteristic
     NSMutableDictionary *tempDict = [NSMutableDictionary dictionary];
     for (ONKService *service in _services) {

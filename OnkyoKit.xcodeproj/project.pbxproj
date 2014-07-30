@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F0057FD1988FF7E0002470B /* ONKCharacteristicWriteValueNetworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0057FC1988FF7E0002470B /* ONKCharacteristicWriteValueNetworkTests.m */; };
 		1F07249D1761565900787CCF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FBB18D2175BB1AE00E7B9C7 /* Foundation.framework */; };
 		1F0724A117615DAE00787CCF /* OnkyoKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FBB18CA175BB1AE00E7B9C7 /* OnkyoKit.framework */; };
 		1F0B84C519509C9000879775 /* ONKService.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0B84C319509C9000879775 /* ONKService.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -74,6 +75,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1F0057FC1988FF7E0002470B /* ONKCharacteristicWriteValueNetworkTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKCharacteristicWriteValueNetworkTests.m; sourceTree = "<group>"; };
 		1F0B84C319509C9000879775 /* ONKService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONKService.h; sourceTree = "<group>"; };
 		1F0B84C419509C9000879775 /* ONKService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKService.m; sourceTree = "<group>"; };
 		1F0B84E61950E25700879775 /* ONKCharacteristic_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ONKCharacteristic_Private.h; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				1F23185D1768AA7B0025FA12 /* ONKReceiverNetworkTests.m */,
 				1F61D74517825EFB00FAF0BF /* ONKDeviceBrowserNetworkTests.m */,
 				1F0C08361983CF2400EF8E77 /* ONKCharacteristicNetworkTests.m */,
+				1F0057FC1988FF7E0002470B /* ONKCharacteristicWriteValueNetworkTests.m */,
 			);
 			name = "Network Tests";
 			sourceTree = "<group>";
@@ -530,6 +533,7 @@
 			files = (
 				1F23185E1768AA7B0025FA12 /* ONKReceiverNetworkTests.m in Sources */,
 				1F0C08371983CF2400EF8E77 /* ONKCharacteristicNetworkTests.m in Sources */,
+				1F0057FD1988FF7E0002470B /* ONKCharacteristicWriteValueNetworkTests.m in Sources */,
 				1F61D74617825EFB00FAF0BF /* ONKDeviceBrowserNetworkTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

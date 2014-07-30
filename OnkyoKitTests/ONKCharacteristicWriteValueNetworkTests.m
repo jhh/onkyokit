@@ -1,8 +1,8 @@
 //
-//  ONKCharacteristicNetworkTests.m
+//  ONKCharacteristicWriteValueNetworkTests.m
 //  OnkyoKit
 //
-//  Created by Jeff Hutchison on 7/26/14.
+//  Created by Jeff Hutchison on 7/30/14.
 //  Copyright (c) 2014 Jeff Hutchison. All rights reserved.
 //
 
@@ -10,14 +10,15 @@
 #import <XCTest/XCTest.h>
 #import "ONKReceiver_Private.h"
 
-@interface ONKCharacteristicNetworkTests : XCTestCase <ONKReceiverDelegate>
+
+@interface ONKCharacteristicWriteValueNetworkTests : XCTestCase <ONKReceiverDelegate>
 
 @property ONKCharacteristic *characteristic;
 @property XCTestExpectation *delegateCalledExpectation;
 
 @end
 
-@implementation ONKCharacteristicNetworkTests
+@implementation ONKCharacteristicWriteValueNetworkTests
 
 - (void)setUp {
     [super setUp];
@@ -29,22 +30,33 @@
     [super tearDown];
 }
 
-
-
-- (void)testCharacteristicRead
+- (void)testBooleanWrite
 {
-    self.delegateCalledExpectation = [self expectationWithDescription:@"delegate called"];
     NSString *address = [[NSProcessInfo processInfo] environment][@"ONK_ADDRESS"];
     NSAssert(address != nil, @"ONK_ADDRESS environment variable must be set - see test comments");
+    void (^completion)(NSError *) = ^(NSError *error){
+        XCTAssertNil(error);
+    };
+    self.continueAfterFailure = NO;
 
     ONKReceiver *receiver = [[ONKReceiver alloc] initWithModel:@"Test" uniqueIdentifier:@"123" address:address port:60128];
     receiver.delegate = self;
     receiver.delegateQueue = [[NSOperationQueue alloc] init];
-    ONKCharacteristic *c = [receiver.services[0] findCharacteristicWithType:ONKCharacteristicTypeMuteState];
-    [c readValueWithCompletionHandler:nil];
+    ONKCharacteristic *c = [receiver.services[0] findCharacteristicWithType:ONKCharacteristicTypePowerState];
+
+    self.delegateCalledExpectation = [self expectationWithDescription:@"delegate called for read"];
+    [c readValueWithCompletionHandler:completion];
     [self waitForExpectationsWithTimeout:1 handler:nil];
+
+    BOOL powerState = [c.value boolValue];
+
+    self.delegateCalledExpectation = [self expectationWithDescription:@"delegate called for write"];
+    [c writeValue:[NSNumber numberWithBool:!powerState] completionHandler:completion];
+    [self waitForExpectationsWithTimeout:2 handler:nil];
+
     XCTAssertNotNil(self.characteristic);
     XCTAssertEqualObjects(self.characteristic, c);
+    XCTAssertEqualObjects(self.characteristic.value, [NSNumber numberWithBool:!powerState]);
 }
 
 // ONKReceiverDelegate
@@ -53,5 +65,4 @@
     self.characteristic = characteristic;
     [self.delegateCalledExpectation fulfill];
 }
-
 @end

@@ -21,7 +21,7 @@
 
 @implementation ONKReceiverTests
 {
-    
+
     XCTestExpectation *delegateCalledExpectation;
 }
 
@@ -155,7 +155,7 @@
 
     ISCPMessage *message = [[ISCPMessage alloc] initWithMessage:@"MVL08"];
     [self.receiver handleMessage:message];
-    
+
     [self waitForExpectationsWithTimeout:1 handler:nil];
 }
 

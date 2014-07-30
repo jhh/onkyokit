@@ -75,7 +75,7 @@ NSString * const ONKCharacteristicDefinitionMetadata = @"characteristic.metadata
             }
         }
             break;
-            
+
         default:
             break;
     }
@@ -89,7 +89,7 @@ NSString * const ONKCharacteristicDefinitionMetadata = @"characteristic.metadata
                     [(NSNumber *)self.value boolValue] ? @"ON" : @"OFF",
                     self.code,
                     (int)[(NSNumber *)self.value integerValue]];
-            
+
             case ONKCharacteristicUnitNumeric:
             return [NSString stringWithFormat:@"%@ %@ <%@%02X>",
                     self.name,
@@ -108,7 +108,26 @@ NSString * const ONKCharacteristicDefinitionMetadata = @"characteristic.metadata
 
 - (void)writeValue:(id)value completionHandler:(void (^)(NSError *error))completion
 {
+    ONKService *cachedService = self.service;
+    ONKReceiver *cachedReceiver = cachedService.receiver;
+    NSString *command;
 
+    switch (self.metadata.units) {
+        case ONKCharacteristicUnitBoolean:
+            command = [NSString stringWithFormat:@"%@%02i",
+                    self.code,
+                    (int)[value integerValue]];
+            break;
+
+        case ONKCharacteristicUnitNumeric:
+            command = [NSString stringWithFormat:@"%@%02X",
+                    self.code,
+                    (int)[value integerValue]];
+            break;
+        default:
+            return;
+    }
+    [cachedReceiver sendCommand:command withCompletionHandler:completion];
 }
 
 - (void)readValueWithCompletionHandler:(void (^)(NSError *error))completion

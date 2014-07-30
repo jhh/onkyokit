@@ -36,7 +36,7 @@
 
 /**
  * @brief Sends command after 200ms delay.
- * 
+ *
  * @param command The command to send.
  * @param completion The handler to call when the request is done. This handler is
  *                   not guaranteed to be called on any particular thread.
