@@ -5,6 +5,8 @@ OnkyoKit is a Cocoa (and eventually Cocoa Touch) framework to control Onkyo rece
 Current development is on the
 [develop](https://github.com/jhh/onkyokit/tree/develop) branch with releases tagged on the [master](https://github.com/jhh/onkyokit/tree/master) branch.
 
+*NOTE: Requires Xcode 6.*
+
 ## License
 
 OnkyoKit is released under the MIT license. See [LICENSE.md][license].
