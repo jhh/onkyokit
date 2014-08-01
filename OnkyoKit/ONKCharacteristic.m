@@ -85,17 +85,17 @@ NSString * const ONKCharacteristicDefinitionMetadata = @"characteristic.metadata
 {
     switch (self.metadata.units) {
         case ONKCharacteristicUnitBoolean:
-            return [NSString stringWithFormat:@"%@ %@ <%@%02i>", self.name,
-                    [(NSNumber *)self.value boolValue] ? @"ON" : @"OFF",
+            return [NSString stringWithFormat:@"%@ %@ <%@%02li>", self.name,
+                    [self.value boolValue] ? @"ON" : @"OFF",
                     self.code,
-                    (int)[(NSNumber *)self.value integerValue]];
+                    [self.value integerValue]];
 
             case ONKCharacteristicUnitNumeric:
-            return [NSString stringWithFormat:@"%@ %@ <%@%02X>",
+            return [NSString stringWithFormat:@"%@ %@ <%@%02lX>",
                     self.name,
                     self.value,
                     self.code,
-                    (int)[(NSNumber *)self.value integerValue]];
+                    [self.value integerValue]];
 
         default:
             return [NSString stringWithFormat:@"%@ %@ <%@>",
@@ -114,15 +114,15 @@ NSString * const ONKCharacteristicDefinitionMetadata = @"characteristic.metadata
 
     switch (self.metadata.units) {
         case ONKCharacteristicUnitBoolean:
-            command = [NSString stringWithFormat:@"%@%02i",
+            command = [NSString stringWithFormat:@"%@%02li",
                     self.code,
-                    (int)[value integerValue]];
+                    [value integerValue]];
             break;
 
         case ONKCharacteristicUnitNumeric:
-            command = [NSString stringWithFormat:@"%@%02X",
+            command = [NSString stringWithFormat:@"%@%02lX",
                     self.code,
-                    (int)[value integerValue]];
+                    [value integerValue]];
             break;
         default:
             return;
