@@ -10,6 +10,7 @@
 extern NSString * const ONKCharacteristicMetadataDefinitionMinValue;
 extern NSString * const ONKCharacteristicMetadataDefinitionMaxValue;
 extern NSString * const ONKCharacteristicMetadataDefinitionUnits;
+extern NSString * const ONKCharacteristicMetadataDefinitionEnumLabels;
 
 
 @interface ONKCharacteristicMetadata ()

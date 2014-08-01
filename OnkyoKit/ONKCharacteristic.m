@@ -77,6 +77,7 @@ NSString * const ONKCharacteristicDefinitionMetadata = @"characteristic.metadata
             break;
 
         default:
+            self.value = payload;
             break;
     }
 }
@@ -85,20 +86,28 @@ NSString * const ONKCharacteristicDefinitionMetadata = @"characteristic.metadata
 {
     switch (self.metadata.units) {
         case ONKCharacteristicUnitBoolean:
-            return [NSString stringWithFormat:@"%@ %@ <%@%02li>", self.name,
+            return [NSString stringWithFormat:@"%@: %@ <%@%02li>",
+                    self.name,
                     [self.value boolValue] ? @"ON" : @"OFF",
                     self.code,
                     [self.value integerValue]];
 
-            case ONKCharacteristicUnitNumeric:
-            return [NSString stringWithFormat:@"%@ %@ <%@%02lX>",
+        case ONKCharacteristicUnitNumeric:
+            return [NSString stringWithFormat:@"%@: %@ <%@%02lX>",
                     self.name,
                     self.value,
                     self.code,
                     [self.value integerValue]];
+            
+        case ONKCharacteristicUnitEnum:
+            return [NSString stringWithFormat:@"%@: %@ <%@%@>",
+                    self.name,
+                    self.metadata.enumerationLabels[self.value],
+                    self.code,
+                    self.value];
 
         default:
-            return [NSString stringWithFormat:@"%@ %@ <%@>",
+            return [NSString stringWithFormat:@"%@: %@ <%@>",
                     self.name,
                     self.value,
                     self.code];

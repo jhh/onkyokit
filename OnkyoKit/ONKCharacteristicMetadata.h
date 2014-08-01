@@ -25,8 +25,19 @@ typedef NS_ENUM(NSInteger, ONKCharacteristicUnit) {
  */
 @property (readonly, nonatomic) NSNumber *minimumValue;
 
+/**
+ * @brief The maximum value for the characteristic. (read-only)
+ */
 @property (readonly, nonatomic) NSNumber *maximumValue;
 
+/**
+ * @brief The units of the characteristic. (read-only)
+ */
 @property (readonly, nonatomic) ONKCharacteristicUnit units;
+
+/**
+ * @brief Lables for enumeration unit type, nil otherwise. (read-only)
+ */
+@property (readonly, nonatomic) NSDictionary *enumerationLabels;
 
 @end

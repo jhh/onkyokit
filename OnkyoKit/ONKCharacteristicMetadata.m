@@ -11,6 +11,8 @@
 NSString * const ONKCharacteristicMetadataDefinitionMinValue = @"characteristic.metadata.minValue";
 NSString * const ONKCharacteristicMetadataDefinitionMaxValue = @"characteristic.metadata.maxValue";
 NSString * const ONKCharacteristicMetadataDefinitionUnits = @"characteristic.metadata.units";
+NSString * const ONKCharacteristicMetadataDefinitionEnumLabels = @"characteristic.metadata.enumLabels";
+
 
 @implementation ONKCharacteristicMetadata
 
@@ -20,8 +22,8 @@ NSString * const ONKCharacteristicMetadataDefinitionUnits = @"characteristic.met
     if (self) {
         _minimumValue = characteristicMetadataDictionary[ONKCharacteristicMetadataDefinitionMinValue];
         _maximumValue = characteristicMetadataDictionary[ONKCharacteristicMetadataDefinitionMaxValue];
-        NSNumber *units = characteristicMetadataDictionary[ONKCharacteristicMetadataDefinitionUnits];
-        _units = [units integerValue];
+        _units = [characteristicMetadataDictionary[ONKCharacteristicMetadataDefinitionUnits] integerValue];
+        _enumerationLabels = characteristicMetadataDictionary[ONKCharacteristicMetadataDefinitionEnumLabels];
     }
     return self;
 }
