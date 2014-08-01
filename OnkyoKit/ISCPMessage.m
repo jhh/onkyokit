@@ -37,6 +37,7 @@ static NSCharacterSet *endCharSet;
         // "!1" + message + "end characters"
         NSRange range = NSMakeRange(2, [rawMsg rangeOfCharacterFromSet:endCharSet].location-2);
         _message = [rawMsg substringWithRange:range];
+        _code = [_message substringToIndex:3];
     }
     return self;
 }
@@ -47,6 +48,11 @@ static NSCharacterSet *endCharSet;
 
     NSData *data = [[NSString stringWithFormat:@"!1%@\r", message] dataUsingEncoding:NSASCIIStringEncoding];
     return [self initWithData:data];
+}
+
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"ISCPMessage: %@ <%p>", self.message, self];
 }
 
 + (instancetype)deviceSearchMessage

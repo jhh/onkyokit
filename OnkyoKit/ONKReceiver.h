@@ -8,7 +8,9 @@
 
 @import Foundation;
 @class ONKReceiver;
-@class ONKEvent;
+@class ONKService;
+@class ONKCharacteristic;
+@class EISCPPacket;
 @protocol ONKReceiverDelegate;
 
 
@@ -37,26 +39,15 @@
 @property(nonatomic) NSOperationQueue *delegateQueue;
 
 /**
- * @brief Resume the network connection to the receiver.
- * @todo This will be moved to another class.
-*/
-- (void)resume;
-/**
- * @brief Suspend the network connection to the receiver.
- * @todo This will be moved to another class.
-*/
-- (void)suspend;
-/**
  * @brief Send a command over the network connection to the receiver.
  * @todo This will be moved to another class.
 */
-- (void)sendCommand:(NSString *)command;
-
+- (void)sendCommand:(NSString *)command withCompletionHandler:(void (^)(NSError *error))completion;
 @end
 
 /**
  * @brief A delegate conforming to ONKReceiverDelegate receives status updates
- * from the receiver.
+ *        from the receiver.
  *
  * Delegates implement this protocol to receive events from connected device
  * implement this protocol. Messages delivered are sent on a queue you
@@ -64,26 +55,19 @@
  */
 @protocol ONKReceiverDelegate <NSObject>
 
+@optional
 /**
- * @brief Sent when an event is recieved from the remote device.
+ * @brief Informs the delegate of a change in value of a characteristic as a
+ *        result of a notification from the receiver.
  *
- * @param receiver The receiver sending the message.
- * @param event An event object containing the details of the event.
- * @todo This method signature needs to change.
+ * @param receiver The receiver.
+ * @param service The service with a changed characteristic value
+ * @param characteristic The characteristic whose value changed.
  */
-- (void)receiver:(ONKReceiver *)receiver didSendEvent:(ONKEvent *)event;
+- (void)receiver:(ONKReceiver *)receiver
+         service:(ONKService *)service
+didUpdateValueForCharacteristic:(ONKCharacteristic *)characteristic;
 
-/**
- * @brief Sent when a connection fails to send or receive from the remote device.
- *
- * Once the delegate receives this message, it will receive no more events
- * from receiver object.
- *
- * @param receiver The receiver sending the message.
- * @param error An error object containing details of why the connection failed.
- * @todo This method signature needs to change.
- */
-- (void)receiver:(ONKReceiver *)receiver didFailWithError:(NSError *)error;
 
 @end
 

@@ -8,6 +8,7 @@
 
 #import "ONKReceiver.h"
 @class ONKReceiverSession;
+@class ISCPMessage;
 
 @interface ONKReceiver ()
 
@@ -19,6 +20,9 @@
 
 /** @brief The session object used to communicate with the receiver. */
 @property (nonatomic) ONKReceiverSession *session;
+
+/** @brief Map from receiver command code to characteristic */
+@property (readonly, nonatomic) NSDictionary *codeMap;
 
 /**
  * @brief Initialize a receiver object at address for the specified model with
@@ -35,6 +39,13 @@
 - (instancetype)initWithModel:(NSString *)model
              uniqueIdentifier:(NSString *)uniqueIdentifier
                       address:(NSString *)address
-                         port:(UInt16)port;
+                         port:(UInt16)port NS_DESIGNATED_INITIALIZER;
+
+/**
+ * @brief Handle a ISCP message recieved by the associated reciever session.
+ *
+ * @param message The ISCP message.
+ */
+- (void)handleMessage:(ISCPMessage *)message;
 
 @end

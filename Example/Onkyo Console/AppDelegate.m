@@ -21,15 +21,19 @@
 - (void)receiverBrowser:(ReceiverBrowser *)browser didSelectReceiver:(ONKReceiver *)receiver
 {
     NSLog(@"%s", __PRETTY_FUNCTION__);
-    if (self.onkyoReceiver) {
-        NSLog(@"Disconnecting from %@", self.onkyoReceiver);
-        [self.onkyoReceiver suspend];
-    }
     self.onkyoReceiver = receiver;
     self.onkyoReceiver.delegate = self;
     self.onkyoReceiver.delegateQueue = [NSOperationQueue mainQueue];
-    [self.onkyoReceiver resume];
-    [self.onkyoReceiver sendCommand:@"PWRQSTN"];
+    ONKService *main = self.onkyoReceiver.services[0];
+    ONKCharacteristic *power = [main findCharacteristicWithType:ONKCharacteristicTypePowerState];
+    [power readValueWithCompletionHandler:^(NSError *error){
+        if (error) {
+            NSLog(@"%@", error);
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                [NSApp presentError:error];
+            }];
+        }
+    }];
 }
 
 - (void)setUpTextView
@@ -55,33 +59,35 @@
     [self showReceiverBrowser];
 }
 
-// this is called on delegateQueue
-- (void) receiver:(ONKReceiver *)controller didSendEvent:(ONKEvent *)event
-{
-    NSString *message = [NSString stringWithFormat:@"%@: %@\n", [self.dateFormatter stringFromDate:[NSDate date]], [event description]];
-    NSAttributedString *as = [[NSAttributedString alloc] initWithString:message attributes:self.eventAttrs];
-    NSTextStorage *text = self.consoleTextView.textStorage;
-    [text beginEditing];
-    [text appendAttributedString:as];
-    [text endEditing];
-    [self.consoleTextView scrollRangeToVisible:NSMakeRange(text.length, 0)];
-}
-
-// this is called on delegateQueue
-- (void)receiver:(ONKReceiver *)receiver didFailWithError:(NSError *)error
-{
-    NSLog(@"%s: %@", __PRETTY_FUNCTION__, error);
-    [self.window presentError:error];
-}
-
 - (IBAction)sendCommand:(NSTextField *)sender
 {
     NSString *command = [sender stringValue];
     if ([[command lowercaseString] isEqualToString:@"browse"]) {
         [self showReceiverBrowser];
     } else {
-        [self.onkyoReceiver sendCommand:command];
+        [self.onkyoReceiver sendCommand:command withCompletionHandler:^(NSError *error){
+            if (error) {
+                NSLog(@"%@", error);
+                [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                    [NSApp presentError:error];
+                }];
+            }
+        }];
     }
+}
+
+// ONKReceiverDelegate
+// this is called on delegateQueue
+- (void)receiver:(ONKReceiver *)receiver service:(ONKService *)service didUpdateValueForCharacteristic:(ONKCharacteristic *)characteristic
+{
+    NSString *message = [NSString stringWithFormat:@"%@: %@\n",
+                         [self.dateFormatter stringFromDate:[NSDate date]], characteristic];
+    NSAttributedString *as = [[NSAttributedString alloc] initWithString:message attributes:self.eventAttrs];
+    NSTextStorage *text = self.consoleTextView.textStorage;
+    [text beginEditing];
+    [text appendAttributedString:as];
+    [text endEditing];
+    [self.consoleTextView scrollRangeToVisible:NSMakeRange(text.length, 0)];
 }
 
 

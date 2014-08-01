@@ -118,9 +118,9 @@
 		1F561C1E176395F20015A8AF = {
 			isa = PBXGroup;
 			children = (
-				1F923BE81957BD9E0053E8D5 /* xcconfigs */,
 				1F561C30176395F20015A8AF /* Onkyo Console */,
 				1F339699177CEDD2008CE758 /* Media.xcassets */,
+				1F923BE81957BD9E0053E8D5 /* xcconfigs */,
 				1F561C29176395F20015A8AF /* Frameworks */,
 				1F561C28176395F20015A8AF /* Products */,
 			);

@@ -8,9 +8,9 @@
 #import "ONKReceiver_Private.h"
 #import "ONKReceiverSession.h"
 #import "ONKService_Private.h"
+#import "ONKCharacteristic_Private.h"
 
 @implementation ONKReceiver
-
 
 - (instancetype)initWithModel:(NSString *)model
              uniqueIdentifier:(NSString *)uniqueIdentifier
@@ -24,26 +24,49 @@
         _address = address;
         _port = port;
         _session = [[ONKReceiverSession alloc] initWithReceiver:self];
+        [self _registerServices];
     } else {
         self = nil;
     }
     return self;
 }
 
-- (void)resume
+- (void)handleMessage:(ISCPMessage *)message
 {
-    [((ONKReceiver *)self).session resume];
+    ONKCharacteristic *characteristic = self.codeMap[message.code];
+    if (characteristic) {
+        [characteristic handleMessage:message];
+    } else {
+        NSLog(@"unrecognized message: %@", message);
+    }
+
 }
 
-- (void)suspend
+- (void)_registerServices
 {
-    [((ONKReceiver *)self).session suspend];
+    // load service definitions from property list
+    NSBundle *bundle = [NSBundle bundleWithIdentifier:@"com.jeffhutchison.OnkyoKit"];
+    NSURL *url = [bundle URLForResource:@"TX-NR616" withExtension:@"plist"];
+    NSArray *serviceDefinitions = [NSArray arrayWithContentsOfURL:url];
+    NSMutableArray *tempServices = [NSMutableArray array];
+    for (NSDictionary *serviceDict in serviceDefinitions) {
+        [tempServices addObject:[[ONKService alloc] initWithReceiver:self serviceDictionary:serviceDict]];
+    }
+    _services = [tempServices copy];
+
+    // create map from receiver command code to characteristic
+    NSMutableDictionary *tempDict = [NSMutableDictionary dictionary];
+    for (ONKService *service in _services) {
+        for (ONKCharacteristic *characteristic in service.characteristics) {
+            tempDict[characteristic.code] = characteristic;
+        }
+    }
+    _codeMap = [tempDict copy];
 }
 
-- (void)sendCommand:(NSString *)command
+- (void)sendCommand:(NSString *)command withCompletionHandler:(void (^)(NSError *error))completion
 {
-    [((ONKReceiver *)self).session sendCommand:command];
-
+    [self.session sendCommand:command withCompletionHandler:completion];
 }
 
 - (NSString *)description

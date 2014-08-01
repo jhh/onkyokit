@@ -8,6 +8,7 @@
 
 @import Foundation;
 @class ONKService;
+@class ONKCharacteristicMetadata;
 
 /**
  * @defgroup characteristicType Receiver Service Characteristic Types
@@ -18,7 +19,7 @@
  */
 extern NSString * const ONKCharacteristicTypePowerState;
 extern NSString * const ONKCharacteristicTypeMuteState;
-extern NSString * const ONKCharacteristicTypeMainVolume;
+extern NSString * const ONKCharacteristicTypeMasterVolume;
 /**@}*/
 
 /**
@@ -33,7 +34,26 @@ extern NSString * const ONKCharacteristicTypeMainVolume;
  *
  * @see @ref characteristicType "Receiver Service Characteristic Types"
  */
+@property (readonly, copy, nonatomic) NSString *name;
+
+/**
+ * @brief The type of the characteristic. (read-only)
+ *
+ * @see @ref characteristicType "Receiver Service Characteristic Types"
+ */
 @property (readonly, copy, nonatomic) NSString *characteristicType;
+
+/**
+ * @brief Metadata about the units and other properties of the characteristic.
+ *        (read-only)
+ */
+@property(readonly, strong, nonatomic) ONKCharacteristicMetadata *metadata;
+
+/**
+ * @brief \c YES if the characteristic has been set to send notifications,
+ *        \c NO otherwise.
+ */
+@property(nonatomic, getter=isNotificationEnabled) BOOL notificationEnabled;
 
 /**
  * @brief Service that has this characteristics.
@@ -42,6 +62,11 @@ extern NSString * const ONKCharacteristicTypeMainVolume;
 
 /**
  * @brief The current value of the characteristic. (read-only)
+ *
+ * @details
+ * This is the last value the system saw for the characteristic. The receiver may
+ * be updated manually, by the remote, or by other applications so this value may
+ * change without your application changing it.
  */
 @property(readonly, copy, nonatomic) id value;
 

@@ -7,14 +7,13 @@
 //
 
 @import XCTest;
-@import OnkyoKit;
 #import "ONKReceiver_Private.h"
+#import "ONKCharacteristic_Private.h"
 
 @interface ONKReceiverNetworkTests : XCTestCase <ONKReceiverDelegate>
 @property ONKReceiver *receiver;
 @property (getter = hasPassed) BOOL passed;
 @property NSCondition *condition;
-- (void) receiver:(ONKReceiver *)receiver didSendEvent:(ONKEvent *)event;
 @end
 
 // Tests sending command and receiving corresponding event.
@@ -28,26 +27,14 @@
 // asynchronous.
 @implementation ONKReceiverNetworkTests
 
-- (void)receiver:(ONKReceiver *)receiver didSendEvent:(ONKEvent *)event
+- (void)receiver:(ONKReceiver *)receiver service:(ONKService *)service didUpdateValueForCharacteristic:(ONKCharacteristic *)characteristic
 {
-    NSLog(@"ONKControllerTest event received: %@", event);
-
-    // sanity checks on recieved packets
-    XCTAssertEqualObjects(@"ISCP", event.magic, @"Packet magic did not match.");
-    XCTAssertEqual(1UL, event.version, @"Packet version did not match.");
-    XCTAssertEqual(16UL, event.headerLength, @"Header length did not match.");
-
-    if ([[event description] hasPrefix:@"PWR"]) {
+    if ([characteristic.code isEqualToString:@"PWR"]) {
         [self.condition lock];
         self.passed = YES;
         [self.condition signal];
         [self.condition unlock];
     }
-}
-
-- (void)receiver:(ONKReceiver *)receiver didFailWithError:(NSError *)error
-{
-    XCTFail(@"%s %@", __PRETTY_FUNCTION__, [error localizedDescription]);
 }
 
 - (void)setUp
@@ -73,10 +60,14 @@
     self.receiver.delegateQueue = [[NSOperationQueue alloc] init];
     ONKReceiverSession *session = [[ONKReceiverSession alloc] initWithReceiver:self.receiver];
 
-    [session resume];
+    NSError *error;
+    XCTAssert([session resumeWithError:&error] == YES);
+    XCTAssertNil(error);
 
     [self.condition lock];
-    [session sendCommand:@"PWRQSTN"];
+    [session sendCommand:@"PWRQSTN" withCompletionHandler:^(NSError *error){
+        XCTAssertNil(error);
+    }];
 
     // wait 1 sec for response to be sent.
     [self.condition waitUntilDate:[NSDate dateWithTimeIntervalSinceNow:1]];

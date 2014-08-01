@@ -8,6 +8,7 @@
 
 @import Foundation;
 @class ONKReceiver;
+@class ONKCharacteristic;
 
 /**
  * @brief An ONKService represents a service provided by a receiver.
@@ -18,11 +19,21 @@
  */
 @interface ONKService : NSObject
 
+/** @brief The name of the service */
+@property(readonly, copy, nonatomic) NSString *name;
+
 /** @brief Receiver that provides this service. */
 @property(readonly, weak, nonatomic) ONKReceiver *receiver;
 
 
 /** @brief Array of characteristics of this receiver. (read-only) */
 @property(readonly, copy, nonatomic) NSArray *characteristics;
+
+/**
+ * @brief Get the characteristic with the given characteristic type.
+ *
+ * See ONKCharacteristic.h for characteristic type constants.
+ */
+- (ONKCharacteristic *)findCharacteristicWithType:(NSString *)characteristicType;
 
 @end

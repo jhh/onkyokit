@@ -63,4 +63,9 @@
     return self;
 }
 
+- (NSString *)description
+{
+    return self.message.message;
+}
+
 @end

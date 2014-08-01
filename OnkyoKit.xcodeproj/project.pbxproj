@@ -7,17 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F0057FD1988FF7E0002470B /* ONKCharacteristicWriteValueNetworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0057FC1988FF7E0002470B /* ONKCharacteristicWriteValueNetworkTests.m */; };
 		1F07249D1761565900787CCF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FBB18D2175BB1AE00E7B9C7 /* Foundation.framework */; };
 		1F0724A117615DAE00787CCF /* OnkyoKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FBB18CA175BB1AE00E7B9C7 /* OnkyoKit.framework */; };
 		1F0B84C519509C9000879775 /* ONKService.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0B84C319509C9000879775 /* ONKService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F0B84C619509C9000879775 /* ONKService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0B84C419509C9000879775 /* ONKService.m */; };
+		1F0C08371983CF2400EF8E77 /* ONKCharacteristicNetworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0C08361983CF2400EF8E77 /* ONKCharacteristicNetworkTests.m */; };
 		1F1155F6177661DB00B18A08 /* EISCPPacketTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F1155F5177661DB00B18A08 /* EISCPPacketTest.m */; };
-		1F221AEF17751AE400A6F67F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F2A3D3217751A15001F1CAC /* XCTest.framework */; };
 		1F2318591768AA420025FA12 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FBB18D2175BB1AE00E7B9C7 /* Foundation.framework */; };
 		1F23185A1768AA460025FA12 /* OnkyoKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FBB18CA175BB1AE00E7B9C7 /* OnkyoKit.framework */; };
 		1F23185B1768AA520025FA12 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1FE378F9175EC6D900971013 /* InfoPlist.strings */; };
 		1F23185E1768AA7B0025FA12 /* ONKReceiverNetworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F23185D1768AA7B0025FA12 /* ONKReceiverNetworkTests.m */; };
-		1F2A3D3317751A15001F1CAC /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F2A3D3217751A15001F1CAC /* XCTest.framework */; };
 		1F2D4E60179C410F00B9471B /* ONKReceiverErrorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2D4E5F179C410F00B9471B /* ONKReceiverErrorTest.m */; };
 		1F331660194DF26800CC08DE /* ONKCharacteristic.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F33165E194DF26800CC08DE /* ONKCharacteristic.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F331661194DF26800CC08DE /* ONKCharacteristic.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F33165F194DF26800CC08DE /* ONKCharacteristic.m */; };
@@ -28,18 +28,16 @@
 		1F35390B17651B19002DBECD /* EISCPPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F35390917651B19002DBECD /* EISCPPacket.m */; };
 		1F561C041762439B0015A8AF /* ONKReceiver.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F561C021762439B0015A8AF /* ONKReceiver.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F561C051762439B0015A8AF /* ONKReceiver.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F561C031762439B0015A8AF /* ONKReceiver.m */; };
-		1F561C1C176364E50015A8AF /* ONKEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F561C1A176364E50015A8AF /* ONKEvent.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1F561C1D176364E50015A8AF /* ONKEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F561C1B176364E50015A8AF /* ONKEvent.m */; };
-		1F561C5E17639D150015A8AF /* ONKCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F561C5C17639D150015A8AF /* ONKCommand.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1F561C5F17639D150015A8AF /* ONKCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F561C5D17639D150015A8AF /* ONKCommand.m */; };
 		1F61D7431782583700FAF0BF /* ONKReceiverBrowser.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F61D7411782583700FAF0BF /* ONKReceiverBrowser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F61D7441782583700FAF0BF /* ONKReceiverBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F61D7421782583700FAF0BF /* ONKReceiverBrowser.m */; };
 		1F61D74617825EFB00FAF0BF /* ONKDeviceBrowserNetworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F61D74517825EFB00FAF0BF /* ONKDeviceBrowserNetworkTests.m */; };
 		1F63F8C4194CBDC300D1AE73 /* ONKReceiverSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F63F8C2194CBDC300D1AE73 /* ONKReceiverSession.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F63F8C5194CBDC300D1AE73 /* ONKReceiverSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F63F8C3194CBDC300D1AE73 /* ONKReceiverSession.m */; };
+		1F678FAA195ED2C9003A0599 /* TX-NR616.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F678FA8195ED2C9003A0599 /* TX-NR616.plist */; };
+		1F8B25E01972B37800365453 /* ONKCharacteristicMetadata.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F8B25DE1972B37800365453 /* ONKCharacteristicMetadata.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F8B25E11972B37800365453 /* ONKCharacteristicMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8B25DF1972B37800365453 /* ONKCharacteristicMetadata.m */; };
 		1F90DE981767E2F7006D2A5C /* ISCPMessageTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F90DE971767E2F7006D2A5C /* ISCPMessageTest.m */; };
 		1F923BE61957BB930053E8D5 /* OnkyoKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1FBB18CA175BB1AE00E7B9C7 /* OnkyoKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		1F923C2419583FEE0053E8D5 /* OCMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F923C1D19583FEE0053E8D5 /* OCMock.framework */; };
 		1FBB18D8175BB1AE00E7B9C7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1FBB18D6175BB1AE00E7B9C7 /* InfoPlist.strings */; };
 		1FBB18E7175BB9FC00E7B9C7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FBB18D2175BB1AE00E7B9C7 /* Foundation.framework */; };
 		1FC1B4BE175BF50600AD1B0C /* OnkyoKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FBB18DA175BB1AE00E7B9C7 /* OnkyoKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -53,41 +51,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 1FBB18C9175BB1AE00E7B9C7;
 			remoteInfo = "OnkyoKit Mac";
-		};
-		1F923C1619583FE50053E8D5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1F923C1319583FA90053E8D5 /* OCMock.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 030EF0A714632FD000B04273;
-			remoteInfo = OCMock;
-		};
-		1F923C1C19583FEE0053E8D5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1F923C1319583FA90053E8D5 /* OCMock.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 030EF0A814632FD000B04273;
-			remoteInfo = OCMock;
-		};
-		1F923C1E19583FEE0053E8D5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1F923C1319583FA90053E8D5 /* OCMock.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 03565A3118F0566E003AE91E;
-			remoteInfo = OCMockTests;
-		};
-		1F923C2019583FEE0053E8D5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1F923C1319583FA90053E8D5 /* OCMock.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 030EF0DC14632FF700B04273;
-			remoteInfo = OCMockLib;
-		};
-		1F923C2219583FEE0053E8D5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1F923C1319583FA90053E8D5 /* OCMock.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D31108AD1828DB8700737925;
-			remoteInfo = OCMockLibTests;
 		};
 		1FE37915175ECB2700971013 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -112,15 +75,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1F0057FC1988FF7E0002470B /* ONKCharacteristicWriteValueNetworkTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKCharacteristicWriteValueNetworkTests.m; sourceTree = "<group>"; };
 		1F0B84C319509C9000879775 /* ONKService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONKService.h; sourceTree = "<group>"; };
 		1F0B84C419509C9000879775 /* ONKService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKService.m; sourceTree = "<group>"; };
 		1F0B84E61950E25700879775 /* ONKCharacteristic_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ONKCharacteristic_Private.h; sourceTree = "<group>"; };
 		1F0B84E71950E53100879775 /* ONKService_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ONKService_Private.h; sourceTree = "<group>"; };
 		1F0B84E81950E8AE00879775 /* ONKReceiver_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ONKReceiver_Private.h; sourceTree = "<group>"; };
+		1F0C08361983CF2400EF8E77 /* ONKCharacteristicNetworkTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKCharacteristicNetworkTests.m; sourceTree = "<group>"; };
 		1F1155F5177661DB00B18A08 /* EISCPPacketTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EISCPPacketTest.m; sourceTree = "<group>"; };
 		1F2318441768A9CC0025FA12 /* OnkyoKit Mac Network Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "OnkyoKit Mac Network Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F23185D1768AA7B0025FA12 /* ONKReceiverNetworkTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKReceiverNetworkTests.m; sourceTree = "<group>"; };
-		1F2A3D3217751A15001F1CAC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		1F2D4E5F179C410F00B9471B /* ONKReceiverErrorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKReceiverErrorTest.m; sourceTree = "<group>"; };
 		1F33165E194DF26800CC08DE /* ONKCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONKCharacteristic.h; sourceTree = "<group>"; };
 		1F33165F194DF26800CC08DE /* ONKCharacteristic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKCharacteristic.m; sourceTree = "<group>"; };
@@ -131,15 +95,15 @@
 		1F35390917651B19002DBECD /* EISCPPacket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EISCPPacket.m; sourceTree = "<group>"; };
 		1F561C021762439B0015A8AF /* ONKReceiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONKReceiver.h; sourceTree = "<group>"; };
 		1F561C031762439B0015A8AF /* ONKReceiver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKReceiver.m; sourceTree = "<group>"; };
-		1F561C1A176364E50015A8AF /* ONKEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONKEvent.h; sourceTree = "<group>"; };
-		1F561C1B176364E50015A8AF /* ONKEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKEvent.m; sourceTree = "<group>"; };
-		1F561C5C17639D150015A8AF /* ONKCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONKCommand.h; sourceTree = "<group>"; };
-		1F561C5D17639D150015A8AF /* ONKCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKCommand.m; sourceTree = "<group>"; };
 		1F61D7411782583700FAF0BF /* ONKReceiverBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONKReceiverBrowser.h; sourceTree = "<group>"; };
 		1F61D7421782583700FAF0BF /* ONKReceiverBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKReceiverBrowser.m; sourceTree = "<group>"; };
 		1F61D74517825EFB00FAF0BF /* ONKDeviceBrowserNetworkTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKDeviceBrowserNetworkTests.m; sourceTree = "<group>"; };
 		1F63F8C2194CBDC300D1AE73 /* ONKReceiverSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONKReceiverSession.h; sourceTree = "<group>"; };
 		1F63F8C3194CBDC300D1AE73 /* ONKReceiverSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKReceiverSession.m; sourceTree = "<group>"; };
+		1F678FA9195ED2C9003A0599 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = "en.lproj/TX-NR616.plist"; sourceTree = "<group>"; };
+		1F8B25DE1972B37800365453 /* ONKCharacteristicMetadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONKCharacteristicMetadata.h; sourceTree = "<group>"; };
+		1F8B25DF1972B37800365453 /* ONKCharacteristicMetadata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKCharacteristicMetadata.m; sourceTree = "<group>"; };
+		1F8B25E51972C1E300365453 /* ONKCharacteristicMetadata_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ONKCharacteristicMetadata_Private.h; sourceTree = "<group>"; };
 		1F90DE971767E2F7006D2A5C /* ISCPMessageTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISCPMessageTest.m; sourceTree = "<group>"; };
 		1F923BBE1957B68A0053E8D5 /* Common.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Common.xcconfig; sourceTree = "<group>"; };
 		1F923BC01957B68A0053E8D5 /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
@@ -157,7 +121,6 @@
 		1F923BCF1957B68A0053E8D5 /* Mac-Framework.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Mac-Framework.xcconfig"; sourceTree = "<group>"; };
 		1F923BD01957B68A0053E8D5 /* Mac-StaticLibrary.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Mac-StaticLibrary.xcconfig"; sourceTree = "<group>"; };
 		1F923BD11957B68A0053E8D5 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		1F923C1319583FA90053E8D5 /* OCMock.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OCMock.xcodeproj; path = External/ocmock/Source/OCMock.xcodeproj; sourceTree = "<group>"; };
 		1FBB18CA175BB1AE00E7B9C7 /* OnkyoKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OnkyoKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FBB18D2175BB1AE00E7B9C7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1FBB18D5175BB1AE00E7B9C7 /* OnkyoKit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OnkyoKit-Info.plist"; sourceTree = "<group>"; };
@@ -175,7 +138,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F221AEF17751AE400A6F67F /* XCTest.framework in Frameworks */,
 				1F23185A1768AA460025FA12 /* OnkyoKit.framework in Frameworks */,
 				1F2318591768AA420025FA12 /* Foundation.framework in Frameworks */,
 			);
@@ -193,10 +155,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F2A3D3317751A15001F1CAC /* XCTest.framework in Frameworks */,
 				1F0724A117615DAE00787CCF /* OnkyoKit.framework in Frameworks */,
 				1F07249D1761565900787CCF /* Foundation.framework in Frameworks */,
-				1F923C2419583FEE0053E8D5 /* OCMock.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,6 +168,8 @@
 			children = (
 				1F23185D1768AA7B0025FA12 /* ONKReceiverNetworkTests.m */,
 				1F61D74517825EFB00FAF0BF /* ONKDeviceBrowserNetworkTests.m */,
+				1F0C08361983CF2400EF8E77 /* ONKCharacteristicNetworkTests.m */,
+				1F0057FC1988FF7E0002470B /* ONKCharacteristicWriteValueNetworkTests.m */,
 			);
 			name = "Network Tests";
 			sourceTree = "<group>";
@@ -218,10 +180,6 @@
 				1F561C021762439B0015A8AF /* ONKReceiver.h */,
 				1F0B84E81950E8AE00879775 /* ONKReceiver_Private.h */,
 				1F561C031762439B0015A8AF /* ONKReceiver.m */,
-				1F561C1A176364E50015A8AF /* ONKEvent.h */,
-				1F561C1B176364E50015A8AF /* ONKEvent.m */,
-				1F561C5C17639D150015A8AF /* ONKCommand.h */,
-				1F561C5D17639D150015A8AF /* ONKCommand.m */,
 				1F3538ED1764E0AC002DBECD /* ISCPMessage.h */,
 				1F3538EE1764E0AC002DBECD /* ISCPMessage.m */,
 				1F35390817651B19002DBECD /* EISCPPacket.h */,
@@ -229,6 +187,9 @@
 				1F33165E194DF26800CC08DE /* ONKCharacteristic.h */,
 				1F0B84E61950E25700879775 /* ONKCharacteristic_Private.h */,
 				1F33165F194DF26800CC08DE /* ONKCharacteristic.m */,
+				1F8B25DE1972B37800365453 /* ONKCharacteristicMetadata.h */,
+				1F8B25E51972C1E300365453 /* ONKCharacteristicMetadata_Private.h */,
+				1F8B25DF1972B37800365453 /* ONKCharacteristicMetadata.m */,
 				1F0B84C319509C9000879775 /* ONKService.h */,
 				1F0B84E71950E53100879775 /* ONKService_Private.h */,
 				1F0B84C419509C9000879775 /* ONKService.m */,
@@ -311,17 +272,6 @@
 			path = "Mac OS X";
 			sourceTree = "<group>";
 		};
-		1F923C1419583FA90053E8D5 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				1F923C1D19583FEE0053E8D5 /* OCMock.framework */,
-				1F923C1F19583FEE0053E8D5 /* OCMockTests.xctest */,
-				1F923C2119583FEE0053E8D5 /* libOCMock.a */,
-				1F923C2319583FEE0053E8D5 /* OCMockLibTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		1FBB18C0175BB1AE00E7B9C7 = {
 			isa = PBXGroup;
 			children = (
@@ -346,9 +296,7 @@
 		1FBB18CC175BB1AE00E7B9C7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1F923C1319583FA90053E8D5 /* OCMock.xcodeproj */,
 				1FBB18D2175BB1AE00E7B9C7 /* Foundation.framework */,
-				1F2A3D3217751A15001F1CAC /* XCTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -369,6 +317,7 @@
 				1FBB18D5175BB1AE00E7B9C7 /* OnkyoKit-Info.plist */,
 				1FBB18D6175BB1AE00E7B9C7 /* InfoPlist.strings */,
 				1FBB18D9175BB1AE00E7B9C7 /* OnkyoKit-Prefix.pch */,
+				1F678FA8195ED2C9003A0599 /* TX-NR616.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -422,9 +371,8 @@
 			files = (
 				1FC1B4BE175BF50600AD1B0C /* OnkyoKit.h in Headers */,
 				1F561C041762439B0015A8AF /* ONKReceiver.h in Headers */,
-				1F561C1C176364E50015A8AF /* ONKEvent.h in Headers */,
-				1F561C5E17639D150015A8AF /* ONKCommand.h in Headers */,
 				1F331660194DF26800CC08DE /* ONKCharacteristic.h in Headers */,
+				1F8B25E01972B37800365453 /* ONKCharacteristicMetadata.h in Headers */,
 				1F61D7431782583700FAF0BF /* ONKReceiverBrowser.h in Headers */,
 				1F0B84C519509C9000879775 /* ONKService.h in Headers */,
 				1F63F8C4194CBDC300D1AE73 /* ONKReceiverSession.h in Headers */,
@@ -486,7 +434,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				1F923C1719583FE50053E8D5 /* PBXTargetDependency */,
 				1FE37916175ECB2700971013 /* PBXTargetDependency */,
 			);
 			name = "OnkyoKit Mac Tests";
@@ -513,12 +460,6 @@
 			mainGroup = 1FBB18C0175BB1AE00E7B9C7;
 			productRefGroup = 1FBB18CB175BB1AE00E7B9C7 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 1F923C1419583FA90053E8D5 /* Products */;
-					ProjectRef = 1F923C1319583FA90053E8D5 /* OCMock.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				1FBB18C9175BB1AE00E7B9C7 /* OnkyoKit Mac */,
@@ -527,37 +468,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		1F923C1D19583FEE0053E8D5 /* OCMock.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = OCMock.framework;
-			remoteRef = 1F923C1C19583FEE0053E8D5 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		1F923C1F19583FEE0053E8D5 /* OCMockTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = OCMockTests.xctest;
-			remoteRef = 1F923C1E19583FEE0053E8D5 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		1F923C2119583FEE0053E8D5 /* libOCMock.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libOCMock.a;
-			remoteRef = 1F923C2019583FEE0053E8D5 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		1F923C2319583FEE0053E8D5 /* OCMockLibTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = OCMockLibTests.xctest;
-			remoteRef = 1F923C2219583FEE0053E8D5 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1F2318411768A9CC0025FA12 /* Resources */ = {
@@ -572,6 +482,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F678FAA195ED2C9003A0599 /* TX-NR616.plist in Resources */,
 				1FBB18D8175BB1AE00E7B9C7 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -621,6 +532,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F23185E1768AA7B0025FA12 /* ONKReceiverNetworkTests.m in Sources */,
+				1F0C08371983CF2400EF8E77 /* ONKCharacteristicNetworkTests.m in Sources */,
+				1F0057FD1988FF7E0002470B /* ONKCharacteristicWriteValueNetworkTests.m in Sources */,
 				1F61D74617825EFB00FAF0BF /* ONKDeviceBrowserNetworkTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -629,10 +542,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F8B25E11972B37800365453 /* ONKCharacteristicMetadata.m in Sources */,
 				1F63F8C5194CBDC300D1AE73 /* ONKReceiverSession.m in Sources */,
 				1F561C051762439B0015A8AF /* ONKReceiver.m in Sources */,
-				1F561C1D176364E50015A8AF /* ONKEvent.m in Sources */,
-				1F561C5F17639D150015A8AF /* ONKCommand.m in Sources */,
 				1F331661194DF26800CC08DE /* ONKCharacteristic.m in Sources */,
 				1F3538F01764E0AC002DBECD /* ISCPMessage.m in Sources */,
 				1F35390B17651B19002DBECD /* EISCPPacket.m in Sources */,
@@ -660,11 +572,6 @@
 			target = 1FBB18C9175BB1AE00E7B9C7 /* OnkyoKit Mac */;
 			targetProxy = 1F2318571768AA1C0025FA12 /* PBXContainerItemProxy */;
 		};
-		1F923C1719583FE50053E8D5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = OCMock;
-			targetProxy = 1F923C1619583FE50053E8D5 /* PBXContainerItemProxy */;
-		};
 		1FE37916175ECB2700971013 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 1FBB18C9175BB1AE00E7B9C7 /* OnkyoKit Mac */;
@@ -673,6 +580,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		1F678FA8195ED2C9003A0599 /* TX-NR616.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F678FA9195ED2C9003A0599 /* en */,
+			);
+			name = "TX-NR616.plist";
+			sourceTree = "<group>";
+		};
 		1FBB18D6175BB1AE00E7B9C7 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

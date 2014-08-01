@@ -7,30 +7,16 @@
 //
 
 @import XCTest;
-@import OnkyoKit;
 #import "ONKReceiver_Private.h"
 
 @interface ONKReceiverErrorTest : XCTestCase <ONKReceiverDelegate>
-@property (getter = hasPassed) BOOL passed;
 @end
 
 @implementation ONKReceiverErrorTest
 
-- (void)receiver:(ONKReceiver *)receiver didSendEvent:(ONKEvent *)event
-{
-
-}
-
-- (void)receiver:(ONKReceiver *)receiver didFailWithError:(NSError *)error
-{
-    NSLog(@"%@", error);
-    self.passed = YES;
-}
-
 - (void)setUp
 {
     [super setUp];
-    self.passed = NO;
 }
 
 - (void)tearDown
@@ -57,8 +43,10 @@
     receiver.delegate = self;
     receiver.delegateQueue = [NSOperationQueue currentQueue];
     ONKReceiverSession *session = [[ONKReceiverSession alloc] initWithReceiver:receiver];
-    [session resume];
-    XCTAssert(self.hasPassed, @"Did not see didFailWithError called");
+    NSError *error;
+    XCTAssert([session resumeWithError:&error] == NO);
+    XCTAssertNotNil(error);
+    XCTAssertEqual(error.code, ENOENT); // No such file or directory
 }
 
 // assumes this machine is not listening on port 1: Routing Table Maintenance Protocol
@@ -68,7 +56,9 @@
     receiver.delegate = self;
     receiver.delegateQueue = [NSOperationQueue currentQueue];
     ONKReceiverSession *session = [[ONKReceiverSession alloc] initWithReceiver:receiver];
-    [session resume];
-    XCTAssert(self.hasPassed, @"Did not see didFailWithError called");
+    NSError *error;
+    XCTAssert([session resumeWithError:&error] == NO);
+    XCTAssertNotNil(error);
+    XCTAssertEqual(error.code, ECONNREFUSED); // Connection refused
 }
 @end

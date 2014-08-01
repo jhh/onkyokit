@@ -8,6 +8,7 @@
 
 @import Darwin;
 #import "OnkyoKit.h"
+#import "EISCPPacket.h"
 #import "ISCPMessage.h"
 #import "ONKReceiver_Private.h"
 
@@ -59,8 +60,8 @@
 - (void)startSearchingForNewReceivers
 {
     _operation = [[NSBlockOperation alloc] init];
-    __weak NSBlockOperation *weakOp = _operation;
-    __weak ONKReceiverBrowser *weakSelf = self;
+    NSBlockOperation * __weak weakOp = _operation;
+    ONKReceiverBrowser * __weak weakSelf = self;
     [_operation addExecutionBlock:^{
         NSBlockOperation *op = weakOp;
         ONKReceiverBrowser *browser = weakSelf;
@@ -118,7 +119,7 @@
     dest_addr.sin_addr.s_addr = inet_addr("255.255.255.255");
     dest_addr.sin_port = htons(60128);
 
-    ONKCommand *magic = [[ONKCommand alloc] initWithMessage:[ISCPMessage deviceSearchMessage]];
+    EISCPPacket *magic = [[EISCPPacket alloc] initWithMessage:[ISCPMessage deviceSearchMessage]];
     numbytes = sendto(_sock, [magic.data bytes], [magic.data length], 0, (struct sockaddr *)&dest_addr, sizeof dest_addr);
     if (numbytes == -1) {
         NSLog(@"ERROR: %s sendto: %s", __PRETTY_FUNCTION__, strerror(errno));
@@ -169,8 +170,8 @@
                                                           atAddress:address];
 
             // call delegate if this is first response from this receiver
-            if (![_discoveredReceiversMap objectForKey:receiver.uniqueIdentifier]) {
-                [_discoveredReceiversMap setObject:receiver forKey:receiver.uniqueIdentifier];
+            if (!_discoveredReceiversMap[receiver.uniqueIdentifier]) {
+                _discoveredReceiversMap[receiver.uniqueIdentifier] = receiver;
                 // block captures strong reference to delegate
                 id<ONKReceiverBrowserDelegate> cachedDelegate = self.delegate;
                 [self.delegateQueue addOperationWithBlock:^{
@@ -183,7 +184,7 @@
 
 - (ONKReceiver *)receiverFromDiscoveryData:(NSData *)message atAddress:(NSString *)address
 {
-    ONKEvent *event = [[ONKEvent alloc] initWithData:message];
+    EISCPPacket *event = [[EISCPPacket alloc] initWithData:message];
     NSArray *components = [event.message.message componentsSeparatedByString:@"/"];
     NSString *mac = components[3];
 

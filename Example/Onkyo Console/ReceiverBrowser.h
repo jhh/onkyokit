@@ -7,7 +7,7 @@
 //
 
 @import Foundation;
-#import <OnkyoKit/OnkyoKit.h>
+@import OnkyoKit;
 
 @class ReceiverBrowser;
 
