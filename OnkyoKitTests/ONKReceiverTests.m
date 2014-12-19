@@ -9,7 +9,6 @@
 @import XCTest;
 #import "ONKReceiver_Private.h"
 #import "ONKCharacteristic_Private.h"
-#import <OCMock/OCMock.h>
 
 @interface ONKReceiverTests : XCTestCase <ONKReceiverDelegate>
 
