@@ -35,11 +35,13 @@
         modalDelegate: self
        didEndSelector: @selector(didEndSheet:returnCode:contextInfo:)
           contextInfo: nil];
+    os_activity_set_breadcrumb("start searching for new receivers");
     [_browser startSearchingForNewReceivers];
 }
 
 - (IBAction)acceptSelection:(id)sender
 {
+    os_activity_set_breadcrumb("select receiver from browser");
     [_browser stopSearchingForNewReceivers];
     [NSApp endSheet:self.window];
 }

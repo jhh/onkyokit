@@ -7,6 +7,7 @@
 //
 
 @import Foundation;
+#import <os/activity.h>
 @import OnkyoKit;
 
 @class ReceiverBrowser;

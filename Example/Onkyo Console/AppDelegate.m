@@ -55,12 +55,13 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     [self setUpTextView];
-
     [self showReceiverBrowser];
+    self.window.initialFirstResponder = self.commandTextField;
 }
 
 - (IBAction)sendCommand:(NSTextField *)sender
 {
+    os_activity_set_breadcrumb("send command to receiver");
     NSString *command = [sender stringValue];
     if ([[command lowercaseString] isEqualToString:@"browse"]) {
         [self showReceiverBrowser];

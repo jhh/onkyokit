@@ -8,6 +8,7 @@
 
 @import Cocoa;
 @import OnkyoKit;
+#import <os/activity.h>
 #import "ReceiverBrowser.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate, ReceiverBrowserDelegate, ONKReceiverDelegate>
@@ -15,6 +16,7 @@
 @property ReceiverBrowser *receiverBrowser;
 @property (unsafe_unretained) IBOutlet NSTextView *consoleTextView;
 @property (unsafe_unretained) IBOutlet NSWindow *window;
+@property (weak) IBOutlet NSTextField *commandTextField;
 
 - (IBAction)sendCommand:(NSTextField *)sender;
 
