@@ -8,6 +8,12 @@ namespace :test do
   end
 end
 
+desc "Run the OnkyoKit Tests for iOS & Mac OS X"
+task :test do
+  # Rake::Task['test:ios'].invoke
+  Rake::Task['test:osx'].invoke
+end
+
 task :default => 'test:osx'
 
 
