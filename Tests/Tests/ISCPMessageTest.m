@@ -7,6 +7,8 @@
 //
 
 @import XCTest;
+#import "ISCPMessage.h"
+
 
 @interface ISCPMessageTest : XCTestCase
 

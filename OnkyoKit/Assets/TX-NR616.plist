@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <array>
+        <dict>
+            <key>service.name</key>
+            <string>Main Zone</string>
+            <key>service.characteristics</key>
+            <array>
+                <dict>
+                    <key>characteristic.name</key>
+                    <string>System Power</string>
+                    <key>characteristic.type</key>
+                    <string>onkyo.pwr</string>
+                    <key>characteristic.code</key>
+                    <string>PWR</string>
+                    <key>characteristic.metadata</key>
+                    <dict>
+                        <key>characteristic.metadata.minValue</key>
+                        <integer>0</integer>
+                        <key>characteristic.metadata.maxValue</key>
+                        <integer>1</integer>
+                        <key>characteristic.metadata.units</key>
+                        <integer>2</integer>
+                    </dict>
+                </dict>
+                <dict>
+                    <key>characteristic.name</key>
+                    <string>Audio Muting</string>
+                    <key>characteristic.type</key>
+                    <string>onkyo.amt</string>
+                    <key>characteristic.code</key>
+                    <string>AMT</string>
+                    <key>characteristic.metadata</key>
+                    <dict>
+                        <key>characteristic.metadata.minValue</key>
+                        <integer>0</integer>
+                        <key>characteristic.metadata.maxValue</key>
+                        <integer>1</integer>
+                        <key>characteristic.metadata.units</key>
+                        <integer>2</integer>
+                    </dict>
+                </dict>
+                <dict>
+                    <key>characteristic.name</key>
+                    <string>Master Volume</string>
+                    <key>characteristic.type</key>
+                    <string>onkyo.mvl</string>
+                    <key>characteristic.code</key>
+                    <string>MVL</string>
+                    <key>characteristic.metadata</key>
+                    <dict>
+                        <key>characteristic.metadata.minValue</key>
+                        <integer>0</integer>
+                        <key>characteristic.metadata.maxValue</key>
+                        <integer>100</integer>
+                        <key>characteristic.metadata.units</key>
+                        <integer>1</integer>
+                    </dict>
+                </dict>
+                <dict>
+                    <key>characteristic.name</key>
+                    <string>Input Selector</string>
+                    <key>characteristic.type</key>
+                    <string>onkyo.sli</string>
+                    <key>characteristic.code</key>
+                    <string>SLI</string>
+                    <key>characteristic.metadata</key>
+                    <dict>
+                        <key>characteristic.metadata.minValue</key>
+                        <integer>0</integer>
+                        <key>characteristic.metadata.maxValue</key>
+                        <integer>0</integer>
+                        <key>characteristic.metadata.units</key>
+                        <integer>3</integer>
+                        <key>characteristic.metadata.enumLabels</key>
+                        <dict>
+                            <key>00</key>
+                            <string>STB/DVR</string>
+                            <key>01</key>
+                            <string>CBL/SAT</string>
+                            <key>02</key>
+                            <string>GAME</string>
+                            <key>03</key>
+                            <string>AUX</string>
+                            <key>05</key>
+                            <string>PC</string>
+                            <key>07</key>
+                            <string>EXTRA1</string>
+                            <key>08</key>
+                            <string>EXTRA2</string>
+                            <key>10</key>
+                            <string>BD/DVD</string>
+                            <key>23</key>
+                            <string>CD</string>
+                            <key>24</key>
+                            <string>FM</string>
+                            <key>25</key>
+                            <string>AM</string>
+                            <key>26</key>
+                            <string>TUNER</string>
+                            <key>27</key>
+                            <string>MUSIC SERVER</string>
+                            <key>28</key>
+                            <string>INTERNET RADIO</string>
+                            <key>29</key>
+                            <string>USB FRONT</string>
+                            <key>2A</key>
+                            <string>USB REAR</string>
+                            <key>2B</key>
+                            <string>NETWORK</string>
+                            <key>2C</key>
+                            <string>USB(toggle)</string>
+                        </dict>
+                    </dict>
+                </dict>
+            </array>
+        </dict>
+        <dict>
+            <key>service.name</key>
+            <string>Zone 2</string>
+            <key>service.characteristics</key>
+            <array>
+                <dict>
+                    <key>characteristic.name</key>
+                    <string>Audio Muting</string>
+                    <key>characteristic.type</key>
+                    <string>onkyo.zmt</string>
+                    <key>characteristic.code</key>
+                    <string>ZMT</string>
+                    <key>characteristic.metadata</key>
+                    <dict>
+                        <key>characteristic.metadata.minValue</key>
+                        <integer>0</integer>
+                        <key>characteristic.metadata.maxValue</key>
+                        <integer>1</integer>
+                        <key>characteristic.metadata.units</key>
+                        <integer>2</integer>
+                    </dict>
+                </dict>
+                <dict>
+                    <key>characteristic.name</key>
+                    <string>Master Volume</string>
+                    <key>characteristic.type</key>
+                    <string>onkyo.zvl</string>
+                    <key>characteristic.code</key>
+                    <string>ZVL</string>
+                    <key>characteristic.metadata</key>
+                    <dict>
+                        <key>characteristic.metadata.minValue</key>
+                        <integer>0</integer>
+                        <key>characteristic.metadata.maxValue</key>
+                        <integer>100</integer>
+                        <key>characteristic.metadata.units</key>
+                        <integer>1</integer>
+                    </dict>
+                </dict>
+            </array>
+        </dict>
+    </array>
+</plist>

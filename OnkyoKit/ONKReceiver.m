@@ -45,9 +45,12 @@
 - (void)_registerServices
 {
     // load service definitions from property list
-    NSBundle *bundle = [NSBundle bundleWithIdentifier:@"com.jeffhutchison.OnkyoKit"];
+    NSURL *resourceURL = [[NSBundle bundleForClass:[self class]] URLForResource:@"OnkyoKit" withExtension:@"bundle"];
+    NSLog(@"CLASS BUNDLE: %@\nRESOURCE URL: %@", [NSBundle bundleForClass:[self class]], resourceURL);
+    NSBundle *bundle = [NSBundle bundleWithURL:resourceURL];
     NSURL *url = [bundle URLForResource:@"TX-NR616" withExtension:@"plist"];
     NSArray *serviceDefinitions = [NSArray arrayWithContentsOfURL:url];
+    NSAssert(serviceDefinitions, @"Service definition plist should have loaded.");
     NSMutableArray *tempServices = [NSMutableArray array];
     for (NSDictionary *serviceDict in serviceDefinitions) {
         [tempServices addObject:[[ONKService alloc] initWithReceiver:self serviceDictionary:serviceDict]];

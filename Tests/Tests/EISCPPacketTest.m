@@ -7,6 +7,8 @@
 //
 
 @import XCTest;
+#import "ISCPMessage.h"
+#import "EISCPPacket.h"
 
 @interface EISCPPacketTest : XCTestCase
 

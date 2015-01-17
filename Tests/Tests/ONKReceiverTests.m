@@ -29,6 +29,9 @@
     [super setUp];
     NSString *name = @"Test Receiver A", *uniqueID = @"hVaUtiBeQHh2w", *addr = @"127.0.0.1";
     self.receiver = [[ONKReceiver alloc] initWithModel:name uniqueIdentifier:uniqueID address:addr port:60128];
+    XCTAssertNotNil(self.receiver);
+    XCTAssertNotNil(self.receiver.services);
+    XCTAssertTrue(self.receiver.services.count > 0);
     self.service = self.receiver.services[0];
 }
 
