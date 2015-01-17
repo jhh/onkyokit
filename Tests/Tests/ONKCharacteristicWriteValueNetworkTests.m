@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import <XCTest/XCTest.h>
+#import "OnkyoKit.h"
 #import "ONKReceiver_Private.h"
 
 

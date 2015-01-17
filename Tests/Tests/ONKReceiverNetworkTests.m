@@ -8,6 +8,7 @@
 
 @import XCTest;
 #import "ONKReceiver_Private.h"
+#import "OnkyoKit.h"
 #import "ONKCharacteristic_Private.h"
 
 @interface ONKReceiverNetworkTests : XCTestCase <ONKReceiverDelegate>

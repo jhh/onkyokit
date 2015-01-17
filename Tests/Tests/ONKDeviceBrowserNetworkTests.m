@@ -7,6 +7,7 @@
 //
 
 @import XCTest;
+#import "OnkyoKit.h"
 
 @interface ONKDeviceBrowserNetworkTests : XCTestCase <ONKReceiverBrowserDelegate>
 

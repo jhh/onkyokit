@@ -21,3 +21,9 @@ target :osx do
   link_with 'OS X Tests'
   import_pods
 end
+
+target :network do
+  platform :osx, '10.9'
+  link_with 'OS X Network Tests'
+  import_pods
+end
