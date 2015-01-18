@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <Group
+      location = "container:OnkyoKit"
+      name = "OnkyoKit">
+      <FileRef
+         location = "group:OnkyoKit.h">
+      </FileRef>
+      <Group
+         location = "container:"
+         name = "Characteristic">
+         <FileRef
+            location = "group:OnkyoKit/ONKCharacteristic_Private.h">
+         </FileRef>
+         <FileRef
+            location = "group:OnkyoKit/ONKCharacteristic.h">
+         </FileRef>
+         <FileRef
+            location = "group:OnkyoKit/ONKCharacteristic.m">
+         </FileRef>
+         <FileRef
+            location = "group:OnkyoKit/ONKCharacteristicMetadata_Private.h">
+         </FileRef>
+         <FileRef
+            location = "group:OnkyoKit/ONKCharacteristicMetadata.h">
+         </FileRef>
+         <FileRef
+            location = "group:OnkyoKit/ONKCharacteristicMetadata.m">
+         </FileRef>
+      </Group>
+      <Group
+         location = "container:"
+         name = "Service">
+         <FileRef
+            location = "group:OnkyoKit/ONKService_Private.h">
+         </FileRef>
+         <FileRef
+            location = "group:OnkyoKit/ONKService.h">
+         </FileRef>
+         <FileRef
+            location = "group:OnkyoKit/ONKService.m">
+         </FileRef>
+      </Group>
+      <Group
+         location = "container:"
+         name = "Receiver">
+         <FileRef
+            location = "group:OnkyoKit/ONKReceiver_Private.h">
+         </FileRef>
+         <FileRef
+            location = "group:OnkyoKit/ONKReceiver.h">
+         </FileRef>
+         <FileRef
+            location = "group:OnkyoKit/ONKReceiver.m">
+         </FileRef>
+         <FileRef
+            location = "group:OnkyoKit/ONKReceiverBrowser.h">
+         </FileRef>
+         <FileRef
+            location = "group:OnkyoKit/ONKReceiverBrowser.m">
+         </FileRef>
+         <FileRef
+            location = "group:OnkyoKit/ONKReceiverSession.h">
+         </FileRef>
+         <FileRef
+            location = "group:OnkyoKit/ONKReceiverSession.m">
+         </FileRef>
+      </Group>
+      <Group
+         location = "container:"
+         name = "Protocol">
+         <FileRef
+            location = "group:OnkyoKit/EISCPPacket.h">
+         </FileRef>
+         <FileRef
+            location = "group:OnkyoKit/EISCPPacket.m">
+         </FileRef>
+         <FileRef
+            location = "group:OnkyoKit/ISCPMessage.h">
+         </FileRef>
+         <FileRef
+            location = "group:OnkyoKit/ISCPMessage.m">
+         </FileRef>
+      </Group>
+      <Group
+         location = "container:"
+         name = "Supporting Files">
+         <Group
+            location = "group:OnkyoKit/Assets"
+            name = "Assets">
+            <FileRef
+               location = "group:TX-NR616.plist">
+            </FileRef>
+         </Group>
+      </Group>
+   </Group>
+   <FileRef
+      location = "group:Tests/OnkyoKit Tests.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Tests/Pods/Pods.xcodeproj">
+   </FileRef>
+</Workspace>
