@@ -46,6 +46,7 @@
     [self waitForExpectationsWithTimeout:1 handler:nil];
     XCTAssertNotNil(self.characteristic);
     XCTAssertEqualObjects(self.characteristic, c);
+    XCTAssertNotNil(c.value);
 }
 
 // ONKReceiverDelegate
