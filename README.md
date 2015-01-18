@@ -1,4 +1,5 @@
 # OnkyoKit
+[![Build Status](https://travis-ci.org/jhh/onkyokit.svg?branch=master)](https://travis-ci.org/jhh/onkyokit)
 
 OnkyoKit is a Cocoa (and eventually Cocoa Touch) framework to control Onkyo
 receivers using the eISCP network protocol. See the [Example](Example/) directory
