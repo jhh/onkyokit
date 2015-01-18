@@ -70,6 +70,24 @@
     expect(c.boolValue).to.equal(NO);
 }
 
+- (void)testIntegerValue
+{
+    ONKCharacteristic *c = [self masterVolumeCharacteristic];
+    [c handleMessage:[self iscpMessage:@"MVL30"]];
+    expect(c.integerValue).to.equal(48);
+    [c handleMessage:[self iscpMessage:@"MVL00"]];
+    expect(c.integerValue).to.equal(0);
+}
+
+- (void)testIntegerValueBooleanCoercion
+{
+    ONKCharacteristic *c = [self muteCharacteristic];
+    [c handleMessage:[self iscpMessage:@"AMT00"]];
+    expect(c.integerValue).to.equal(0);
+    [c handleMessage:[self iscpMessage:@"AMT01"]];
+    expect(c.integerValue).to.equal(1);
+}
+
 - (ONKCharacteristic *)muteCharacteristic
 {
     NSDictionary *charDict = @{

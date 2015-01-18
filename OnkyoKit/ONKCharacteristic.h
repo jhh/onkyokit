@@ -81,6 +81,15 @@ extern NSString * const ONKCharacteristicTypeMasterVolume;
 @property(readonly, nonatomic) BOOL boolValue;
 
 /**
+ * @brief The current NSInteger value of the characteristic. (read-only)
+ *
+ * @details
+ * This is the last value the system saw for the characteristic converted to NSInteger.
+ * Returns 0 if not ONKCharacteristicUnitNumeric.
+ */
+@property(readonly, nonatomic) NSInteger integerValue;
+
+/**
  * @brief Modifies the value of the characteristic.
  *
  * @param value The value to be written.

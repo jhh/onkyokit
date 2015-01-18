@@ -65,6 +65,18 @@ NSString * const ONKCharacteristicDefinitionMetadata = @"characteristic.metadata
     }
 }
 
+- (NSInteger)integerValue
+{
+    switch (self.metadata.units) {
+        case ONKCharacteristicUnitBoolean:
+        case ONKCharacteristicUnitNumeric:
+            return [(NSNumber*)self.value integerValue];
+
+        default:
+            return 0;
+    }
+}
+
 - (void)handleMessage:(ISCPMessage *)message
 {
     NSLog(@"%s code: %@; handling message: %@", __PRETTY_FUNCTION__, self.code, message);
