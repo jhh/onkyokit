@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Jeff Hutchison. All rights reserved.
 //
 
-#import <OnkyoKit/OnkyoKit.h>
+#import "OnkyoKit.h"
 
 extern NSString * const ONKCharacteristicDefinitionName;
 extern NSString * const ONKCharacteristicDefinitionType;
