@@ -1,0 +1,363 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1F2513421A6BED85003427A6 /* OnkyoKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1F2513401A6BED85003427A6 /* OnkyoKit.bundle */; };
+		1F2B6D891A6B4ACE005E2466 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2B6D881A6B4ACE005E2466 /* AppDelegate.m */; };
+		1F2B6D8B1A6B4ACE005E2466 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2B6D8A1A6B4ACE005E2466 /* main.m */; };
+		1F2B6D8D1A6B4ACE005E2466 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F2B6D8C1A6B4ACE005E2466 /* Images.xcassets */; };
+		1F2B6D901A6B4ACE005E2466 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F2B6D8E1A6B4ACE005E2466 /* MainMenu.xib */; };
+		1F2B6DBB1A6B4BAA005E2466 /* EISCPPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2B6DA71A6B4BAA005E2466 /* EISCPPacket.m */; };
+		1F2B6DBC1A6B4BAA005E2466 /* ISCPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2B6DA91A6B4BAA005E2466 /* ISCPMessage.m */; };
+		1F2B6DBD1A6B4BAA005E2466 /* ONKCharacteristic.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2B6DAC1A6B4BAA005E2466 /* ONKCharacteristic.m */; };
+		1F2B6DBE1A6B4BAA005E2466 /* ONKCharacteristicMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2B6DAF1A6B4BAA005E2466 /* ONKCharacteristicMetadata.m */; };
+		1F2B6DBF1A6B4BAA005E2466 /* ONKReceiver.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2B6DB21A6B4BAA005E2466 /* ONKReceiver.m */; };
+		1F2B6DC01A6B4BAA005E2466 /* ONKReceiverBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2B6DB41A6B4BAA005E2466 /* ONKReceiverBrowser.m */; };
+		1F2B6DC11A6B4BAA005E2466 /* ONKReceiverSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2B6DB61A6B4BAA005E2466 /* ONKReceiverSession.m */; };
+		1F2B6DC21A6B4BAA005E2466 /* ONKService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2B6DB91A6B4BAA005E2466 /* ONKService.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1F2513411A6BED85003427A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Base; path = Base.lproj/OnkyoKit.bundle; sourceTree = "<group>"; };
+		1F2B6D821A6B4ACE005E2466 /* OnkyoKit OS X Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OnkyoKit OS X Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F2B6D861A6B4ACE005E2466 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F2B6D871A6B4ACE005E2466 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		1F2B6D881A6B4ACE005E2466 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		1F2B6D8A1A6B4ACE005E2466 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1F2B6D8C1A6B4ACE005E2466 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		1F2B6D8F1A6B4ACE005E2466 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		1F2B6DA61A6B4BAA005E2466 /* EISCPPacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EISCPPacket.h; sourceTree = "<group>"; };
+		1F2B6DA71A6B4BAA005E2466 /* EISCPPacket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EISCPPacket.m; sourceTree = "<group>"; };
+		1F2B6DA81A6B4BAA005E2466 /* ISCPMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISCPMessage.h; sourceTree = "<group>"; };
+		1F2B6DA91A6B4BAA005E2466 /* ISCPMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISCPMessage.m; sourceTree = "<group>"; };
+		1F2B6DAA1A6B4BAA005E2466 /* ONKCharacteristic_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONKCharacteristic_Private.h; sourceTree = "<group>"; };
+		1F2B6DAB1A6B4BAA005E2466 /* ONKCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONKCharacteristic.h; sourceTree = "<group>"; };
+		1F2B6DAC1A6B4BAA005E2466 /* ONKCharacteristic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKCharacteristic.m; sourceTree = "<group>"; };
+		1F2B6DAD1A6B4BAA005E2466 /* ONKCharacteristicMetadata_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONKCharacteristicMetadata_Private.h; sourceTree = "<group>"; };
+		1F2B6DAE1A6B4BAA005E2466 /* ONKCharacteristicMetadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONKCharacteristicMetadata.h; sourceTree = "<group>"; };
+		1F2B6DAF1A6B4BAA005E2466 /* ONKCharacteristicMetadata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKCharacteristicMetadata.m; sourceTree = "<group>"; };
+		1F2B6DB01A6B4BAA005E2466 /* ONKReceiver_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONKReceiver_Private.h; sourceTree = "<group>"; };
+		1F2B6DB11A6B4BAA005E2466 /* ONKReceiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONKReceiver.h; sourceTree = "<group>"; };
+		1F2B6DB21A6B4BAA005E2466 /* ONKReceiver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKReceiver.m; sourceTree = "<group>"; };
+		1F2B6DB31A6B4BAA005E2466 /* ONKReceiverBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONKReceiverBrowser.h; sourceTree = "<group>"; };
+		1F2B6DB41A6B4BAA005E2466 /* ONKReceiverBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKReceiverBrowser.m; sourceTree = "<group>"; };
+		1F2B6DB51A6B4BAA005E2466 /* ONKReceiverSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONKReceiverSession.h; sourceTree = "<group>"; };
+		1F2B6DB61A6B4BAA005E2466 /* ONKReceiverSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKReceiverSession.m; sourceTree = "<group>"; };
+		1F2B6DB71A6B4BAA005E2466 /* ONKService_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONKService_Private.h; sourceTree = "<group>"; };
+		1F2B6DB81A6B4BAA005E2466 /* ONKService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONKService.h; sourceTree = "<group>"; };
+		1F2B6DB91A6B4BAA005E2466 /* ONKService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKService.m; sourceTree = "<group>"; };
+		1F2B6DBA1A6B4BAA005E2466 /* OnkyoKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnkyoKit.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1F2B6D7F1A6B4ACE005E2466 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1F2B6D791A6B4ACE005E2466 = {
+			isa = PBXGroup;
+			children = (
+				1F2B6D841A6B4ACE005E2466 /* OnkyoKit OS X Example */,
+				1F2B6D831A6B4ACE005E2466 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1F2B6D831A6B4ACE005E2466 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1F2B6D821A6B4ACE005E2466 /* OnkyoKit OS X Example.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1F2B6D841A6B4ACE005E2466 /* OnkyoKit OS X Example */ = {
+			isa = PBXGroup;
+			children = (
+				1F2B6D871A6B4ACE005E2466 /* AppDelegate.h */,
+				1F2B6D881A6B4ACE005E2466 /* AppDelegate.m */,
+				1F2B6D8E1A6B4ACE005E2466 /* MainMenu.xib */,
+				1F2B6DA51A6B4B74005E2466 /* Vendor */,
+				1F2B6D851A6B4ACE005E2466 /* Supporting Files */,
+			);
+			path = "OnkyoKit OS X Example";
+			sourceTree = "<group>";
+		};
+		1F2B6D851A6B4ACE005E2466 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1F2513401A6BED85003427A6 /* OnkyoKit.bundle */,
+				1F2B6D8C1A6B4ACE005E2466 /* Images.xcassets */,
+				1F2B6D861A6B4ACE005E2466 /* Info.plist */,
+				1F2B6D8A1A6B4ACE005E2466 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1F2B6DA51A6B4B74005E2466 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				1F2B6DA61A6B4BAA005E2466 /* EISCPPacket.h */,
+				1F2B6DA71A6B4BAA005E2466 /* EISCPPacket.m */,
+				1F2B6DA81A6B4BAA005E2466 /* ISCPMessage.h */,
+				1F2B6DA91A6B4BAA005E2466 /* ISCPMessage.m */,
+				1F2B6DAA1A6B4BAA005E2466 /* ONKCharacteristic_Private.h */,
+				1F2B6DAB1A6B4BAA005E2466 /* ONKCharacteristic.h */,
+				1F2B6DAC1A6B4BAA005E2466 /* ONKCharacteristic.m */,
+				1F2B6DAD1A6B4BAA005E2466 /* ONKCharacteristicMetadata_Private.h */,
+				1F2B6DAE1A6B4BAA005E2466 /* ONKCharacteristicMetadata.h */,
+				1F2B6DAF1A6B4BAA005E2466 /* ONKCharacteristicMetadata.m */,
+				1F2B6DB01A6B4BAA005E2466 /* ONKReceiver_Private.h */,
+				1F2B6DB11A6B4BAA005E2466 /* ONKReceiver.h */,
+				1F2B6DB21A6B4BAA005E2466 /* ONKReceiver.m */,
+				1F2B6DB31A6B4BAA005E2466 /* ONKReceiverBrowser.h */,
+				1F2B6DB41A6B4BAA005E2466 /* ONKReceiverBrowser.m */,
+				1F2B6DB51A6B4BAA005E2466 /* ONKReceiverSession.h */,
+				1F2B6DB61A6B4BAA005E2466 /* ONKReceiverSession.m */,
+				1F2B6DB71A6B4BAA005E2466 /* ONKService_Private.h */,
+				1F2B6DB81A6B4BAA005E2466 /* ONKService.h */,
+				1F2B6DB91A6B4BAA005E2466 /* ONKService.m */,
+				1F2B6DBA1A6B4BAA005E2466 /* OnkyoKit.h */,
+			);
+			name = Vendor;
+			path = ../../../OnkyoKit;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1F2B6D811A6B4ACE005E2466 /* OnkyoKit OS X Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F2B6D9F1A6B4ACE005E2466 /* Build configuration list for PBXNativeTarget "OnkyoKit OS X Example" */;
+			buildPhases = (
+				1F2B6D7E1A6B4ACE005E2466 /* Sources */,
+				1F2B6D7F1A6B4ACE005E2466 /* Frameworks */,
+				1F2B6D801A6B4ACE005E2466 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "OnkyoKit OS X Example";
+			productName = "OnkyoKit OS X Example";
+			productReference = 1F2B6D821A6B4ACE005E2466 /* OnkyoKit OS X Example.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1F2B6D7A1A6B4ACE005E2466 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Jeff Hutchison";
+				TargetAttributes = {
+					1F2B6D811A6B4ACE005E2466 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+				};
+			};
+			buildConfigurationList = 1F2B6D7D1A6B4ACE005E2466 /* Build configuration list for PBXProject "OnkyoKit OS X Example" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1F2B6D791A6B4ACE005E2466;
+			productRefGroup = 1F2B6D831A6B4ACE005E2466 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1F2B6D811A6B4ACE005E2466 /* OnkyoKit OS X Example */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1F2B6D801A6B4ACE005E2466 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F2B6D8D1A6B4ACE005E2466 /* Images.xcassets in Resources */,
+				1F2513421A6BED85003427A6 /* OnkyoKit.bundle in Resources */,
+				1F2B6D901A6B4ACE005E2466 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1F2B6D7E1A6B4ACE005E2466 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F2B6DC01A6B4BAA005E2466 /* ONKReceiverBrowser.m in Sources */,
+				1F2B6DBF1A6B4BAA005E2466 /* ONKReceiver.m in Sources */,
+				1F2B6DBE1A6B4BAA005E2466 /* ONKCharacteristicMetadata.m in Sources */,
+				1F2B6DBC1A6B4BAA005E2466 /* ISCPMessage.m in Sources */,
+				1F2B6DC11A6B4BAA005E2466 /* ONKReceiverSession.m in Sources */,
+				1F2B6D8B1A6B4ACE005E2466 /* main.m in Sources */,
+				1F2B6DBB1A6B4BAA005E2466 /* EISCPPacket.m in Sources */,
+				1F2B6DBD1A6B4BAA005E2466 /* ONKCharacteristic.m in Sources */,
+				1F2B6DC21A6B4BAA005E2466 /* ONKService.m in Sources */,
+				1F2B6D891A6B4ACE005E2466 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		1F2513401A6BED85003427A6 /* OnkyoKit.bundle */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F2513411A6BED85003427A6 /* Base */,
+			);
+			name = OnkyoKit.bundle;
+			sourceTree = "<group>";
+		};
+		1F2B6D8E1A6B4ACE005E2466 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F2B6D8F1A6B4ACE005E2466 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1F2B6D9D1A6B4ACE005E2466 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		1F2B6D9E1A6B4ACE005E2466 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		1F2B6DA01A6B4ACE005E2466 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "OnkyoKit OS X Example/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		1F2B6DA11A6B4ACE005E2466 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "OnkyoKit OS X Example/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1F2B6D7D1A6B4ACE005E2466 /* Build configuration list for PBXProject "OnkyoKit OS X Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F2B6D9D1A6B4ACE005E2466 /* Debug */,
+				1F2B6D9E1A6B4ACE005E2466 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1F2B6D9F1A6B4ACE005E2466 /* Build configuration list for PBXNativeTarget "OnkyoKit OS X Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F2B6DA01A6B4ACE005E2466 /* Debug */,
+				1F2B6DA11A6B4ACE005E2466 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1F2B6D7A1A6B4ACE005E2466 /* Project object */;
+}

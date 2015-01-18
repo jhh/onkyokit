@@ -99,6 +99,9 @@
       location = "group:Tests/OnkyoKit Tests.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:Example/OnkyoKit OS X Example/OnkyoKit OS X Example.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Tests/Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>
