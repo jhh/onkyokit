@@ -4,9 +4,8 @@ Pod::Spec.new do |s|
   s.license  = 'MIT'
   s.summary  = 'A Onkyo eISCP framework for Objective-C.'
   s.homepage = 'https://github.com/jhh/onkyokit'
-  # s.social_media_url = 'https://twitter.com/AFNetworking'
   s.authors  = { 'Jeff Hutchison' => 'jeff@jeffhutchison.com' }
-  s.source   = { :git => 'https://github.com/jhh/onkyokit.git', :tag => "0.5.0", :submodules => true }
+  s.source   = { :git => 'https://github.com/jhh/onkyokit.git', :tag => "0.5.0" }
   s.requires_arc = true
 
   s.ios.deployment_target = '6.0'
