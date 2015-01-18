@@ -1,14 +1,14 @@
 Pod::Spec.new do |s|
   s.name     = 'OnkyoKit'
-  s.version  = '0.5.0'
+  s.version  = '0.5.1'
   s.license  = 'MIT'
   s.summary  = 'A Onkyo eISCP framework for Objective-C.'
   s.homepage = 'https://github.com/jhh/onkyokit'
   s.authors  = { 'Jeff Hutchison' => 'jeff@jeffhutchison.com' }
-  s.source   = { :git => 'https://github.com/jhh/onkyokit.git', :tag => "0.5.0" }
+  s.source   = { :git => 'https://github.com/jhh/onkyokit.git', :tag => "0.5.1" }
   s.requires_arc = true
 
-  s.ios.deployment_target = '6.0'
+  # s.ios.deployment_target = '6.0'
   s.osx.deployment_target = '10.8'
 
   s.public_header_files = 'OnkyoKit/*.h'
