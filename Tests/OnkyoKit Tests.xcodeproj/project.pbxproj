@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F1405BF1A6C06AC000C627D /* ONKCharacteristicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F1405BE1A6C06AC000C627D /* ONKCharacteristicTests.m */; };
 		1F2B6CFB1A6ACA79005E2466 /* ISCPMessageTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2B6CF41A6ACA79005E2466 /* ISCPMessageTest.m */; };
 		1F2B6D021A6ACBA6005E2466 /* ONKReceiverErrorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2B6CF81A6ACA79005E2466 /* ONKReceiverErrorTest.m */; };
 		1F2B6D031A6ACC75005E2466 /* ONKReceiverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2B6CFA1A6ACA79005E2466 /* ONKReceiverTests.m */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F1405BE1A6C06AC000C627D /* ONKCharacteristicTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKCharacteristicTests.m; sourceTree = "<group>"; };
 		1F2B6CF41A6ACA79005E2466 /* ISCPMessageTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISCPMessageTest.m; sourceTree = "<group>"; };
 		1F2B6CF51A6ACA79005E2466 /* ONKCharacteristicNetworkTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKCharacteristicNetworkTests.m; sourceTree = "<group>"; };
 		1F2B6CF61A6ACA79005E2466 /* ONKCharacteristicWriteValueNetworkTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONKCharacteristicWriteValueNetworkTests.m; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				1F2B6CF91A6ACA79005E2466 /* ONKReceiverNetworkTests.m */,
 				1F2B6CFA1A6ACA79005E2466 /* ONKReceiverTests.m */,
 				1F688CF91A6ABD2F0006F665 /* EISCPPacketTest.m */,
+				1F1405BE1A6C06AC000C627D /* ONKCharacteristicTests.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 			files = (
 				1F2B6D021A6ACBA6005E2466 /* ONKReceiverErrorTest.m in Sources */,
 				1F2B6D031A6ACC75005E2466 /* ONKReceiverTests.m in Sources */,
+				1F1405BF1A6C06AC000C627D /* ONKCharacteristicTests.m in Sources */,
 				1F2B6CFB1A6ACA79005E2466 /* ISCPMessageTest.m in Sources */,
 				1F688CFA1A6ABD2F0006F665 /* EISCPPacketTest.m in Sources */,
 			);

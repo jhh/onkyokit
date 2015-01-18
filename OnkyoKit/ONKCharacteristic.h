@@ -71,6 +71,16 @@ extern NSString * const ONKCharacteristicTypeMasterVolume;
 @property(readonly, copy, nonatomic) id value;
 
 /**
+ * @brief The current boolean value of the characteristic. (read-only)
+ *
+ * @details
+ * This is the last value the system saw for the characteristic coerced to BOOL.
+ * Returns NO if value is not of type ONKCharacteristicUnitBoolean or
+ * ONKCharacteristicUnitNumeric.
+ */
+@property(readonly, nonatomic) BOOL boolValue;
+
+/**
  * @brief Modifies the value of the characteristic.
  *
  * @param value The value to be written.
