@@ -40,4 +40,10 @@ typedef NS_ENUM(NSInteger, ONKCharacteristicUnit) {
  */
 @property (readonly, nonatomic) NSDictionary *enumerationLabels;
 
+/*
+ * Suppress warning: Method override for the designated initializer of the
+ * superclass '-init' not found
+ */
+- (instancetype)init NS_UNAVAILABLE;
+
 @end

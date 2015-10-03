@@ -54,4 +54,10 @@ Initialize with a ISCP message.
 */
 - (instancetype) initWithMessage:(ISCPMessage *)message NS_DESIGNATED_INITIALIZER;
 
+/*
+ * Suppress warning: Method override for the designated initializer of the
+ * superclass '-init' not found
+ */
+- (instancetype)init NS_UNAVAILABLE;
+
 @end

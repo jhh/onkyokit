@@ -55,4 +55,10 @@
  */
 - (instancetype) initWithMessage:(NSString *)message;
 
+/*
+ * Suppress warning: Method override for the designated initializer of the
+ * superclass '-init' not found
+ */
+- (instancetype)init NS_UNAVAILABLE;
+
 @end

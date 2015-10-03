@@ -110,5 +110,10 @@ extern NSString * const ONKCharacteristicTypeMasterVolume;
  */
 - (void)readValueWithCompletionHandler:(void (^)(NSError *error))completion;
 
+/*
+ * Suppress warning: Method override for the designated initializer of the
+ * superclass '-init' not found
+ */
+- (instancetype)init NS_UNAVAILABLE;
 
 @end

@@ -43,6 +43,13 @@
  * @todo This will be moved to another class.
 */
 - (void)sendCommand:(NSString *)command withCompletionHandler:(void (^)(NSError *error))completion;
+
+/*
+ * Suppress warning: Method override for the designated initializer of the
+ * superclass '-init' not found
+ */
+- (instancetype)init NS_UNAVAILABLE;
+
 @end
 
 /**
@@ -67,7 +74,6 @@
 - (void)receiver:(ONKReceiver *)receiver
          service:(ONKService *)service
 didUpdateValueForCharacteristic:(ONKCharacteristic *)characteristic;
-
 
 @end
 
