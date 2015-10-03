@@ -48,13 +48,13 @@
 /**
  * @brief Delegate that receives updates on the discovered receivers.
  */
-@property (readonly, weak, nonatomic) id<ONKReceiverBrowserDelegate> delegate;
+@property (weak, nonatomic) id<ONKReceiverBrowserDelegate> delegate;
 
 /**
  * @brief The operation queue that the delegate is called on. Delegate method
  * calls are made on this queue.
  */
-@property (readonly, nonatomic) NSOperationQueue *delegateQueue;
+@property (nonatomic) NSOperationQueue *delegateQueue;
 
 #pragma mark Methods
 /**

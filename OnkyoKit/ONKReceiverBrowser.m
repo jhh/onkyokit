@@ -17,9 +17,6 @@
 
 @interface ONKReceiverBrowser ()
 
-@property (weak, nonatomic) id<ONKReceiverBrowserDelegate> delegate;
-@property (nonatomic) NSOperationQueue *delegateQueue;
-
 @end
 
 // TODO: implement error reporting
